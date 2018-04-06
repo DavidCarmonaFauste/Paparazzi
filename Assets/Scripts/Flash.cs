@@ -41,11 +41,11 @@ public class Flash : MonoBehaviour
                 GameManager.instance.camaras--;
             }
 
-            if (Input.GetKeyUp(KeyCode.Mouse0) || Input.GetKeyUp(KeyCode.Mouse1))
+            if (Input.GetKeyUp(KeyCode.Mouse0) || Input.GetKeyUp(KeyCode.Mouse1) && GameManager.instance.carretes > 0 && GameManager.instance.camaras > 0)
             {
                 Invisible();
-                if (ConoFlash.GetComponent<Foto>().LeVeo() && ConoFlash.GetComponent<Foto>().Frente())
-                    ConoFlash.GetComponent<Foto>().Stunn();
+                if (ConoFlash.GetComponent<Raycast>().LeVeo() && ConoFlash.GetComponent<Raycast>().Frente())
+                    ConoFlash.GetComponent<Raycast>().Stunn();
                     
                 
 

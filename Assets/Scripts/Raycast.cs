@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Foto : MonoBehaviour
+public class Raycast : MonoBehaviour
 {
 
     public bool leVeo = false;
@@ -61,7 +61,6 @@ public class Foto : MonoBehaviour
         {
             dentro = true;
             whoToHit = go;
-           
         }
 
     }
