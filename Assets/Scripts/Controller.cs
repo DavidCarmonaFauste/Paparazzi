@@ -3,6 +3,7 @@
 public class Controller : MonoBehaviour {
 
 	public float moveSpeed = 6;
+    float realSpeed;
 
 	Rigidbody2D rb;
 
@@ -10,6 +11,7 @@ public class Controller : MonoBehaviour {
 	Vector2 velocity;
     
 	void Start () {
+        realSpeed = moveSpeed;
 		rb = GetComponent<Rigidbody2D> ();
     }
 
@@ -35,5 +37,16 @@ public class Controller : MonoBehaviour {
 
         else
             return false;
+    }
+
+    public void Stuned()
+    {
+        moveSpeed = 0;
+        Invoke("NoStunned", 1);
+    }
+
+    void NoStunned()
+    {
+        moveSpeed = realSpeed;
     }
 }

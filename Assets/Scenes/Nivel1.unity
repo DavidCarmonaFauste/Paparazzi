@@ -37743,6 +37743,7 @@ GameObject:
   - component: {fileID: 2018558938}
   - component: {fileID: 2018558939}
   - component: {fileID: 2018558943}
+  - component: {fileID: 2018558944}
   m_Layer: 10
   m_Name: Guardia
   m_TagString: Guardia
@@ -37869,6 +37870,17 @@ MonoBehaviour:
   - {fileID: 1298240419}
   - {fileID: 1079827396}
   speed: 4
+--- !u!114 &2018558944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2018558937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c95e675f2a9e3468813b9e04611497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2043497363
 GameObject:
   m_ObjectHideFlags: 0

@@ -45,9 +45,16 @@ public class Patrol : MonoBehaviour {
         speed = 0;
         Invoke("NoStunned", 2);
     }
-    public void NoStunned()
+    void NoStunned()
     {
         speed = realSpeed;
     }
+
+    public void Spray()
+    {
+        speed = 0;
+        Invoke("NoStunned", 0.5f);
+    }
+
 
 }

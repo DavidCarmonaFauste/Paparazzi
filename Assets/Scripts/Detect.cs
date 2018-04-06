@@ -63,4 +63,8 @@ public class Detect : MonoBehaviour {
     {
         return leVeo;
     }
+    public bool Dentro()
+    {
+        return dentro;
+    }
 }
