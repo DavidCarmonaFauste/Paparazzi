@@ -3,9 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Boton : MonoBehaviour {
-
+    //sonido
+    AudioSource fuenteAudio;
     public GameObject camara;
     bool dentro, activado;
+
+    private void Start()
+    {
+        //sonido
+        fuenteAudio = GetComponent<AudioSource>();
+    }
 
     private void Update()
     {
@@ -13,11 +20,15 @@ public class Boton : MonoBehaviour {
         {
             DesactivaBoton();
             activado = true;
+            //sonido
+            fuenteAudio.Play();
         }
         else if (dentro && GameObject.FindWithTag("Player").GetComponent<Controller>().CompruebaE() && activado)
         {
             ActivaBoton();
             activado = false;
+            //sonido
+            fuenteAudio.Play();
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
