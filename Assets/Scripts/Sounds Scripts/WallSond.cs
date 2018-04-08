@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Loot : MonoBehaviour
-{
+public class WallSond : MonoBehaviour {
+
+    static AudioSource fuenteAudio;
+
+    void Start () {
+        fuenteAudio = GetComponent<AudioSource>();
+    }
+
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Player"))
         {
-            PlayLoot.PlaySound();
-            GameManager.instance.loot++;
-            Destroy(this.gameObject);
+            fuenteAudio.Play();
         }
     }
 }
