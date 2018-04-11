@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour {
         {
 			instance = this;
 			DontDestroyOnLoad(this.gameObject);
-		}
+        }
 		else Destroy(this.gameObject);
 	}
 
@@ -116,30 +116,65 @@ public class GameManager : MonoBehaviour {
 		return username;
 	}
 
-	public void GuardaUsuario (string username, bool Nivel1S, bool Nivel2S, bool Nivel3S, int Puntuacion, string ultimonivel)
+	public void GuardaUsuario (string username, bool Nivel1S, bool Nivel2S, bool Nivel3S, int MPuntuacion1, int MPuntuacion2, int MPuntuacion3, string ultimonivel)
 	{
         StreamWriter archivo;
         archivo = new StreamWriter(username);
 
-
-
         archivo.WriteLine("Usuario " + username);
         archivo.WriteLine("Nivel1 " + Nivel1S);
-        archivo.WriteLine("MejorPuntos Nivel1 " + Puntuacion);
+        archivo.WriteLine("MejorPuntos Nivel1 " + MPuntuacion1);
         archivo.WriteLine("Nivel2 " + Nivel2S);
-        archivo.WriteLine("MejorPuntos Nivel2 " + Puntuacion);
+        archivo.WriteLine("MejorPuntos Nivel2 " + MPuntuacion2);
         archivo.WriteLine("Nivel3 " + Nivel3S);
-        archivo.WriteLine("MejorPuntos Nivel3 " + Puntuacion);
+        archivo.WriteLine("MejorPuntos Nivel3 " + MPuntuacion3);
     }
 
-	public void CargaUsuario (string nombrearchivo)
+	public void CargaUsuario (string nombrearchivo, out string username, out bool Nivel1S, out bool Nivel2S, out bool Nivel3S, out int MP1, out int MP2, out int MP3)
 	{
-		
+        StreamReader archivo;
+        archivo = new StreamReader(nombrearchivo);
+
+        string dato;
+        string[] datoS;
+
+        Nivel1S = false; Nivel2S = false; Nivel3S = false; MP1 = 0; MP2 = 0; MP3 = 0; username = null;
+
+        while (!archivo.EndOfStream)
+        {
+            dato = archivo.ReadLine();
+            datoS = dato.Split(' ');
+
+            if (datoS[0] == "Usuario")
+                username = datoS[1];
+            else if (datoS[0] == "Nivel1")
+                Nivel1S = bool.Parse(datoS[1]);
+            else if (datoS[0] == "MejorPuntos" && datoS[1] == "Nivel1")
+                MP1 = int.Parse(datoS[2]);
+            else if (datoS[0] == "Nivel2")
+                Nivel2S = bool.Parse(datoS[1]);
+            else if (datoS[0] == "MejorPuntos" && datoS[1] == "Nivel2")
+                MP2 = int.Parse(datoS[2]);
+            else if (datoS[0] == "Nivel3")
+                Nivel3S = bool.Parse(datoS[1]);
+            else if (datoS[0] == "MejorPuntos" && datoS[1] == "Nivel3")
+                MP3 = int.Parse(datoS[2]);
+        }
 	}
 
-    public int Puntuacion ()
+    public float Puntuacion ()
     {
-        int puntos;
+        float puntos = 0;
+
+        GameObject Crono;
+
+        Crono = GameObject.FindGameObjectWithTag("Cronometro");
+        float loot; float fMini; float fOp; float Tiempo;
+
+        loot = Loot();
+        Tiempo = GameObject.FindWithTag("Cronometro").GetComponent<Cronometro>().FinPartida();
+
+        //puntos = fMini * 0.55f + fOp * 0.25f + loot * 0.1f + Tiempo * 0.1f;
 
         return puntos;
     }
