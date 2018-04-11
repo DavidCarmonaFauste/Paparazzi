@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour {
 
     public int camaras, carretes, loot;
 
-	private bool Nivel1S, Nivel2S, Nivel3S;
+	private bool Nivel1S = false, Nivel2S = false, Nivel3S = false;
 
 	public static GameManager instance = null;
 
@@ -23,20 +23,20 @@ public class GameManager : MonoBehaviour {
 		else Destroy(this.gameObject);
 	}
 
-	public Scene SiguienteEscena()
+	public string SiguienteEscena()
 	{
 		string actual;
-		Scene siguiente = SceneManager.GetActiveScene(); //Lo pongo como la actual porque hay que poner esto, o un caso default
+		string siguiente = SceneManager.GetActiveScene().name; //Lo pongo como la actual porque hay que poner esto, o un caso default
 
 		actual = SceneManager.GetActiveScene ().name;
 
 		switch (actual) 
 		{
 		case ("Nivel1"):
-			siguiente = SceneManager.GetSceneByName ("Minijuego");
+			siguiente = ("Minijuego");
 			break;
 		case ("Minijuego"):
-			siguiente = SceneManager.GetSceneByName ("Nivel1"); //Está puesto nivel 1, hay que hacer otra escena con botones y tal a modo de transición, con la de puntuaciones y tal
+			siguiente = ("Nivel1"); //Está puesto nivel 1, hay que hacer otra escena con botones y tal a modo de transición, con la de puntuaciones y tal
 			break;
 		}
 
@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour {
         return loot;
     }
 
-	public void GuardaUsuarios (string username)
+	public void GuardaListaUsuarios (string username)
 	{
 		StreamReader entrada;
 		StreamWriter salida;
@@ -96,7 +96,7 @@ public class GameManager : MonoBehaviour {
 
 	}
 
-	public string CargaUsuarios(string username)
+	public string CargaListaUsuarios(string username)
 	{
 		StreamReader entrada;
 		entrada = new StreamReader ("users");
@@ -116,13 +116,31 @@ public class GameManager : MonoBehaviour {
 		return username;
 	}
 
-	public void GuardaArchivo ()
+	public void GuardaUsuario (string username, bool Nivel1S, bool Nivel2S, bool Nivel3S, int Puntuacion, string ultimonivel)
+	{
+        StreamWriter archivo;
+        archivo = new StreamWriter(username);
+
+
+
+        archivo.WriteLine("Usuario " + username);
+        archivo.WriteLine("Nivel1 " + Nivel1S);
+        archivo.WriteLine("MejorPuntos Nivel1 " + Puntuacion);
+        archivo.WriteLine("Nivel2 " + Nivel2S);
+        archivo.WriteLine("MejorPuntos Nivel2 " + Puntuacion);
+        archivo.WriteLine("Nivel3 " + Nivel3S);
+        archivo.WriteLine("MejorPuntos Nivel3 " + Puntuacion);
+    }
+
+	public void CargaUsuario (string nombrearchivo)
 	{
 		
 	}
 
-	public void CargaArchivo (string nombrearchivo)
-	{
-		
-	}
+    public int Puntuacion ()
+    {
+        int puntos;
+
+        return puntos;
+    }
 }
