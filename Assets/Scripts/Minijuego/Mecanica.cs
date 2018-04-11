@@ -6,7 +6,17 @@ public class Mecanica : MonoBehaviour {
     int colisiones = 0;
     bool dentro;
     public int fotos = 0;
-	void OnTriggerEnter2D (Collider2D other)
+    //sonido
+    AudioSource fuenteAudio;
+
+
+    private void Start()
+    {
+        //sonido
+        fuenteAudio = GetComponent<AudioSource>();
+    }
+
+    void OnTriggerEnter2D (Collider2D other)
 	{
         if (other.tag != "topeH" && other.tag != "topeV")
         {
@@ -32,8 +42,15 @@ public class Mecanica : MonoBehaviour {
     }
     void Update()
     {
-        if (dentro && Input.GetMouseButtonDown(0))
-            fotos = fotos + colisiones;
+        
+        if (Input.GetMouseButtonDown(0))
+        {
+            //sonido
+            fuenteAudio.Play();
+
+            if (dentro)
+                fotos = fotos + colisiones;
+        }
     }
 
 }

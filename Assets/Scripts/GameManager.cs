@@ -137,10 +137,10 @@ public class GameManager : MonoBehaviour {
 		
 	}
 
-    public int Puntuacion ()
+   /* public int Puntuacion ()
     {
         int puntos;
 
         return puntos;
-    }
+    }*/
 }
