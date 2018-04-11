@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class Cronómetro : MonoBehaviour {
+public class Cronometro : MonoBehaviour {
 
     public Text crono;
     private float starTime;

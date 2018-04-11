@@ -5,13 +5,14 @@ using UnityEngine;
 public class Raycast : MonoBehaviour
 {
 
-    public bool leVeo = false;
-    public bool dentro = false;
-    public bool frentebol = false;
+    public bool leVeo = false;//Le ves
+    public bool dentro = false;//Esta dentro del collider
+    public bool frentebol = false;//Esta de fernte
+	public bool noHayOtroGuardia = false;//Para saber a que guardia disparar
 
     public LayerMask whatToHit;
 
-    GameObject whoToHit;
+	GameObject whoToHit;//Con que colisiona el raycast(Obstaculos, frente y espalda)
 
 
     private void FixedUpdate()
@@ -57,8 +58,9 @@ public class Raycast : MonoBehaviour
     {
         GameObject go = col.gameObject;
 
-        if (go.CompareTag("Guardia"))
+		if (go.CompareTag("Guardia") && !noHayOtroGuardia)
         {
+			noHayOtroGuardia = true;
             dentro = true;
             whoToHit = go;
         }
@@ -69,8 +71,11 @@ public class Raycast : MonoBehaviour
     {
         GameObject go = col.gameObject;
 
-        if (go.CompareTag("Guardia"))
-            dentro = false;
+		if (go.CompareTag ("Guardia"))
+		{
+			dentro = false;
+			noHayOtroGuardia = false;
+		}
 
         
 

@@ -57,7 +57,7 @@ public class Flash : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.Mouse0) || Input.GetKeyUp(KeyCode.Mouse1) && GameManager.instance.carretes > 0 && GameManager.instance.camaras > 0)
             {
                 Invisible();
-                if (ConoFlash.GetComponent<Raycast>().LeVeo() && ConoFlash.GetComponent<Raycast>().Frente())
+                if (ConoFlash.GetComponent<Raycast>().LeVeo() && ConoFlash.GetComponent<Raycast>().Frente())//Si esta de frente y dentro llama a stunn
                     ConoFlash.GetComponent<Raycast>().Stunn();
                     
                 

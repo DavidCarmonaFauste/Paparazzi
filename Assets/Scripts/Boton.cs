@@ -6,7 +6,8 @@ public class Boton : MonoBehaviour {
     //sonido
     AudioSource fuenteAudio;
     public GameObject camara;
-    bool dentro, activado;
+	bool dentro, activado; //si el jugardor esta cerca del boton(Collider), dentro true
+	//Activado controla si el boton esta activo o no
 
     private void Start()
     {
@@ -16,20 +17,25 @@ public class Boton : MonoBehaviour {
 
     private void Update()
     {
-        if (dentro && GameObject.FindWithTag("Player").GetComponent<Controller>().CompruebaE() && !activado)
-        {
-            DesactivaBoton();
-            activado = true;
-            //sonido
-            fuenteAudio.Play();
-        }
-        else if (dentro && GameObject.FindWithTag("Player").GetComponent<Controller>().CompruebaE() && activado)
-        {
-            ActivaBoton();
-            activado = false;
-            //sonido
-            fuenteAudio.Play();
-        }
+		//Si esta en el boton y se pulsa la E 
+		if (dentro && GameObject.FindWithTag ("Player").GetComponent<Controller> ().CompruebaE ()) 
+		{
+			if (!activado) //si el boton esta activado llama a desactiva
+			{
+				DesactivaBoton();
+				activado = true;
+				//sonido
+				fuenteAudio.Play();
+			}
+			else if (activado) // si el boton esta desactivado llama a activa
+			{
+				ActivaBoton();
+				activado = false;
+				//sonido
+				fuenteAudio.Play();
+			}
+		}
+      
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
