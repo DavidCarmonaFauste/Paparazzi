@@ -48,6 +48,9 @@ TagManager:
   - name: tm_suelo
     uniqueID: 797708361
     locked: 0
+  - name: tm_alfombras
+    uniqueID: 2947240135
+    locked: 0
   - name: rm_paredes
     uniqueID: 2567091503
     locked: 0
@@ -56,9 +59,6 @@ TagManager:
     locked: 0
   - name: tm_obSuperiores
     uniqueID: 4086971737
-    locked: 0
-  - name: tm_alfombras
-    uniqueID: 2947240135
     locked: 0
   - name: Default
     uniqueID: 0
