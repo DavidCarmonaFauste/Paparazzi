@@ -42,8 +42,8 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Suelo
+  - Pared
   m_SortingLayers:
   - name: tm_suelo
     uniqueID: 797708361
