@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Patrol : MonoBehaviour {
 
@@ -9,25 +10,30 @@ public class Patrol : MonoBehaviour {
 	Transform currentPatrol;
 	int currentPatrolIndex;
 	Rigidbody2D rb;
-
+    private NavMeshAgent agent;
     float realSpeed;
 
     void Start ()
 	{
-        realSpeed = speed;
+        realSpeed = speed;//Velocidad real 
 		rb = GetComponent<Rigidbody2D> ();
-		currentPatrolIndex = 0;
+		currentPatrolIndex = 0;//Punto de patrulla
 		currentPatrol = patrolPoints [currentPatrolIndex];
-
-	}
+        agent = gameObject.GetComponent<NavMeshAgent>();
+    }
 	
 
-	void Update () 
-	{
-		Vector2	dir = new Vector2 (currentPatrol.position.x - transform.position.x, currentPatrol.position.y - transform.position.y).normalized;
-		rb.MovePosition (rb.position + dir * Time.fixedDeltaTime * speed);
 
-		if(Vector3.Distance(transform.position,currentPatrol.position)<0.1f)
+
+    void Update()
+    {
+        //Vector direccion hacia donde se debe mover el guardia
+        Vector2 dir = new Vector2(currentPatrol.position.x - transform.position.x, currentPatrol.position.y - transform.position.y);
+
+        agent.updateRotation = false;
+        agent.SetDestination(currentPatrol.position);
+
+        if (Vector3.Distance(transform.position,currentPatrol.position)<0.1f)//Cambia el punto de patrulla actual
 			{
 				if (currentPatrolIndex + 1 < patrolPoints.Length)
 					currentPatrolIndex++;
@@ -37,7 +43,7 @@ public class Patrol : MonoBehaviour {
 				}
 			currentPatrol = patrolPoints [currentPatrolIndex];
 			}
-			rb.MoveRotation(Mathf.LerpAngle(rb.rotation, Vector2.SignedAngle(Vector2.up, dir), 0.1f));
+			rb.MoveRotation(Mathf.LerpAngle(rb.rotation, Vector2.SignedAngle(Vector2.up, dir), 0.1f));//Rotaicion del guardia
 	}
 
     public void Stunned()

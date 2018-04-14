@@ -12,7 +12,7 @@ public class Spray : MonoBehaviour {
         vision = transform.GetChild(0).gameObject;
     }
     void Update() {
-
+		//Si esta dentro de la vision y ha pasado el coldown puede disparar
         if (vision.GetComponent<Detect>().Dentro() && puedoDisparar)
         {
             puedoDisparar = false;
@@ -25,7 +25,7 @@ public class Spray : MonoBehaviour {
     void Dispara()
     {
         gameObject.GetComponent<Patrol>().Spray();
-        Invoke("EfectuaDisparo", 0.5f);
+        Invoke("EfectuaDisparo", 0.5f);//Tiene que tener el mismo tiempo de invocacion que el metedo spray de patrol
     }
 
     void EfectuaDisparo()
@@ -34,7 +34,7 @@ public class Spray : MonoBehaviour {
         {
             GameObject.FindWithTag("Player").GetComponent<Controller>().Stuned();
         }
-        Invoke("PuedesDisparar", 4);
+        Invoke("PuedesDisparar", 4);//4 segundos para que pueda volver a disparar
     }
 
     void PuedesDisparar()

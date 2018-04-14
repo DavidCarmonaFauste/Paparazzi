@@ -11,13 +11,13 @@ public class Controller : MonoBehaviour {
 	Vector2 velocity;
     
 	void Start () {
-        realSpeed = moveSpeed;
+        realSpeed = moveSpeed;//Guarda la velocidad para cuando se stunee
 		rb = GetComponent<Rigidbody2D> ();
     }
 
     void Update () {
 
-		velocity = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * moveSpeed;
+		velocity = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * moveSpeed;//Movimiento
 
 
 
@@ -25,12 +25,12 @@ public class Controller : MonoBehaviour {
 
     void FixedUpdate() {
 		
-		rb.MovePosition (rb.position + velocity * Time.fixedDeltaTime);
+		rb.MovePosition (rb.position + velocity * Time.fixedDeltaTime); //Movimiento
         
 
 	}
 
-    public bool CompruebaE()
+    public bool CompruebaE()//Comprueba si se pulsa la E
     {
         if (Input.inputString == "e")
             return true;
@@ -39,7 +39,7 @@ public class Controller : MonoBehaviour {
             return false;
     }
 
-    public void Stuned()
+    public void Stuned()//Para cuando se stunee al jugador
     {
         moveSpeed = 0;
         Invoke("NoStunned", 1);

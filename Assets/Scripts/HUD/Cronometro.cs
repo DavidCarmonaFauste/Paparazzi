@@ -4,21 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class Cronómetro : MonoBehaviour {
+public class Cronometro : MonoBehaviour {
 
     public Text crono;
     private float starTime;
     private bool fin = false;
+    public float tiempo;
 
-	void Start () {
+
+    void Start () {
         starTime = Time.time;
 	}
 	
 	void Update () {
 
-        if (fin)
-            return;
-        float tiempo = Time.time - starTime;
+        tiempo = Time.time - starTime;
 
         string minutos = ((int)tiempo / 60).ToString();
         string segundos = (tiempo % 60).ToString("0");
@@ -28,9 +28,10 @@ public class Cronómetro : MonoBehaviour {
         crono.text = minutos + ":" + segundos;
 	}
 
-    public void FinPartida()
+    public float FinPartida()
     {
         fin = true;
         crono.color = Color.yellow;
+        return tiempo;
     }
 }
