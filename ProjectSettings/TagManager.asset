@@ -60,6 +60,15 @@ TagManager:
   - name: tm_obSuperiores
     uniqueID: 4086971737
     locked: 0
+  - name: tm_obSuperiores2
+    uniqueID: 3321780601
+    locked: 0
+  - name: Oscuridad
+    uniqueID: 3367261385
+    locked: 0
+  - name: tm_obPasillo
+    uniqueID: 2253734181
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
