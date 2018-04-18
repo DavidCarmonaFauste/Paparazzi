@@ -58,11 +58,11 @@ public class Raycast : MonoBehaviour
     {
         GameObject go = col.gameObject;
 
-		if (go.CompareTag("Guardia") && !noHayOtroGuardia)
+		if (go.CompareTag("Frente") || go.CompareTag("Espalda") && !noHayOtroGuardia)
         {
 			noHayOtroGuardia = true;
             dentro = true;
-            whoToHit = go;
+            whoToHit = go.transform.parent.gameObject;
         }
 
     }
@@ -71,7 +71,7 @@ public class Raycast : MonoBehaviour
     {
         GameObject go = col.gameObject;
 
-		if (go.CompareTag ("Guardia"))
+		if (go.CompareTag("Frente") || go.CompareTag("Espalda"))
 		{
 			dentro = false;
 			noHayOtroGuardia = false;
