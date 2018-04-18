@@ -13,7 +13,7 @@ public class Patrol : MonoBehaviour {
     private NavMeshAgent agent;
     float realSpeed;
 
-	bool patrulla = true;
+    public bool patrulla = true;
 
     void Start ()
 	{
@@ -22,66 +22,69 @@ public class Patrol : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D> ();
 		currentPatrolIndex = 0;//Punto de patrulla
 		currentPatrol = patrolPoints [currentPatrolIndex];
-        
+        agent.updateRotation = false;
     }
-	
-
-
 
     void Update()
     {
-        
-		agent.updateRotation = false;
-		//Vector direccion hacia donde se debe mover el guardia
-		if (patrulla) {
-			Vector2 dir = new Vector2 (currentPatrol.position.x - transform.position.x, currentPatrol.position.y - transform.position.y);
+        if(transform.GetChild(0).GetComponent<Detect>().LeVeo())
+        {
 
-        
-			agent.SetDestination (currentPatrol.position);
+            patrulla = false;
 
-			if (Vector3.Distance (transform.position, currentPatrol.position) < 0.1f) {//Cambia el punto de patrulla actual
-				if (currentPatrolIndex + 1 < patrolPoints.Length)
-					currentPatrolIndex++;
-				else {
-					currentPatrolIndex = 0;
-				}
-				currentPatrol = patrolPoints [currentPatrolIndex];
+            GameObject go = GameObject.FindWithTag("Player");
+            //Vector direccion hacia donde se debe mover el guardia
+            Vector2 dir = new Vector2(go.transform.position.x - transform.position.x, go.transform.position.y - transform.position.y);
+            agent.SetDestination(go.transform.position);
 
-			}
-			rb.MoveRotation(Mathf.LerpAngle(rb.rotation, Vector2.SignedAngle(Vector2.up, dir), 0.1f));//Rotaicion del guardia
-		}
-			
-	}
+            rb.MoveRotation(Mathf.LerpAngle(rb.rotation, Vector2.SignedAngle(Vector2.up, dir), 0.1f));//Rotaicion del guardia
+        }
+        else
+        {
+            if(!patrulla)
+                Invoke("Patrulla", 2);
+            if (patrulla)
+            {
+                //Vector direccion hacia donde se debe mover el guardia
+                Vector2 dir = new Vector2(currentPatrol.position.x - transform.position.x, currentPatrol.position.y - transform.position.y);
+
+
+                agent.SetDestination(currentPatrol.position);
+
+                if (Vector3.Distance(transform.position, currentPatrol.position) < 0.1f)
+                {//Cambia el punto de patrulla actual
+                    if (currentPatrolIndex + 1 < patrolPoints.Length)
+                        currentPatrolIndex++;
+                    else
+                    {
+                        currentPatrolIndex = 0;
+                    }
+                    currentPatrol = patrolPoints[currentPatrolIndex];
+
+                }
+                rb.MoveRotation(Mathf.LerpAngle(rb.rotation, Vector2.SignedAngle(Vector2.up, dir), 0.1f));//Rotaicion del guardia
+            }
+        }
+    }
 
     public void Stunned()
     {
-        speed = 0;
+        agent.speed = 0;
         Invoke("NoStunned", 2);
     }
     void NoStunned()
     {
-        speed = realSpeed;
+        agent.speed = realSpeed;
     }
 
     public void Spray()
     {
-        speed = 0;
+        agent.speed = 0;
         Invoke("NoStunned", 0.5f);
     }
 
-	public void NoPatrulles()
+     void Patrulla()
 	{
-		patrulla = false;
-	}
-
-	public void Patrulla()
-	{
-		Invoke ("Espera", 2);
-	}
-
-	void Espera()
-	{
-		patrulla = true;
-	}
-
+        patrulla = true;
+    }
 }
