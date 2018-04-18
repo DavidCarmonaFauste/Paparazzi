@@ -5,8 +5,8 @@ using UnityEngine;
 public class MovRandom1 : MonoBehaviour {
 
     private Rigidbody2D rb2d;
-    public float MovX;
-    public float MovY;
+    public float MovX; //test
+    public float MovY; //test
     public float V;
 
     void Start() {
@@ -22,12 +22,11 @@ public class MovRandom1 : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D other)
 	{
-		if (other.tag == "TopeH") {
-			MovY = -MovY;
-		} 
-
-		else if (other.tag == "TopeV") {
+		if (other.tag == "TopeV") {
 			MovX = -MovX;
+		} 
+		else if (other.tag == "TopeH") {
+			MovY = -MovY;
 		}
 			
 	}

@@ -11,6 +11,9 @@ TagManager:
   - Foto
   - Espalda
   - Frente
+  - TopeV
+  - TopeH
+  - TopeObjetivo
   layers:
   - Default
   - TransparentFX
