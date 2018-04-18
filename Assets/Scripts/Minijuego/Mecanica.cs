@@ -3,10 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Mecanica : MonoBehaviour {
+    //audio
+    AudioSource fuenteAudio;
+
     int colisiones = 0;
     bool dentro;
     public int fotos = 0;
-	void OnTriggerEnter2D (Collider2D other)
+
+    private void Start()
+    {
+        //sonido
+        fuenteAudio = GetComponent<AudioSource>();
+    }
+    void OnTriggerEnter2D (Collider2D other)
 	{
         if (other.tag != "topeH" && other.tag != "topeV")
         {
@@ -32,8 +41,13 @@ public class Mecanica : MonoBehaviour {
     }
     void Update()
     {
-        if (dentro && Input.GetMouseButtonDown(0))
-            fotos = fotos + colisiones;
+        if (Input.GetMouseButtonDown(0))
+        {
+            //audio
+            fuenteAudio.Play();
+            if (Input.GetMouseButtonDown(0))
+                fotos = fotos + colisiones;
+        }
     }
 
 }
