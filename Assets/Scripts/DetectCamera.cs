@@ -1,25 +1,15 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
-public class Detect : MonoBehaviour {
+public class DetectCamera : MonoBehaviour {
 
 	public bool leVeo = false;//Si el guardia puede ver al jugador
 	public bool dentro = false;//Si el jugador esta dentro del campo de vision(No significa que le vea)
 
 	public LayerMask whatToHit;//Que tiene encuenta el raycast(Paredes y jugador)
 
-	private NavMeshAgent agent;
-
-	Rigidbody2D rb;
-
-	void Start()
-	{
-		agent = gameObject.GetComponentInParent<NavMeshAgent>();
-		rb = GetComponentInParent<Rigidbody2D> ();
-
-	}
 
 	private void FixedUpdate()
 	{
@@ -36,29 +26,18 @@ public class Detect : MonoBehaviour {
 
 			if (hit.collider.CompareTag("Player"))//Si colisiona con el jugador leVeo = true
 			{
-
-
 				leVeo = true;
 				Debug.DrawRay(transform.position, dir, Color.green);
-				agent.SetDestination(go.transform.position);
-				gameObject.GetComponentInParent<Patrol> ().NoPatrulles ();
-
-				Vector2 dirrot = new Vector2 (go.transform.position.x - transform.position.x, go.transform.position.y - transform.position.y);
-				rb.MoveRotation(Mathf.LerpAngle(rb.rotation, Vector2.SignedAngle(Vector2.up, dir), 0.1f));//Rotaicion del guardia
-
-
 				//Sonido
 			}
 			else
 			{
-				gameObject.GetComponentInParent<Patrol> ().Patrulla ();
 				leVeo = false;
 				Debug.DrawRay(transform.position, dir, Color.red);
 			}
 		}
 		else
 		{
-			gameObject.GetComponentInParent<Patrol> ().Patrulla ();
 			leVeo = false;
 			Debug.DrawRay(transform.position, dir, Color.red);
 		}
@@ -91,3 +70,4 @@ public class Detect : MonoBehaviour {
 		return dentro;
 	}
 }
+

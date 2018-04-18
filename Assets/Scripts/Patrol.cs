@@ -13,13 +13,16 @@ public class Patrol : MonoBehaviour {
     private NavMeshAgent agent;
     float realSpeed;
 
+	bool patrulla = true;
+
     void Start ()
 	{
-        realSpeed = speed;//Velocidad real 
+		agent = gameObject.GetComponent<NavMeshAgent>();
+		realSpeed = agent.speed;//Velocidad real 
 		rb = GetComponent<Rigidbody2D> ();
 		currentPatrolIndex = 0;//Punto de patrulla
 		currentPatrol = patrolPoints [currentPatrolIndex];
-        agent = gameObject.GetComponent<NavMeshAgent>();
+        
     }
 	
 
@@ -27,23 +30,27 @@ public class Patrol : MonoBehaviour {
 
     void Update()
     {
-        //Vector direccion hacia donde se debe mover el guardia
-        Vector2 dir = new Vector2(currentPatrol.position.x - transform.position.x, currentPatrol.position.y - transform.position.y);
+        
+		agent.updateRotation = false;
+		//Vector direccion hacia donde se debe mover el guardia
+		if (patrulla) {
+			Vector2 dir = new Vector2 (currentPatrol.position.x - transform.position.x, currentPatrol.position.y - transform.position.y);
 
-        agent.updateRotation = false;
-        agent.SetDestination(currentPatrol.position);
+        
+			agent.SetDestination (currentPatrol.position);
 
-        if (Vector3.Distance(transform.position,currentPatrol.position)<0.1f)//Cambia el punto de patrulla actual
-			{
+			if (Vector3.Distance (transform.position, currentPatrol.position) < 0.1f) {//Cambia el punto de patrulla actual
 				if (currentPatrolIndex + 1 < patrolPoints.Length)
 					currentPatrolIndex++;
-				else 
-				{
+				else {
 					currentPatrolIndex = 0;
 				}
-			currentPatrol = patrolPoints [currentPatrolIndex];
+				currentPatrol = patrolPoints [currentPatrolIndex];
+
 			}
 			rb.MoveRotation(Mathf.LerpAngle(rb.rotation, Vector2.SignedAngle(Vector2.up, dir), 0.1f));//Rotaicion del guardia
+		}
+			
 	}
 
     public void Stunned()
@@ -62,5 +69,19 @@ public class Patrol : MonoBehaviour {
         Invoke("NoStunned", 0.5f);
     }
 
+	public void NoPatrulles()
+	{
+		patrulla = false;
+	}
+
+	public void Patrulla()
+	{
+		Invoke ("Espera", 2);
+	}
+
+	void Espera()
+	{
+		patrulla = true;
+	}
 
 }
