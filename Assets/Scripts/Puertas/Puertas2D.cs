@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Puertas2 : MonoBehaviour {
+public class Puertas2D : MonoBehaviour
+{
 
     bool abierta = false;
     SpriteRenderer sprite;
@@ -13,9 +14,9 @@ public class Puertas2 : MonoBehaviour {
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-		if (collision.CompareTag("Player") || collision.CompareTag("Espalda")|| collision.CompareTag("Frente") && !abierta)
+        if (collision.CompareTag("Player") || collision.CompareTag("Espalda") || collision.CompareTag("Frente") && !abierta)
         {
-            sprite.transform.up = Vector2.left;
+            sprite.transform.right = Vector2.right;
             abierta = true;
         }
     }
@@ -23,9 +24,9 @@ public class Puertas2 : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-		if (collision.CompareTag("Player") || collision.CompareTag("Espalda")|| collision.CompareTag("Frente") && abierta)
+        if (collision.CompareTag("Player") || collision.CompareTag("Espalda") || collision.CompareTag("Frente") && abierta)
         {
-            sprite.transform.right = Vector2.right;
+            sprite.transform.up = Vector2.right;
             abierta = false;
         }
     }
