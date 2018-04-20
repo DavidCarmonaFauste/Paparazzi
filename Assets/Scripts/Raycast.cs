@@ -29,12 +29,12 @@ public class Raycast : MonoBehaviour
 
                 hit = Physics2D.Raycast(transform.position, dir, dist, whatToHit);
 
-                if (hit.collider.CompareTag("Espalda") || hit.collider.CompareTag("Frente"))
+                if (hit.collider.CompareTag("Espalda") || hit.collider.CompareTag("Frente")|| hit.collider.CompareTag("FrenteF") || hit.collider.CompareTag("EspaldaF"))
                 {
                     frentebol = false;
                     leVeo = true;
                     Debug.DrawRay(transform.position, dir, Color.green);
-                    if (hit.collider.CompareTag("Frente"))
+                    if (hit.collider.CompareTag("Frente") || hit.collider.CompareTag("FrenteF"))
                         frentebol = true;
                     else
                         frentebol = false;
@@ -76,9 +76,11 @@ public class Raycast : MonoBehaviour
 			dentro = false;
 			noHayOtroGuardia = false;
 		}
+    }
 
-        
-
+    public GameObject FotoAQuien()
+    {
+        return whoToHit;
     }
     public bool LeVeo()
     {
