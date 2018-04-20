@@ -34,19 +34,35 @@ public class Flash : MonoBehaviour
     {
         if (!MenuPausa.GameIsPaused) // Si el juego no está en PAUSA
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0) && GameManager.instance.carretes > 0)
+            if (Input.GetKeyDown(KeyCode.Mouse0) && GameManager.instance.camaras > 0)
             {
                 VisibleFlash();
 
             }
 
-            else if (Input.GetKeyDown(KeyCode.Mouse1) && GameManager.instance.camaras > 0)
+            else if (Input.GetKeyDown(KeyCode.Mouse1) && GameManager.instance.carretes > 0)
             {
                 VisibleFoto();
 
             }
 
-            if (  Input.GetKeyUp(KeyCode.Mouse1)  && GameManager.instance.camaras > 0)
+            if (  Input.GetKeyUp(KeyCode.Mouse1)  && GameManager.instance.carretes > 0)
+            {
+
+                Invisible();
+                if (ConoFoto.GetComponent<Raycast>().LeVeo() && ConoFoto.GetComponent<Raycast>().Frente() && ConoFoto.GetComponent<Raycast>().FotoAQuien().CompareTag("FrenteF"))//Si esta de frente y dentro llama a stunn
+                {
+                    Debug.Log("hola");
+                }
+
+                GameManager.instance.carretes--;
+                //sonido
+                fuenteAudio.clip = cameraSound;
+                fuenteAudio.volume = 0.5f;
+                fuenteAudio.Play();
+
+            }
+            if(Input.GetKeyUp(KeyCode.Mouse0) && GameManager.instance.camaras > 0)
             {
                 Invisible();
                 if (ConoFlash.GetComponent<Raycast>().LeVeo() && ConoFlash.GetComponent<Raycast>().Frente())//Si esta de frente y dentro llama a stunn
@@ -56,21 +72,6 @@ public class Flash : MonoBehaviour
                 //sonido
                 fuenteAudio.clip = flashSound;
                 fuenteAudio.volume = 0.25f;
-                fuenteAudio.Play();
-
-            }
-            if(Input.GetKeyUp(KeyCode.Mouse0) && GameManager.instance.carretes > 0)
-            {
-                Invisible();
-                if (ConoFoto.GetComponent<Raycast>().LeVeo() && ConoFoto.GetComponent<Raycast>().Frente() && ConoFoto.GetComponent<Raycast>().FotoAQuien().CompareTag("Famoso") )//Si esta de frente y dentro llama a stunn
-                {
-                    Debug.Log("hola");
-                }
-
-                GameManager.instance.carretes--;
-                //sonido
-                fuenteAudio.clip = cameraSound;
-                fuenteAudio.volume = 0.5f;
                 fuenteAudio.Play();
             }
         }

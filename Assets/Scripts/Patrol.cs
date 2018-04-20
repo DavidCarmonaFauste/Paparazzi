@@ -69,12 +69,12 @@ public class Patrol : MonoBehaviour {
 
     public void Stunned()
     {
-        agent.speed = 0;
+        agent.isStopped = true;
         Invoke("NoStunned", 2);
     }
     void NoStunned()
     {
-        agent.speed = realSpeed;
+        agent.isStopped = false;
     }
 
     public void Spray()
