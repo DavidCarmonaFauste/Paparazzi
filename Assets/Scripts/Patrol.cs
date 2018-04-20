@@ -12,6 +12,7 @@ public class Patrol : MonoBehaviour {
 	Rigidbody2D rb;
     private NavMeshAgent agent;
     float realSpeed;
+    GameObject go;
 
     public bool patrulla = true;
 
@@ -23,6 +24,7 @@ public class Patrol : MonoBehaviour {
 		currentPatrolIndex = 0;//Punto de patrulla
 		currentPatrol = patrolPoints [currentPatrolIndex];
         agent.updateRotation = false;
+        go = GameObject.FindWithTag("Player");
     }
 
     void Update()
@@ -32,7 +34,7 @@ public class Patrol : MonoBehaviour {
 
             patrulla = false;
 
-            GameObject go = GameObject.FindWithTag("Player");
+            
             //Vector direccion hacia donde se debe mover el guardia
             Vector2 dir = new Vector2(go.transform.position.x - transform.position.x, go.transform.position.y - transform.position.y);
             agent.SetDestination(go.transform.position);
@@ -85,6 +87,7 @@ public class Patrol : MonoBehaviour {
 
      void Patrulla()
 	{
+        agent.SetDestination(go.transform.position);
         patrulla = true;
     }
 }

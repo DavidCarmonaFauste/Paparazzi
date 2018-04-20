@@ -16,6 +16,8 @@ TagManager:
   - TopeObjetivo
   - Dormido
   - Objetivo
+  - FrenteF
+  - EspaldaF
   layers:
   - Default
   - TransparentFX
