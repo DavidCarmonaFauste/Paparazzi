@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour {
 
     public int camaras, carretes, loot;
+    public int puntuacionMinijuego;
 
 	private bool Nivel1S = false, Nivel2S = false, Nivel3S = false;
 

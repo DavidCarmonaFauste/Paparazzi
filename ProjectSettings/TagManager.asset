@@ -15,6 +15,7 @@ TagManager:
   - TopeH
   - TopeObjetivo
   - Dormido
+  - Objetivo
   layers:
   - Default
   - TransparentFX
