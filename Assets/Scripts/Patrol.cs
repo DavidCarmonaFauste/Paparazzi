@@ -13,6 +13,9 @@ public class Patrol : MonoBehaviour {
     private NavMeshAgent agent;
     float realSpeed;
     GameObject go;
+    bool acudeCamara = false;
+
+    Transform camera;
 
     public bool patrulla = true;
 
@@ -40,6 +43,18 @@ public class Patrol : MonoBehaviour {
             agent.SetDestination(go.transform.position);
 
             rb.MoveRotation(Mathf.LerpAngle(rb.rotation, Vector2.SignedAngle(Vector2.up, dir), 0.1f));//Rotaicion del guardia
+        }
+        else if(acudeCamara)
+        {
+            Vector2 dir = new Vector2(camera.position.x - transform.position.x, camera.position.y - transform.position.y);
+
+            rb.MoveRotation(Mathf.LerpAngle(rb.rotation, Vector2.SignedAngle(Vector2.up, dir), 0.1f));//Rotaicion del guardia
+
+            if (Vector3.Distance(transform.position, camera.position) < 0.1f)
+            {
+                acudeCamara = false;
+                patrulla = true;
+            }
         }
         else
         {
@@ -89,5 +104,13 @@ public class Patrol : MonoBehaviour {
 	{
         agent.SetDestination(go.transform.position);
         patrulla = true;
+    }
+
+    public void AcudeACamara(Transform camara)
+    {
+        patrulla = false;
+        acudeCamara = true;
+        agent.SetDestination(camara.position);
+        camera = camara;
     }
 }

@@ -13,13 +13,17 @@ public class Animations : MonoBehaviour {
     }
     // Update is called once per frame
     void Update () {
-        if ((hijo.rotation.x) < -225 && (hijo.rotation.x > -315) && (hijo.rotation.y > 0))
-        {
-            anim.Play("AndaGuardia1Izquierda");
-            Debug.Log("cambia animación");
-        }
-        Debug.Log(hijo.eulerAngles.x);
+        if (hijo.rotation.eulerAngles.x > -225 || hijo.rotation.x < 135)
+            anim.SetTrigger("Izquierda");
 
-		transform.position = hijo.position;
+        else if (hijo.rotation.eulerAngles.x > -135 || hijo.rotation.x < -45)
+            anim.SetTrigger("Arriba");
+
+        else if (hijo.rotation.eulerAngles.x > -315 || hijo.rotation.x < -225)
+            anim.SetTrigger("Abajo");
+        else
+            anim.SetTrigger("Derecha");
+            
+            transform.position = hijo.position;
 	}
 }
