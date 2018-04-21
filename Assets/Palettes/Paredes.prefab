@@ -159,6 +159,15 @@ Tilemap:
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
       m_ColliderType: 1
+  - first: {x: 9, y: -15, z: 0}
+    second:
+      m_TileIndex: 22
+      m_TileSpriteIndex: 29
+      m_TileMatrixIndex: 1
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
   - first: {x: 1, y: -13, z: 0}
     second:
       m_TileIndex: 33
@@ -520,7 +529,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: ac38ca2bbf65a83448df8ecfb82d390e, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 354fef64c6184af41af99c0b52b1294e, type: 2}
-  - m_RefCount: 4
+  - m_RefCount: 5
     m_Data: {fileID: 11400000, guid: 455eb59d03fb0744d94c848169378273, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -603,7 +612,7 @@ Tilemap:
     m_Data: {fileID: 21300008, guid: 2630c66a92ab4534080ab8be72211a59, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 21300056, guid: 2630c66a92ab4534080ab8be72211a59, type: 3}
-  - m_RefCount: 4
+  - m_RefCount: 5
     m_Data: {fileID: 21300088, guid: 2630c66a92ab4534080ab8be72211a59, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300118, guid: 2630c66a92ab4534080ab8be72211a59, type: 3}
@@ -632,7 +641,7 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
-  - m_RefCount: 3
+  - m_RefCount: 4
     m_Data:
       e00: -1
       e01: 0
@@ -688,24 +697,24 @@ Tilemap:
       e33: 1
   - m_RefCount: 0
     m_Data:
-      e00: 1.1e-44
-      e01: 0.000059662736
-      e02: 1.1e-44
-      e03: 1.1e-44
+      e00: 1.3e-44
+      e01: 0.0000016289396
+      e02: 1.3e-44
+      e03: 1.3e-44
       e10: NaN
       e11: 0
       e12: NaN
       e13: NaN
-      e20: 46397.28
+      e20: -1.1856323e+28
       e21: 27.069414
       e22: 0
       e23: 8.792778e-39
-      e30: 4.5908e-41
+      e30: 4.5912e-41
       e31: 1e-45
       e32: 0
       e33: 0
   m_TileColorArray:
-  - m_RefCount: 37
+  - m_RefCount: 38
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   - m_RefCount: 0
     m_Data: {r: 2.2e-44, g: 0, b: 0, a: NaN}
