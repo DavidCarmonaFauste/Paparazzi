@@ -179,4 +179,9 @@ public class GameManager : MonoBehaviour {
 
         return puntos;
     }
+
+    public void Pierde()
+    {
+        SceneManager.LoadScene("Menu");
+    }
 }

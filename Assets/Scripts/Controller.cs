@@ -49,4 +49,10 @@ public class Controller : MonoBehaviour {
     {
         moveSpeed = realSpeed;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Guardia"))
+            GameManager.instance.Pierde();
+    }
 }
