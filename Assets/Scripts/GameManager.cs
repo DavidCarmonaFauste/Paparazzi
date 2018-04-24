@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 class Nivel
 {
 	// Variables para guardar de dónde viene la puntuación, de cara a la pantalla de puntuación
-	public int ptsMinijuego, // puntos para el nivel conseguidos en el minijuego
+	public int puntos,
+				ptsMinijuego, // puntos para el nivel conseguidos en el minijuego
 				ptsFotoOp, // puntos para el nivel conseguidos por fotos a famosos opcionales
 				ptsBombillas, // puntos para el nivel conseguidos por bombillas extra
 				ptsCarretes, // puntos para el nivel conseguidos por carretes extra
@@ -20,6 +21,7 @@ class Nivel
 		string nombre = _nombre; // Nombre del nivel, ejemplo: Nivel1
 
 		// Inicialización
+		puntos = 0;
 		ptsMinijuego = 0;
 		ptsFotoOp = 0;
 		ptsBombillas = 0;
@@ -33,9 +35,9 @@ public class GameManager : MonoBehaviour {
 
 	Nivel nivel1;
 
-    public int bombillas, carretes, loot, //Las bombillas se usan para stunnear y los carretes para las fotos
+	public int bombillas, carretes, loot; //Las bombillas se usan para stunnear y los carretes para las fotos
 		//puntuacionMinijuego,
-		puntos;
+		//puntos;
 
 	private bool Nivel1S = false, Nivel2S = false, Nivel3S = false;
 
@@ -54,13 +56,13 @@ public class GameManager : MonoBehaviour {
 		bombillas = 3;
 		carretes = 3;
 		loot = 0;
-		puntos = 0;
+		//puntos = 0;
 		nivel1 = new Nivel ("nivel1");
 	}
 
 	void Update()
 	{
-		Debug.Log (puntos);
+		//Debug.Log (nivel1.puntos);
 	}
 
 	public string SiguienteEscena()
@@ -222,13 +224,13 @@ public class GameManager : MonoBehaviour {
 	// Aumenta la puntuación en una cantidad determinada y guarda de dónde viene la puntuación
 	public void SumaPuntos(int cantidad, string motivo)
 	{
-		puntos += cantidad;
+		nivel1.puntos += cantidad;
 
 		/*	"minijuego"	-> ptosMinijuego
 		 * 	"opcional"	-> ptosFotoOp
 		 * 	"bombillas"	-> ptosBombillas
 		 * 	"carretes"	-> ptosCarretes
-		 * 	"coleccionable"	-> ptosLoot
+		 * 	"loot"	-> ptosLoot
 		 */
 		switch (motivo) 
 		{
@@ -254,4 +256,30 @@ public class GameManager : MonoBehaviour {
     {
         SceneManager.LoadScene("Menu");
     }
+
+	// FIN DEL NIVEL 1
+	public void FinN1()
+	{
+		// Puntuación por carretes extra
+		for (int i = 0; i < carretes; i++)
+			SumaPuntos (5, "carretes");
+
+		// Puntuación por bombillas extra
+		for (int i = 0; i < bombillas; i++) {
+			
+			SumaPuntos (10, "bombillas");
+			//Debug.Log ("Ptos Bombilla " + nivel1.ptsBombillas);
+		}
+			
+
+		// Ir a la pantalla de puntuación de este nivel
+		GoToPuntuacionN1();
+	}
+
+	public void GoToPuntuacionN1()
+	{
+		// Ir a la escena de puntuación del nivel 1
+		SceneManager.LoadScene("PuntuacionN1");
+		Debug.Log("PUNTUACION = " + nivel1.puntos);
+	}
 }

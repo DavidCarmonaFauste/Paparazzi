@@ -51,18 +51,21 @@ public class Mecanica : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && puedeFoto)
-        {
-            //audio
-            fuenteAudio.Play();
-            fotos = fotos + colisiones;
-            puedeFoto = false;
+		Debug.Log (GameManager.instance.Carretes ());
+		if (Input.GetMouseButtonDown (0) && puedeFoto && GameManager.instance.Carretes () > 0) {
+			//audio
+			fuenteAudio.Play ();
+			fotos = fotos + colisiones;
+			puedeFoto = false;
+			GameManager.instance.carretes--;
 
-			GameManager.instance.SumaPuntos (multiplicador,"minijuego");
+			if (dentro)
+				GameManager.instance.SumaPuntos (multiplicador, "minijuego");
 
-            Puntuacion();
-            Invoke("PuedeFoto", tiempoFoto);    // Sólo puede echar una foto si han pasado n segundos
-        }
+			//Puntuacion();
+			Invoke ("PuedeFoto", tiempoFoto);    // Sólo puede echar una foto si han pasado n segundos
+		} else if (GameManager.instance.Carretes () == 0)
+			GameManager.instance.FinN1 ();
     }
 
     void PuedeFoto()

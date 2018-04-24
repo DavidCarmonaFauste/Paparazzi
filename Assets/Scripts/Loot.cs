@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class Loot : MonoBehaviour
 {
+	int ptosLoot = 50;
+
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Player"))
         {
             PlayLoot.PlaySound();
             GameManager.instance.loot++;
+			GameManager.instance.SumaPuntos (ptosLoot, "loot");
             Destroy(this.gameObject);
         }
     }
