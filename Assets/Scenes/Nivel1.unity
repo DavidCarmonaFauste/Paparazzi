@@ -33375,6 +33375,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 82559074648511598, guid: cce2d8697ac6c0a458f8a840e6ec065c,
+        type: 2}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: b4f445608f92e2148bf8b675a70d979c,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cce2d8697ac6c0a458f8a840e6ec065c, type: 2}
   m_IsPrefabParent: 0
@@ -45621,24 +45627,6 @@ Tilemap:
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
       m_ColliderType: 1
-  - first: {x: 39, y: 21, z: 0}
-    second:
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 1
-      m_TileColorIndex: 0
-      m_ObjectToInstantiate: {fileID: 0}
-      m_TileFlags: 1
-      m_ColliderType: 1
-  - first: {x: 40, y: 21, z: 0}
-    second:
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 1
-      m_TileColorIndex: 0
-      m_ObjectToInstantiate: {fileID: 0}
-      m_TileFlags: 1
-      m_ColliderType: 1
   - first: {x: 16, y: 28, z: 0}
     second:
       m_TileIndex: 0
@@ -45659,7 +45647,7 @@ Tilemap:
       m_ColliderType: 1
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 19
+  - m_RefCount: 17
     m_Data: {fileID: 11400000, guid: 2ba334ed73e9658408fda98d5e1f31d8, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: c0377d1276a574647abbb7ecb0041236, type: 2}
@@ -45678,7 +45666,7 @@ Tilemap:
   - m_RefCount: 5
     m_Data: {fileID: 11400000, guid: 0b11c66291ea5e94e985034da13aeae9, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 19
+  - m_RefCount: 17
     m_Data: {fileID: 21300036, guid: 2630c66a92ab4534080ab8be72211a59, type: 3}
   - m_RefCount: 5
     m_Data: {fileID: 21300026, guid: 6fdd2c45349e82445995a0ed58dad9a0, type: 3}
@@ -45715,7 +45703,7 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
-  - m_RefCount: 10
+  - m_RefCount: 8
     m_Data:
       e00: -0.9999999
       e01: -0.00000011920928
@@ -45770,7 +45758,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 51
+  - m_RefCount: 49
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -46539,10 +46527,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25fe6523ebbfd514d9723cd289e4d15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camaras: 1
+  bombillas: 0
   carretes: 4
   loot: 0
   puntuacionMinijuego: 0
+  puntos: 0
 --- !u!4 &801409118
 Transform:
   m_ObjectHideFlags: 0
@@ -47164,6 +47153,11 @@ Prefab:
     - target: {fileID: 4523797744048908, guid: 3642fba2cb91f424d812a77d4a6bfc0c, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20944271231738250, guid: 3642fba2cb91f424d812a77d4a6bfc0c,
+        type: 2}
+      propertyPath: orthographic size
+      value: 3.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3642fba2cb91f424d812a77d4a6bfc0c, type: 2}

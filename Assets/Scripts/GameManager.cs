@@ -4,11 +4,38 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+class Nivel
+{
+	// Variables para guardar de dónde viene la puntuación, de cara a la pantalla de puntuación
+	public int ptsMinijuego, // puntos para el nivel conseguidos en el minijuego
+				ptsFotoOp, // puntos para el nivel conseguidos por fotos a famosos opcionales
+				ptsBombillas, // puntos para el nivel conseguidos por bombillas extra
+				ptsCarretes, // puntos para el nivel conseguidos por carretes extra
+				ptsLoot, // puntos para el nivel conseguidos por coleccionables cogidos
+				penalTiempo; // penalización por tiempo
+				
+	// Constructor
+	public Nivel(string _nombre)
+	{
+		string nombre = _nombre; // Nombre del nivel, ejemplo: Nivel1
+
+		// Inicialización
+		ptsMinijuego = 0;
+		ptsFotoOp = 0;
+		ptsBombillas = 0;
+		ptsCarretes = 0;
+		ptsLoot = 0;
+		penalTiempo = 0;
+	}
+}
 
 public class GameManager : MonoBehaviour {
 
-    public int camaras, carretes, loot;
-    public int puntuacionMinijuego;
+	Nivel nivel1;
+
+    public int bombillas, carretes, loot, //Las bombillas se usan para stunnear y los carretes para las fotos
+		//puntuacionMinijuego,
+		puntos;
 
 	private bool Nivel1S = false, Nivel2S = false, Nivel3S = false;
 
@@ -22,6 +49,18 @@ public class GameManager : MonoBehaviour {
 			DontDestroyOnLoad(this.gameObject);
         }
 		else Destroy(this.gameObject);
+
+		// Inicialización
+		bombillas = 3;
+		carretes = 3;
+		loot = 0;
+		puntos = 0;
+		nivel1 = new Nivel ("nivel1");
+	}
+
+	void Update()
+	{
+		Debug.Log (puntos);
 	}
 
 	public string SiguienteEscena()
@@ -46,7 +85,7 @@ public class GameManager : MonoBehaviour {
 
     public int Bombillas()
     {
-        return camaras;
+		return bombillas;
     }
 
     public int Carretes()
@@ -163,9 +202,9 @@ public class GameManager : MonoBehaviour {
         }
 	}
 
-    public float Puntuacion ()
+   /*public float Puntuacion ()
     {
-        float puntos = 0;
+        
 
         GameObject Crono;
 
@@ -178,7 +217,38 @@ public class GameManager : MonoBehaviour {
         //puntos = fMini * 0.55f + fOp * 0.25f + loot * 0.1f + Tiempo * 0.1f;
 
         return puntos;
-    }
+    }*/
+
+	// Aumenta la puntuación en una cantidad determinada y guarda de dónde viene la puntuación
+	public void SumaPuntos(int cantidad, string motivo)
+	{
+		puntos += cantidad;
+
+		/*	"minijuego"	-> ptosMinijuego
+		 * 	"opcional"	-> ptosFotoOp
+		 * 	"bombillas"	-> ptosBombillas
+		 * 	"carretes"	-> ptosCarretes
+		 * 	"coleccionable"	-> ptosLoot
+		 */
+		switch (motivo) 
+		{
+		case "minijuego":
+			nivel1.ptsMinijuego += cantidad;
+			break;
+		case "opcional":
+			nivel1.ptsFotoOp += cantidad;
+			break;
+		case "bombillas":
+			nivel1.ptsBombillas += cantidad;
+			break;
+		case "carretes":
+			nivel1.ptsCarretes += cantidad;
+			break;
+		case "loot":
+			nivel1.ptsLoot += cantidad;
+			break;
+		}
+	}
 
     public void Pierde()
     {

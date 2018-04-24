@@ -21,6 +21,7 @@ public class Mecanica : MonoBehaviour {
         //sonido
         fuenteAudio = GetComponent<AudioSource>();
     }
+
     void OnTriggerEnter2D (Collider2D other)
 	{
         if (other.tag == "Objetivo")
@@ -29,6 +30,7 @@ public class Mecanica : MonoBehaviour {
             dentro = true;
 		}
 	}
+
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.tag == "Objetivo")
@@ -37,6 +39,7 @@ public class Mecanica : MonoBehaviour {
             dentro = false;
         }
     }
+
     void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Objetivo")
@@ -45,6 +48,7 @@ public class Mecanica : MonoBehaviour {
             dentro = true;
         }
     }
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0) && puedeFoto)
@@ -53,6 +57,9 @@ public class Mecanica : MonoBehaviour {
             fuenteAudio.Play();
             fotos = fotos + colisiones;
             puedeFoto = false;
+
+			GameManager.instance.SumaPuntos (multiplicador,"minijuego");
+
             Puntuacion();
             Invoke("PuedeFoto", tiempoFoto);    // Sólo puede echar una foto si han pasado n segundos
         }

@@ -34,7 +34,7 @@ public class Flash : MonoBehaviour
     {
         if (!MenuPausa.GameIsPaused) // Si el juego no está en PAUSA
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0) && GameManager.instance.camaras > 0)
+			if (Input.GetKeyDown(KeyCode.Mouse0) && GameManager.instance.bombillas > 0)
             {
                 VisibleFlash();
 
@@ -62,13 +62,13 @@ public class Flash : MonoBehaviour
                 fuenteAudio.Play();
 
             }
-            if(Input.GetKeyUp(KeyCode.Mouse0) && GameManager.instance.camaras > 0)
+			if(Input.GetKeyUp(KeyCode.Mouse0) && GameManager.instance.bombillas > 0)
             {
                 Invisible();
                 if (ConoFlash.GetComponent<Raycast>().LeVeo() && ConoFlash.GetComponent<Raycast>().Frente())//Si esta de frente y dentro llama a stunn
                     ConoFlash.GetComponent<Raycast>().Stunn();
 
-                GameManager.instance.camaras--;
+				GameManager.instance.bombillas--;
                 //sonido
                 fuenteAudio.clip = flashSound;
                 fuenteAudio.volume = 0.25f;
