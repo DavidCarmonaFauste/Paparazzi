@@ -50,10 +50,10 @@ public class Flash : MonoBehaviour
             {
 
                 Invisible();
-                if (ConoFoto.GetComponent<Raycast>().LeVeo() && ConoFoto.GetComponent<Raycast>().Frente() && ConoFoto.GetComponent<Raycast>().FotoAQuien().CompareTag("FrenteF"))//Si esta de frente y dentro llama a stunn
-                {
-                    Debug.Log("hola");
-                }
+                if (ConoFoto.GetComponent<Raycast>().LeVeo() && ConoFoto.GetComponent<Raycast>().Frente() && ConoFoto.GetComponent<Raycast>().FotoAQuien().CompareTag("Famoso"))//Si esta de frente y dentro llama a stun
+                    GameManager.instance.SumaPuntos(50, "ptosFotoOp");
+                else if (ConoFoto.GetComponent<Raycast>().LeVeo() && !ConoFoto.GetComponent<Raycast>().Frente() && ConoFoto.GetComponent<Raycast>().FotoAQuien().CompareTag("Famoso"))
+                    GameManager.instance.SumaPuntos(15, "ptosFotoOp");
 
                 GameManager.instance.carretes--;
                 //sonido

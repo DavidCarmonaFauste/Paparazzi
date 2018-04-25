@@ -19,6 +19,8 @@ public class Controller : MonoBehaviour {
 
 		velocity = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * moveSpeed;//Movimiento
 
+             
+
 
 
     }
@@ -52,7 +54,11 @@ public class Controller : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Guardia"))
+        if (collision.CompareTag("Guardia") && collision.gameObject.transform.parent.transform.GetChild(0).GetComponent<Detect>().LeVeo())
             GameManager.instance.Pierde();
+        
     }
+
+
+
 }
