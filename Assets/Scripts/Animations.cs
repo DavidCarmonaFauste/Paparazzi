@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Animations : MonoBehaviour {
 
 	public Transform hijo;
     Animator anim;
+    public NavMeshAgent myAgent;
 
     private void Start()
     {
@@ -13,18 +15,18 @@ public class Animations : MonoBehaviour {
     }
     // Update is called once per frame
     void Update () {
-        /*if (hijo.rotation.eulerAngles.x > -225 || hijo.rotation.x < 135)
-            anim.SetTrigger("Izquierda");
+        if (myAgent.velocity.y > 0.5f)
+            anim.SetInteger("Direction", 1);
 
-        else if (hijo.rotation.eulerAngles.x > -135 || hijo.rotation.x < -45)
-            anim.SetTrigger("Arriba");
+        else if (myAgent.velocity.y < -0.5f)
+            anim.SetInteger("Direction", 2);
 
-        else if (hijo.rotation.eulerAngles.x > -315 || hijo.rotation.x < -225)
-            anim.SetTrigger("Abajo");
-        else
-            anim.SetTrigger("Derecha");
-            */
-            transform.position = hijo.position;
+        else if (myAgent.velocity.x > 0.5f)
+            anim.SetInteger("Direction", 3);
+        else if(myAgent.velocity.x < -0.5f)
+            anim.SetInteger("Direction", 4);
+
+        transform.localPosition = new Vector3(hijo.localPosition.x, hijo.localPosition.y, hijo.localPosition.z);
             
 	}
 }
