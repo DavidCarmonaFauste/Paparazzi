@@ -7,7 +7,12 @@ public class CargaMinijuego : MonoBehaviour {
 
 		void OnCollisionEnter2D (Collision2D col)
 		{
-		if (col.gameObject.tag == "Player")
-			SceneManager.LoadScene(GameManager.instance.SiguienteEscena());
+            if (col.gameObject.tag == "Player")
+            {
+                SceneManager.LoadScene(GameManager.instance.SiguienteEscena());
+                GameManager.instance.Minijuego();
+            }
+			
 		}
-	}
+
+}

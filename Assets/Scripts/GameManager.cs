@@ -14,7 +14,9 @@ class Nivel
 				ptsCarretes, // puntos para el nivel conseguidos por carretes extra
 				ptsLoot, // puntos para el nivel conseguidos por coleccionables cogidos
 				penalTiempo; // penalización por tiempo
-				
+
+    public bool minijuego; // Es true si se ha entrado en el minijuego de nivel
+
 	// Constructor
 	public Nivel(string _nombre)
 	{
@@ -28,7 +30,11 @@ class Nivel
 		ptsCarretes = 0;
 		ptsLoot = 0;
 		penalTiempo = 0;
+
+        minijuego = true;
 	}
+
+
 }
 
 public class GameManager : MonoBehaviour {
@@ -251,6 +257,10 @@ public class GameManager : MonoBehaviour {
 			break;
 		}
 	}
+    public void Minijuego()
+    {
+       nivel1.minijuego = true;
+    }
 
     public void Pierde()
     {
