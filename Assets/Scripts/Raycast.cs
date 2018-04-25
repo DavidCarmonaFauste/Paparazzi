@@ -58,7 +58,7 @@ public class Raycast : MonoBehaviour
     {
         GameObject go = col.gameObject;
 
-		if (go.CompareTag("Frente") || go.CompareTag("Espalda") && !noHayOtroGuardia)
+		if (go.CompareTag("Frente") || go.CompareTag("Espalda") || go.CompareTag("FrenteF") || go.CompareTag("EspaldaF") && !noHayOtroGuardia)
         {
 			noHayOtroGuardia = true;
             dentro = true;
@@ -71,7 +71,7 @@ public class Raycast : MonoBehaviour
     {
         GameObject go = col.gameObject;
 
-		if (go.CompareTag("Frente") || go.CompareTag("Espalda"))
+		if (go.CompareTag("Frente") || go.CompareTag("Espalda") || go.CompareTag("FrenteF") || go.CompareTag("EspaldaF"))
 		{
 			dentro = false;
 			noHayOtroGuardia = false;
@@ -89,6 +89,7 @@ public class Raycast : MonoBehaviour
 
     public void Stunn()
     {
+        if(whoToHit.CompareTag("Guardia"))
         whoToHit.GetComponent<Patrol>().Stunned();
     }
 

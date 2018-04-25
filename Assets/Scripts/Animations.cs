@@ -13,7 +13,7 @@ public class Animations : MonoBehaviour {
     }
     // Update is called once per frame
     void Update () {
-        if (hijo.rotation.eulerAngles.x > -225 || hijo.rotation.x < 135)
+        /*if (hijo.rotation.eulerAngles.x > -225 || hijo.rotation.x < 135)
             anim.SetTrigger("Izquierda");
 
         else if (hijo.rotation.eulerAngles.x > -135 || hijo.rotation.x < -45)
@@ -25,5 +25,6 @@ public class Animations : MonoBehaviour {
             anim.SetTrigger("Derecha");
             
             transform.position = hijo.position;
+            */
 	}
 }

@@ -58,8 +58,11 @@ public class Patrol : MonoBehaviour {
         }
         else
         {
-            if(!patrulla)
+            if (!patrulla)
+            {
                 Invoke("Patrulla", 2);
+                agent.SetDestination(go.transform.position);
+            }
             if (patrulla)
             {
                 //Vector direccion hacia donde se debe mover el guardia
@@ -102,7 +105,7 @@ public class Patrol : MonoBehaviour {
 
      void Patrulla()
 	{
-        agent.SetDestination(go.transform.position);
+        
         patrulla = true;
     }
 
