@@ -6,9 +6,9 @@ public class FinPartida : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Player" && GameManager.instance.nivel1.minijuego)
+        if (col.gameObject.tag == "Player" && GameManager.instance.MinijuegoTerminado())
         {
-            Debug.Log("ASDGVAKSJDFHA");
+            GameManager.instance.GoToPuntuacionN1();
         }
 
     }

@@ -31,7 +31,7 @@ class Nivel
 		ptsLoot = 0;
 		penalTiempo = 0;
 
-        minijuego = true;
+        minijuego = false;
 	}
 
 
@@ -261,6 +261,10 @@ public class GameManager : MonoBehaviour {
     {
        nivel1.minijuego = true;
     }
+    public bool MinijuegoTerminado()
+    {
+        return nivel1.minijuego;
+    }
 
     public void Pierde()
     {
@@ -280,11 +284,11 @@ public class GameManager : MonoBehaviour {
 			SumaPuntos (10, "bombillas");
 			//Debug.Log ("Ptos Bombilla " + nivel1.ptsBombillas);
 		}
-			
 
-		// Ir a la pantalla de puntuación de este nivel
-		GoToPuntuacionN1();
-	}
+
+        // Ir a la pantalla de puntuación de este nivel
+        SceneManager.LoadScene("Nivel1");
+    }
 
 	public void GoToPuntuacionN1()
 	{

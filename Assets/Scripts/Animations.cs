@@ -23,8 +23,8 @@ public class Animations : MonoBehaviour {
             anim.SetTrigger("Abajo");
         else
             anim.SetTrigger("Derecha");
-            
-            transform.position = hijo.position;
             */
+            transform.position = hijo.position;
+            
 	}
 }
