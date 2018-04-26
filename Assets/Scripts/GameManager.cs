@@ -42,8 +42,10 @@ public class GameManager : MonoBehaviour {
 	Nivel nivel1;
 
 	public int bombillas, carretes, loot; //Las bombillas se usan para stunnear y los carretes para las fotos
-		//puntuacionMinijuego,
-		//puntos;
+                                          //puntuacionMinijuego,
+                                          //puntos;
+
+    public int carreteEspecial = 1;
 
 	private bool Nivel1S = false, Nivel2S = false, Nivel3S = false;
 
@@ -99,6 +101,11 @@ public class GameManager : MonoBehaviour {
     public int Carretes()
     {
         return carretes;
+    }
+    
+    public int CarreteEspecial()
+    {
+        return carreteEspecial;
     }
 
     public int Loot()

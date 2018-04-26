@@ -55,9 +55,15 @@ public class Mecanica : MonoBehaviour {
 		if (Input.GetMouseButtonDown (0) && puedeFoto && GameManager.instance.Carretes () > 0) {
 			//audio
 			fuenteAudio.Play ();
-			fotos = fotos + colisiones;
+
+            // El primer carrete que se gasta es el especial
+            if (GameManager.instance.carreteEspecial == 1)
+                GameManager.instance.carreteEspecial--;
+            else GameManager.instance.carretes--;
+            
+
+            fotos = fotos + colisiones;
 			puedeFoto = false;
-			GameManager.instance.carretes--;
 
 			if (dentro)
 				GameManager.instance.SumaPuntos (multiplicador, "minijuego");

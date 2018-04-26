@@ -13,6 +13,5 @@ public class Carretes : MonoBehaviour {
 	
 	void Update () {
         stringTexto.text = "x " + GameManager.instance.Carretes().ToString();
-
 	}
 }
