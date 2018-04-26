@@ -34,7 +34,22 @@ class Nivel
         minijuego = false;
 	}
 
+	// Devolver la puntuación total obtenida
+	public int PuntuacionTotal()
+	{
+		return(ptsLoot + ptsMinijuego + ptsFotoOp + ptsCarretes + ptsBombillas - penalTiempo);
+	}
 
+	// Devolver el texto con la puntuación del nivel
+	public string PuntuacionFinalText()
+	{
+		return("Coleccionables recogidos: " + ptsLoot + " puntos\n" + 
+			"Bombillas y carretes sin usar: " + (ptsBombillas + ptsCarretes) + " puntos\n" +
+			"Fotos a famosos secundarios: " + ptsFotoOp + " puntos\n" +
+			"Fotos al famoso principal: " + ptsMinijuego + " puntos\n" + 
+			"Penalización por tiempo: " + ptsLoot + " puntos\n" +
+			"TOTAL: " + PuntuacionTotal() + " puntos\n");
+	}
 }
 
 public class GameManager : MonoBehaviour {
@@ -264,6 +279,24 @@ public class GameManager : MonoBehaviour {
 			break;
 		}
 	}
+
+	public int GetPuntos(int indNivel)
+	{
+		int puntos = 0;
+		switch (indNivel) {
+		case 1:
+			puntos = PuntosN1();
+			break;
+		}
+
+		return puntos;
+	}
+
+	int PuntosN1()
+	{
+		return nivel1.puntos;
+	}
+
     public void Minijuego()
     {
        nivel1.minijuego = true;
@@ -283,12 +316,12 @@ public class GameManager : MonoBehaviour {
 	{
 		// Puntuación por carretes extra
 		for (int i = 0; i < carretes; i++)
-			SumaPuntos (5, "carretes");
+			SumaPuntos (100, "carretes");
 
 		// Puntuación por bombillas extra
 		for (int i = 0; i < bombillas; i++) {
 			
-			SumaPuntos (10, "bombillas");
+			SumaPuntos (250, "bombillas");
 			//Debug.Log ("Ptos Bombilla " + nivel1.ptsBombillas);
 		}
 
@@ -297,10 +330,37 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene("Nivel1");
     }
 
-	public void GoToPuntuacionN1()
+	public void GoToPuntuacionN1() //////////PASARLE EL NIVEL POR PARAMETRO
 	{
 		// Ir a la escena de puntuación del nivel 1
-		SceneManager.LoadScene("PuntuacionN1");
+		SceneManager.LoadScene("N1Puntuacion");
 		Debug.Log("PUNTUACION = " + nivel1.puntos);
+	}
+
+	// Devolver la puntuación total obtenida
+	public int PuntuacionTotalNivel(int indNivel)
+	{
+		int puntuacion = 0;
+		switch (indNivel) 
+		{
+		case 1:
+			puntuacion = nivel1.PuntuacionTotal();
+			break;
+		}
+
+		return puntuacion;
+	}
+
+	public string TextoPuntuacion(int indNivel)
+	{
+		string texto = "";
+		switch (indNivel) 
+		{
+		case 1:
+			texto = nivel1.PuntuacionFinalText ();
+			break;
+		}
+
+		return texto;
 	}
 }

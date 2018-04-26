@@ -13,7 +13,7 @@ public class Mecanica : MonoBehaviour {
     int colisiones = 0;
     bool dentro;
     int puntuacion = 0;             //variable que guarda la puntuación
-    int multiplicador = 100;        //multiplicador de la puntuaicón
+    int multiplicador = 2000;        //multiplicador de la puntuaicón
    
 
     private void Start()

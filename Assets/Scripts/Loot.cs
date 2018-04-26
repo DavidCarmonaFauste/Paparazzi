@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Loot : MonoBehaviour
 {
-	int ptosLoot = 50;
+	int ptosLoot = 1000;
 
     void OnTriggerEnter2D(Collider2D col)
     {
