@@ -23,3 +23,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Nivel2.unity
     guid: d700ea5e0b036224b91a1bd57e5e4869
+  - enabled: 1
+    path: Assets/Scenes/FinPartida.unity
+    guid: 8927be93b51497c46a4cecddb82530b8

@@ -275,7 +275,7 @@ public class GameManager : MonoBehaviour {
 
     public void Pierde()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("FinPartida");
     }
 
 	// FIN DEL NIVEL 1

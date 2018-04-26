@@ -34638,6 +34638,23 @@ Transform:
   m_PrefabParentObject: {fileID: 4929032081706710, guid: 1e21783ebc40b014ba7e0a21b3779b1b,
     type: 2}
   m_PrefabInternal: {fileID: 396837751}
+--- !u!95 &396837756
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 396837752}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!4 &401306381 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4087083753497634, guid: d8d50dc1b193a1644a88676923486464,
@@ -34741,11 +34758,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4381305514000628, guid: cce2d8697ac6c0a458f8a840e6ec065c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -79
+      value: -70.89
       objectReference: {fileID: 0}
     - target: {fileID: 4381305514000628, guid: cce2d8697ac6c0a458f8a840e6ec065c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 8.2
+      value: 31.67
       objectReference: {fileID: 0}
     - target: {fileID: 4381305514000628, guid: cce2d8697ac6c0a458f8a840e6ec065c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -34914,11 +34931,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4017417568762042, guid: bc895052ea5eab4489435e1cbee7629b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -79
+      value: -70.89
       objectReference: {fileID: 0}
     - target: {fileID: 4017417568762042, guid: bc895052ea5eab4489435e1cbee7629b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 8.2
+      value: 31.67
       objectReference: {fileID: 0}
     - target: {fileID: 4017417568762042, guid: bc895052ea5eab4489435e1cbee7629b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -48577,6 +48594,7 @@ MonoBehaviour:
   bombillas: 0
   carretes: 4
   loot: 0
+  carreteEspecial: 1
 --- !u!4 &801409118
 Transform:
   m_ObjectHideFlags: 0
@@ -49170,11 +49188,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4523797744048908, guid: 3642fba2cb91f424d812a77d4a6bfc0c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -79
+      value: -70.89
       objectReference: {fileID: 0}
     - target: {fileID: 4523797744048908, guid: 3642fba2cb91f424d812a77d4a6bfc0c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 8.2
+      value: 31.67
       objectReference: {fileID: 0}
     - target: {fileID: 4523797744048908, guid: 3642fba2cb91f424d812a77d4a6bfc0c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -55028,6 +55046,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crono: {fileID: 1529019997}
+  cuentaAtras: 0
   tiempo: 0
 --- !u!114 &1529019997
 MonoBehaviour:
