@@ -89,7 +89,7 @@ public class Raycast : MonoBehaviour
 
     public void Stunn()
     {
-        if(whoToHit.CompareTag("Guardia"))
+        if(whoToHit.transform.GetChild(3).CompareTag("Guardia"))
         whoToHit.GetComponent<Patrol>().Stunned();
     }
 

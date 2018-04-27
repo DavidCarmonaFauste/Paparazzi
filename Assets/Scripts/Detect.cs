@@ -12,15 +12,13 @@ public class Detect : MonoBehaviour {
 
 	Rigidbody2D rb;
 
-    //sonido
-    AudioSource fuenteAudio;
+
 
     void Start()
 	{
 		rb = GetComponentInParent<Rigidbody2D> ();
 
-        //sonido
-        fuenteAudio = GetComponent<AudioSource>();
+      
     }
 
 	private void FixedUpdate()
@@ -40,8 +38,7 @@ public class Detect : MonoBehaviour {
 			{
 				leVeo = true;
 				Debug.DrawRay(transform.position, dir, Color.green);
-                //sonido
-                fuenteAudio.Play();
+                
             }
             else
 			{

@@ -19,6 +19,9 @@ public class Patrol : MonoBehaviour {
 
     public bool patrulla = true;
 
+    //sonido detección
+    AudioSource fuenteAudio;
+
     void Start ()
 	{
 		agent = gameObject.GetComponent<NavMeshAgent>();
@@ -28,12 +31,17 @@ public class Patrol : MonoBehaviour {
 		currentPatrol = patrolPoints [currentPatrolIndex];
         agent.updateRotation = false;
         go = GameObject.FindWithTag("Player");
+
+        //sonido
+        fuenteAudio = GetComponent<AudioSource>();
     }
 
     void Update()
     {
         if(transform.GetChild(0).GetComponent<Detect>().LeVeo())
         {
+            //sonido
+            fuenteAudio.Play();
 
             patrulla = false;
 
