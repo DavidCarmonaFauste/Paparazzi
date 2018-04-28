@@ -21,6 +21,7 @@ public class Patrol : MonoBehaviour {
 
     //sonido detección
     AudioSource fuenteAudio;
+    bool puedeSonar = true;
 
     void Start ()
 	{
@@ -41,7 +42,8 @@ public class Patrol : MonoBehaviour {
         if(transform.GetChild(0).GetComponent<Detect>().LeVeo())
         {
             //sonido
-            fuenteAudio.Play();
+            if (puedeSonar)
+                Sonido();
 
             patrulla = false;
 
@@ -54,6 +56,10 @@ public class Patrol : MonoBehaviour {
         }
         else if(acudeCamara)
         {
+            //sonido
+            if (puedeSonar)
+                Sonido();
+
             Vector2 dir = new Vector2(camera.position.x - transform.position.x, camera.position.y - transform.position.y);
 
             rb.MoveRotation(Mathf.LerpAngle(rb.rotation, Vector2.SignedAngle(Vector2.up, dir), 0.1f));//Rotaicion del guardia
@@ -115,6 +121,8 @@ public class Patrol : MonoBehaviour {
 	{
         
         patrulla = true;
+        //sonido
+        puedeSonar = true;
     }
 
     public void AcudeACamara(Transform camara)
@@ -123,5 +131,11 @@ public class Patrol : MonoBehaviour {
         acudeCamara = true;
         agent.SetDestination(camara.position);
         camera = camara;
+    }
+
+    public void Sonido()
+    {
+        puedeSonar = false;
+        fuenteAudio.Play();
     }
 }
