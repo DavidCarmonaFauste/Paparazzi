@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FinPartida : MonoBehaviour {
+	public int indiceNivel;
 
     void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "Player" && GameManager.instance.MinijuegoTerminado())
         {
-            GameManager.instance.GoToPuntuacionN1();
+			GameManager.instance.GoToPuntuacion(indiceNivel);
         }
 
     }

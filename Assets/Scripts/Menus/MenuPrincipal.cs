@@ -9,6 +9,7 @@ public class MenuPrincipal : MonoBehaviour
 
     public void NewGame()
     {
+		GameManager.instance.InicializaObjetos ();
         SceneManager.LoadScene(nivel1);
     }
 
@@ -19,6 +20,7 @@ public class MenuPrincipal : MonoBehaviour
     }
     public void Nivel1()
     {
+		GameManager.instance.InicializaObjetos ();
         SceneManager.LoadScene(nivel1);
     }
 }

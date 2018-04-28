@@ -75,17 +75,7 @@ public class GameManager : MonoBehaviour {
         }
 		else Destroy(this.gameObject);
 
-		// Inicialización
-		bombillas = 3;
-		carretes = 3;
-		loot = 0;
-		//puntos = 0;
 		nivel1 = new Nivel ("nivel1");
-	}
-
-	void Update()
-	{
-		//Debug.Log (nivel1.puntos);
 	}
 
 	public string SiguienteEscena()
@@ -232,6 +222,14 @@ public class GameManager : MonoBehaviour {
         }
 	}
 
+	// Inicialización de objetos
+	public void InicializaObjetos ()
+	{
+		bombillas = 3;
+		carretes = 3;
+		loot = 0;
+	}
+
    /*public float Puntuacion ()
     {
         
@@ -330,11 +328,15 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene("Nivel1");
     }
 
-	public void GoToPuntuacionN1() //////////PASARLE EL NIVEL POR PARAMETRO
+	public void GoToPuntuacion(int indNivel) 
 	{
-		// Ir a la escena de puntuación del nivel 1
-		SceneManager.LoadScene("N1Puntuacion");
-		Debug.Log("PUNTUACION = " + nivel1.puntos);
+		switch (indNivel) 
+		{
+		case 1:
+			// Nivel 1
+			SceneManager.LoadScene("N1Puntuacion");
+			break;
+		}
 	}
 
 	// Devolver la puntuación total obtenida
