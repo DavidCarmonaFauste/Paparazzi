@@ -39,7 +39,8 @@ public class Patrol : MonoBehaviour {
 
     void Update()
     {
-        if(transform.GetChild(0).GetComponent<Detect>().LeVeo())
+		// Primero comprueba que sea un guardia y no un famoso el objeto que tiene este script
+		if(!this.gameObject.CompareTag("Famoso") && transform.GetChild(0).GetComponent<Detect>().LeVeo()) 
         {
             //sonido
             if (puedeSonar)
