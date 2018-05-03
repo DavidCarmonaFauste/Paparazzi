@@ -52,7 +52,7 @@ public class Mecanica : MonoBehaviour {
     void Update()
     {
 		Debug.Log (GameManager.instance.Carretes ());
-		if (Input.GetMouseButtonDown (0) && puedeFoto && GameManager.instance.Carretes () > 0) {
+		if (Input.GetMouseButtonDown (0) && puedeFoto && (GameManager.instance.Carretes () > 0 || GameManager.instance.carreteEspecial > 0)) {
 			//audio
 			fuenteAudio.Play ();
 
@@ -70,7 +70,7 @@ public class Mecanica : MonoBehaviour {
 
 			//Puntuacion();
 			Invoke ("PuedeFoto", tiempoFoto);    // Sólo puede echar una foto si han pasado n segundos
-		} else if (GameManager.instance.Carretes () == 0)
+		} else if (GameManager.instance.Carretes () == 0 && GameManager.instance.carreteEspecial == 0)
 			GameManager.instance.FinN1 ();
     }
 
