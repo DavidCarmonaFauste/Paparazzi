@@ -9,8 +9,11 @@ public class Controller : MonoBehaviour {
 
 
 	Vector2 velocity;
-    
-	void Start () {
+
+    void Start () {
+        if (GameManager.instance.MinijuegoTerminado() && GameManager.instance.NivelActual() == "Nivel1")
+            transform.position = new Vector3(-16.44f, 42, 0);
+
         realSpeed = moveSpeed;//Guarda la velocidad para cuando se stunee
 		rb = GetComponent<Rigidbody2D> ();
     }

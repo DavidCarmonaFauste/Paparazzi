@@ -55,7 +55,7 @@ class Nivel
 public class GameManager : MonoBehaviour {
 
 	Nivel nivel1;
-
+    Nivel nivel2;
 	public int bombillas, carretes, loot; //Las bombillas se usan para stunnear y los carretes para las fotos
                                           //puntuacionMinijuego,
                                           //puntos;
@@ -66,7 +66,9 @@ public class GameManager : MonoBehaviour {
 
 	public static GameManager instance = null;
 
-	void Awake()
+    string actual;
+
+    void Awake()
     {
 		if (instance == null)
         {
@@ -76,11 +78,13 @@ public class GameManager : MonoBehaviour {
 		else Destroy(this.gameObject);
 
 		nivel1 = new Nivel ("nivel1");
-	}
+        actual = SceneManager.GetActiveScene().name;
+
+    }
 
 	public string SiguienteEscena()
 	{
-		string actual;
+		
 		string siguiente = SceneManager.GetActiveScene().name; //Lo pongo como la actual porque hay que poner esto, o un caso default
 
 		actual = SceneManager.GetActiveScene ().name;
@@ -297,11 +301,32 @@ public class GameManager : MonoBehaviour {
 
     public void Minijuego()
     {
-       nivel1.minijuego = true;
+        if(actual == "Nivel1")
+          nivel1.minijuego = true;
+        else if(actual == "Nivel2")
+            nivel2.minijuego = true;
     }
     public bool MinijuegoTerminado()
     {
-        return nivel1.minijuego;
+
+
+        switch (actual)
+        {
+
+            case "Nivel1":
+                return nivel1.minijuego;
+                break;
+            case "Nivel2":
+                return nivel2.minijuego;
+                break;
+            default:
+                return false;
+        }
+    }
+
+    public string NivelActual()
+    {
+        return actual;
     }
 
     public void Pierde()

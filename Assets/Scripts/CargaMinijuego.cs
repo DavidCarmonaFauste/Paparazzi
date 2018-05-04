@@ -7,7 +7,7 @@ public class CargaMinijuego : MonoBehaviour {
 
 		void OnCollisionEnter2D (Collision2D col)
 		{
-            if (col.gameObject.tag == "Player")
+            if (col.gameObject.tag == "Player"&& !GameManager.instance.MinijuegoTerminado() && GameManager.instance.NivelActual() == "Nivel1")
             {
                 SceneManager.LoadScene(GameManager.instance.SiguienteEscena());
                 GameManager.instance.Minijuego();
