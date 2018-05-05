@@ -9,16 +9,11 @@ public class Detect : MonoBehaviour {
 
 	public LayerMask whatToHit;//Que tiene encuenta el raycast(Paredes y jugador)
 
-
 	Rigidbody2D rb;
-
-
 
     void Start()
 	{
-		rb = GetComponentInParent<Rigidbody2D> ();
-
-      
+		rb = GetComponentInParent<Rigidbody2D> ();     
     }
 
 	private void FixedUpdate()
@@ -38,7 +33,6 @@ public class Detect : MonoBehaviour {
 			{
 				leVeo = true;
 				Debug.DrawRay(transform.position, dir, Color.green);
-                
             }
             else
 			{
@@ -51,7 +45,6 @@ public class Detect : MonoBehaviour {
 			leVeo = false;
 			Debug.DrawRay(transform.position, dir, Color.red);
 		}
-
 	}
 	private void OnTriggerEnter2D(Collider2D col)
 	{
@@ -59,7 +52,6 @@ public class Detect : MonoBehaviour {
 
 		if (go.CompareTag("Player"))
 			dentro = true;
-
 	}
 
 	private void OnTriggerExit2D(Collider2D col)
@@ -68,13 +60,13 @@ public class Detect : MonoBehaviour {
 
 		if (go.CompareTag("Player"))
 			dentro = false;
-
 	}
 
 	public bool LeVeo()
 	{
 		return leVeo;
 	}
+
 	public bool Dentro()
 	{
 		return dentro;

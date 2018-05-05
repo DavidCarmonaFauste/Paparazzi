@@ -4,12 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class CarreteEspecial : MonoBehaviour {
-   
 
-	void Start () {
-        
-    }
-	
 	void Update () {
         // Desactiva el carrete especial en el HUD una vez que es usado
         if(GameManager.instance.CarreteEspecial() != 1)

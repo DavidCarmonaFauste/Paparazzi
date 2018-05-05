@@ -21,17 +21,11 @@ public class Controller : MonoBehaviour {
     void Update () {
 
 		velocity = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * moveSpeed;//Movimiento
-
-             
-
-
-
     }
 
     void FixedUpdate() {
 		
 		rb.MovePosition (rb.position + velocity * Time.fixedDeltaTime); //Movimiento
-        
 
 	}
 
@@ -61,7 +55,4 @@ public class Controller : MonoBehaviour {
             GameManager.instance.Pierde();
         
     }
-
-
-
 }

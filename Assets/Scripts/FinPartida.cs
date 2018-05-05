@@ -11,6 +11,5 @@ public class FinPartida : MonoBehaviour {
         {
 			GameManager.instance.GoToPuntuacion(indiceNivel);
         }
-
     }
 }

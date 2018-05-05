@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Flash : MonoBehaviour
 {
+    //Animación
+    Animator playerAnim;
+    
+
     //sonido
     public AudioClip flashSound;
     public AudioClip cameraSound;
@@ -18,6 +22,9 @@ public class Flash : MonoBehaviour
 
     void Start()
     {
+        //Animación
+        playerAnim = GetComponent<Animator>();
+
         //sonido
         fuenteAudio = GetComponent<AudioSource>();
 
@@ -37,13 +44,11 @@ public class Flash : MonoBehaviour
 			if (Input.GetKeyDown(KeyCode.Mouse0) && GameManager.instance.bombillas > 0)
             {
                 VisibleFlash();
-
             }
 
             else if (Input.GetKeyDown(KeyCode.Mouse1) && GameManager.instance.carretes > 0)
             {
                 VisibleFoto();
-
             }
 
             if (  Input.GetKeyUp(KeyCode.Mouse1)  && GameManager.instance.carretes > 0)
@@ -60,7 +65,6 @@ public class Flash : MonoBehaviour
                 fuenteAudio.clip = cameraSound;
                 fuenteAudio.volume = 0.5f;
                 fuenteAudio.Play();
-
             }
 			if(Input.GetKeyUp(KeyCode.Mouse0) && GameManager.instance.bombillas > 0)
             {
@@ -92,6 +96,8 @@ public class Flash : MonoBehaviour
         Area.SetActive(true);
         ConoFoto.SetActive(true);
         rbConoFoto.WakeUp();
+        //Animación con la cámara
+        playerAnim.SetTrigger("Camara");
     }
 
     void VisibleFlash()
@@ -99,5 +105,7 @@ public class Flash : MonoBehaviour
         Area.SetActive(true);
         ConoFlash.SetActive(true);
         rbConoFlash.WakeUp();
+        //Animación con la cámara
+        playerAnim.SetTrigger("Camara");
     }
 }
