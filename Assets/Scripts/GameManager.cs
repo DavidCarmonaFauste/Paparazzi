@@ -348,7 +348,6 @@ public class GameManager : MonoBehaviour {
 			//Debug.Log ("Ptos Bombilla " + nivel1.ptsBombillas);
 		}
 
-
         // Ir a la pantalla de puntuación de este nivel
         SceneManager.LoadScene("Nivel1");
     }

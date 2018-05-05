@@ -9,10 +9,10 @@ public class MenuPausa : MonoBehaviour {
 	public GameObject pauseMenuUI;
 	public string menu;
 
-	void Start ()
+	/*void Start ()
 	{
 		Time.timeScale = 1f;
-	}
+	}*/
 
 	void Update () 
 	{

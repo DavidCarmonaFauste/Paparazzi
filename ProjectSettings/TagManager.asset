@@ -81,3 +81,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: SobreJugador
+    uniqueID: 2028652901
+    locked: 0

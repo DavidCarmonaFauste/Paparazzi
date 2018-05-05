@@ -56,13 +56,14 @@ public class Mecanica : MonoBehaviour {
 			//audio
 			fuenteAudio.Play ();
 
-            // El primer carrete que se gasta es el especial
-            if (GameManager.instance.carreteEspecial == 1)
-                GameManager.instance.carreteEspecial--;
-            else GameManager.instance.carretes--;
+			// El primer carrete que se gasta es el especial
+			if (GameManager.instance.carreteEspecial == 1)
+				GameManager.instance.carreteEspecial--;
+			else
+				GameManager.instance.carretes--;
             
 
-            fotos = fotos + colisiones;
+			fotos = fotos + colisiones;
 			puedeFoto = false;
 
 			if (dentro)
@@ -70,8 +71,12 @@ public class Mecanica : MonoBehaviour {
 
 			//Puntuacion();
 			Invoke ("PuedeFoto", tiempoFoto);    // Sólo puede echar una foto si han pasado n segundos
-		} else if (GameManager.instance.Carretes () == 0 && GameManager.instance.carreteEspecial == 0)
+		} else if (GameManager.instance.Carretes () == 0 && GameManager.instance.carreteEspecial == 0) 
+		{
+			GameManager.instance.Minijuego ();
 			GameManager.instance.FinN1 ();
+		}
+			
     }
 
     void PuedeFoto()
