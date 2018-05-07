@@ -32,8 +32,11 @@ public class Cronometro : MonoBehaviour {
             seg = 30 - seg;
 
             // si el tiempo llega a 0, se acaba el minijuego
-            if(min == 0 && seg ==0)
-                GameManager.instance.FinN1();
+            if (min == 0 && seg == 0)
+            {
+                int indiceNivel = GameManager.instance.NivelActual()[GameManager.instance.NivelActual().Length];
+                GameManager.instance.FinMinijuego(indiceNivel);
+            }
         }
 
         string minutos = min.ToString();

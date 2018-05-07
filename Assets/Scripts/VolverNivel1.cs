@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class VolverNivel1 : MonoBehaviour {
 
@@ -9,7 +8,7 @@ public class VolverNivel1 : MonoBehaviour {
     {
         if (col.gameObject.tag == "Player")
         {
-			SceneManager.LoadScene ("Nivel1");
+            GameManager.instance.Nivel1();
         }
 
     }

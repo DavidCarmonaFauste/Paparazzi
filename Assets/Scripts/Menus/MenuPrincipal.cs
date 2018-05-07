@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MenuPrincipal : MonoBehaviour
 {
@@ -10,7 +9,7 @@ public class MenuPrincipal : MonoBehaviour
     public void NewGame()
     {
 		GameManager.instance.InicializaObjetos ();
-        SceneManager.LoadScene(nivel1);
+        GameManager.instance.Nivel1();
     }
 
     public void Quit()
@@ -21,6 +20,6 @@ public class MenuPrincipal : MonoBehaviour
     public void Nivel1()
     {
 		GameManager.instance.InicializaObjetos ();
-        SceneManager.LoadScene(nivel1);
+        GameManager.instance.Nivel1();
     }
 }

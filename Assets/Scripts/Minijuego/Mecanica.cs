@@ -74,7 +74,8 @@ public class Mecanica : MonoBehaviour {
 		} else if (GameManager.instance.Carretes () == 0 && GameManager.instance.carreteEspecial == 0) 
 		{
 			GameManager.instance.Minijuego ();
-			GameManager.instance.FinN1 ();
+            int indiceNivel = GameManager.instance.NivelActual()[GameManager.instance.NivelActual().Length];
+            GameManager.instance.FinMinijuego (indiceNivel);
 		}
 			
     }
