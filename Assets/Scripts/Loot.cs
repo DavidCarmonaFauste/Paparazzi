@@ -10,9 +10,10 @@ public class Loot : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
+            int indiceNivel = GameManager.instance.NivelActual()[GameManager.instance.NivelActual().Length];
             PlayLoot.PlaySound();
             GameManager.instance.loot++;
-			GameManager.instance.SumaPuntos (ptosLoot, "loot");
+			GameManager.instance.SumaPuntos (ptosLoot, "loot", indiceNivel);
             Destroy(this.gameObject);
         }
     }

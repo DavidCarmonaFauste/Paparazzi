@@ -66,8 +66,11 @@ public class Mecanica : MonoBehaviour {
 			fotos = fotos + colisiones;
 			puedeFoto = false;
 
-			if (dentro)
-				GameManager.instance.SumaPuntos (multiplicador, "minijuego");
+            if (dentro)
+            {
+                int indiceNivel = GameManager.instance.NivelActual()[GameManager.instance.NivelActual().Length];
+                GameManager.instance.SumaPuntos(multiplicador, "minijuego", indiceNivel);
+            }
 
 			//Puntuacion();
 			Invoke ("PuedeFoto", tiempoFoto);    // Sólo puede echar una foto si han pasado n segundos

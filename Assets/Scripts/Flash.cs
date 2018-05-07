@@ -56,9 +56,17 @@ public class Flash : MonoBehaviour
 
                 Invisible();
                 if (ConoFoto.GetComponent<Raycast>().LeVeo() && ConoFoto.GetComponent<Raycast>().Frente() && ConoFoto.GetComponent<Raycast>().FotoAQuien().CompareTag("Famoso"))//Si esta de frente y dentro llama a stun
-					GameManager.instance.SumaPuntos((500), "opcional");
+                {
+
+                    int indiceNivel = GameManager.instance.NivelActual()[GameManager.instance.NivelActual().Length];
+                    GameManager.instance.SumaPuntos((500), "opcional", indiceNivel);
+                }
                 else if (ConoFoto.GetComponent<Raycast>().LeVeo() && !ConoFoto.GetComponent<Raycast>().Frente() && ConoFoto.GetComponent<Raycast>().FotoAQuien().CompareTag("Famoso"))
-					GameManager.instance.SumaPuntos(100, "opcional");
+                {
+                    int indiceNivel = GameManager.instance.NivelActual()[GameManager.instance.NivelActual().Length];
+                    GameManager.instance.SumaPuntos(100, "opcional", indiceNivel);
+                    
+                }
 
                 GameManager.instance.carretes--;
                 //sonido

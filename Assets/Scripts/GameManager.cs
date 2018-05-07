@@ -112,34 +112,62 @@ public class GameManager : MonoBehaviour {
 	}
 
 	// Aumenta la puntuación en una cantidad determinada y guarda de dónde viene la puntuación
-	public void SumaPuntos(int cantidad, string motivo)
+	public void SumaPuntos(int cantidad, string motivo, int indNivel)
 	{
 		nivel1.puntos += cantidad;
 
-		/*	"minijuego"	-> ptosMinijuego
+        /*	"minijuego"	-> ptosMinijuego
 		 * 	"opcional"	-> ptosFotoOp
 		 * 	"bombillas"	-> ptosBombillas
 		 * 	"carretes"	-> ptosCarretes
 		 * 	"loot"	-> ptosLoot
 		 */
-		switch (motivo) 
-		{
-		case "minijuego":
-			nivel1.ptsMinijuego += cantidad;
-			break;
-		case "opcional":
-			nivel1.ptsFotoOp += cantidad;
-			break;
-		case "bombillas":
-			nivel1.ptsBombillas += cantidad;
-			break;
-		case "carretes":
-			nivel1.ptsCarretes += cantidad;
-			break;
-		case "loot":
-			nivel1.ptsLoot += cantidad;
-			break;
-		}
+        switch (indNivel)
+        {
+            case 1:
+                // Nivel 1
+                switch (motivo)
+                {
+                    case "minijuego":
+                        nivel1.ptsMinijuego += cantidad;
+                        break;
+                    case "opcional":
+                        nivel1.ptsFotoOp += cantidad;
+                        break;
+                    case "bombillas":
+                        nivel1.ptsBombillas += cantidad;
+                        break;
+                    case "carretes":
+                        nivel1.ptsCarretes += cantidad;
+                        break;
+                    case "loot":
+                        nivel1.ptsLoot += cantidad;
+                        break;
+                }
+                break;
+            case 2:
+                // Nivel 2
+                switch (motivo)
+                {
+                    case "minijuego":
+                        nivel2.ptsMinijuego += cantidad;
+                        break;
+                    case "opcional":
+                        nivel2.ptsFotoOp += cantidad;
+                        break;
+                    case "bombillas":
+                        nivel2.ptsBombillas += cantidad;
+                        break;
+                    case "carretes":
+                        nivel2.ptsCarretes += cantidad;
+                        break;
+                    case "loot":
+                        nivel2.ptsLoot += cantidad;
+                        break;
+                }
+                break;
+        }
+       
 	}
 
 	public int GetPuntos(int indNivel)
@@ -175,7 +203,7 @@ public class GameManager : MonoBehaviour {
                 SceneManager.LoadScene("Minijuego1");
                 break;
             case 2:
-                // Nivel 1
+                // Nivel 2
                 SceneManager.LoadScene("Minijuego2");
                 break;
         }
@@ -226,12 +254,12 @@ public class GameManager : MonoBehaviour {
 	{
 		// Puntuación por carretes extra
 		for (int i = 0; i < carretes; i++)
-			SumaPuntos (100, "carretes");
+			SumaPuntos (100, "carretes", indNivel);
 
 		// Puntuación por bombillas extra
 		for (int i = 0; i < bombillas; i++) {
 			
-			SumaPuntos (250, "bombillas");
+			SumaPuntos (250, "bombillas", indNivel);
 			//Debug.Log ("Ptos Bombilla " + nivel1.ptsBombillas);
 		}
 
