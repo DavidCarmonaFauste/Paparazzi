@@ -8,6 +8,7 @@ public class Tutorial : MonoBehaviour {
 	void Awake() {
 		if (!GameManager.instance.MinijuegoTerminado ()) 
 		{
+			GameManager.instance.SetPause (true);
 			Time.timeScale = 0f;
 			actual = 0;
 			this.transform.GetChild (actual).gameObject.SetActive (true);	//Activar la primera imagen al empezar el nivel
@@ -22,6 +23,7 @@ public class Tutorial : MonoBehaviour {
 			this.transform.GetChild (actual).gameObject.SetActive (true);
 		} else if (Input.GetKeyDown (KeyCode.Space) && actual == 2 && actual != -1) {
 			this.transform.GetChild (actual).gameObject.SetActive (false);
+			GameManager.instance.SetPause (false);
 			Time.timeScale = 1f;
 		}
 	}

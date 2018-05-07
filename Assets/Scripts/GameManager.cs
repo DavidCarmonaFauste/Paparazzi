@@ -68,6 +68,8 @@ public class GameManager : MonoBehaviour {
 
     string actual;
 
+	bool gameIsPaused = false;
+
     void Awake()
     {
 		if (instance == null)
@@ -194,6 +196,7 @@ public class GameManager : MonoBehaviour {
         else if(actual == "Nivel2")
             nivel2.minijuego = true;
     }
+
     public void GoToMiniJuego(int indNivel)
     {
         switch (indNivel)
@@ -437,4 +440,14 @@ public class GameManager : MonoBehaviour {
                 MP3 = int.Parse(datoS[2]);
         }
     }
+
+	public void SetPause(bool pause)
+	{
+		gameIsPaused = pause;
+	}
+
+	public bool GameIsPaused()
+	{
+		return gameIsPaused;
+	}
 }

@@ -8,6 +8,14 @@ public class MenuOpciones : MonoBehaviour {
     public AudioMixer audioMixer;
 	public int controlIndex;
 
+	void Update () 
+	{
+		if (Input.GetKeyDown (KeyCode.Escape)) 
+		{
+			this.gameObject.SetActive (false);
+		}
+	}
+
     public void SetVolume(float volume)
     {
         Debug.Log(volume);

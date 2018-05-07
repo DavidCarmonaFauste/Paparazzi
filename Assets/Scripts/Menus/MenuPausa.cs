@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MenuPausa : MonoBehaviour {
 
-	public static bool GameIsPaused = false;
 	public GameObject pauseMenuUI;
 	public string menu;
 
@@ -17,7 +16,7 @@ public class MenuPausa : MonoBehaviour {
 	{
 		if (Input.GetKeyDown (KeyCode.Escape)) 
 		{
-			if (GameIsPaused) 
+			if (GameManager.instance.GameIsPaused()) 
 			{
 				Resume ();	
 			} 
@@ -33,15 +32,14 @@ public class MenuPausa : MonoBehaviour {
 		pauseMenuUI.SetActive (false);
 		// timeScale modifica la velocidad a la que pasa el tiempo dentro del juego (va de 0 a 1)
 		Time.timeScale = 1f;
-		GameIsPaused = false;
-
+		GameManager.instance.SetPause (false);
 	}
 
 	void Pause ()
 	{
 		pauseMenuUI.SetActive (true);
 		Time.timeScale = 0f; 
-		GameIsPaused = true;
+		GameManager.instance.SetPause (true);
 	}
 
 	public void Quit ()
