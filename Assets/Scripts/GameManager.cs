@@ -50,6 +50,7 @@ class Nivel
 			"Penalización por tiempo: " + ptsLoot + " puntos\n" +
 			"TOTAL: " + PuntuacionTotal() + " puntos\n");
 	}
+
 }
 
 public class GameManager : MonoBehaviour {
@@ -111,6 +112,16 @@ public class GameManager : MonoBehaviour {
 		bombillas = 3;
 		carretes = 3;
 		loot = 0;
+	}
+
+	public void PickBombilla ()
+	{
+		bombillas++;
+	}
+
+	public void PickCarrete ()
+	{
+		carretes++;
 	}
 
 	// Aumenta la puntuación en una cantidad determinada y guarda de dónde viene la puntuación
