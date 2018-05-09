@@ -6,16 +6,18 @@ using UnityEngine.SceneManagement;
 
 class Nivel
 {
-	// Variables para guardar de dónde viene la puntuación, de cara a la pantalla de puntuación
-	public int puntos,
-				ptsMinijuego, // puntos para el nivel conseguidos en el minijuego
-				ptsFotoOp, // puntos para el nivel conseguidos por fotos a famosos opcionales
-				ptsBombillas, // puntos para el nivel conseguidos por bombillas extra
-				ptsCarretes, // puntos para el nivel conseguidos por carretes extra
-				ptsLoot, // puntos para el nivel conseguidos por coleccionables cogidos
-				penalTiempo; // penalización por tiempo
+    // Variables para guardar de dónde viene la puntuación, de cara a la pantalla de puntuación
+    public int puntos,
+                ptsMinijuego, // puntos para el nivel conseguidos en el minijuego
+                ptsFotoOp, // puntos para el nivel conseguidos por fotos a famosos opcionales
+                ptsBombillas, // puntos para el nivel conseguidos por bombillas extra
+                ptsCarretes, // puntos para el nivel conseguidos por carretes extra
+                ptsLoot, // puntos para el nivel conseguidos por coleccionables cogidos
+                penalTiempo, // penalización por tiempo
+                puntuacionMaxima;
 
     public bool minijuego; // Es true si se ha entrado en el minijuego de nivel
+    public bool terminado; // Es true si el nivel se ha terminado
 
 	// Constructor
 	public Nivel(string _nombre)
@@ -50,6 +52,8 @@ class Nivel
 			"Penalización por tiempo: " + ptsLoot + " puntos\n" +
 			"TOTAL: " + PuntuacionTotal() + " puntos\n");
 	}
+
+
 
 }
 
@@ -286,7 +290,7 @@ public class GameManager : MonoBehaviour {
                 break;
             case 2:
                 // Nivel 1
-                SceneManager.LoadScene("Nivel1");
+                SceneManager.LoadScene("Nivel2");
                 break;
         }
         actual = "Nivel" + indNivel;
@@ -299,13 +303,16 @@ public class GameManager : MonoBehaviour {
 		case 1:
 			// Nivel 1
 			SceneManager.LoadScene("N1Puntuacion");
+                nivel1.terminado = true;
 			break;
         case 2:
             // Nivel 1
             SceneManager.LoadScene("N2Puntuacion");
-            break;
+                nivel2.terminado = true;
+                break;
         }
         actual = "N" + indNivel + "Puntuacion";
+
     }
 
     public void GoToMenu()
@@ -348,41 +355,29 @@ public class GameManager : MonoBehaviour {
 		return texto;
 	}
 
-    public void GuardaListaUsuarios(string username)
+    public void Partida()
     {
-        StreamReader entrada;
-        StreamWriter salida;
-        salida = new StreamWriter("users");
-        string[] backup;
-        backup = new string[150];
-        int i = 0, a = 0;
+        
 
-        if (!File.Exists("users"))
+        if (!File.Exists("PartidaGuardada"))
         {
-            salida.WriteLine("Lista de usuarios de Paparazzi Infilitration");
-            salida.WriteLine();
-            salida.Close();
+            StreamReader entrada = new StreamReader("PartidaGuardada");
+            string s;
+            s = entrada.ReadLine();
+            while(s.Split(' ')[0]!= "")
+            if (s.Split(' ').Length > 1)
+            {
+                nivel1.terminado = true;
+                s = entrada.ReadLine();
+                nivel1.puntuacionMaxima = int.Parse(s.Split(' ')[1]);
+            }
+            else
+                nivel1.terminado = false;
+            
+
         }
 
-        else
-        {
-            entrada = new StreamReader("users");
-
-            while (i < backup.Length - 1)
-            {
-                backup[i] = entrada.ReadLine();
-                i++;
-            }
-
-            while (backup[a] != null)
-            {
-                salida.WriteLine(backup[a]);
-                a++;
-            }
-
-            salida.WriteLine(username);
-            salida.Close();
-        }
+        
 
     }
 

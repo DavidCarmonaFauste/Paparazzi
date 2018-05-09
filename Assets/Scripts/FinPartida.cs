@@ -9,7 +9,7 @@ public class FinPartida : MonoBehaviour {
     {
         if (col.gameObject.tag == "Player" && GameManager.instance.MinijuegoTerminado())
         {
-            indiceNivel = GameManager.instance.NivelActual()[GameManager.instance.NivelActual().Length];
+            indiceNivel = int.Parse(GameManager.instance.NivelActual()[GameManager.instance.NivelActual().Length - 1].ToString());
 
             GameManager.instance.GoToPuntuacion(indiceNivel);
         }

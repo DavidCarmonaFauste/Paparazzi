@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PuntuacionText : MonoBehaviour {
 
 	Text stringTexto;
-	public int indNivel;
+    int indiceNivel;
 
 	void Awake()
 	{
@@ -19,8 +19,9 @@ public class PuntuacionText : MonoBehaviour {
 	}
 
 	void SetText () {
-		stringTexto.text = GameManager.instance.TextoPuntuacion (indNivel);
+        indiceNivel = int.Parse(GameManager.instance.NivelActual()[GameManager.instance.NivelActual().Length - 1].ToString());
+        stringTexto.text = GameManager.instance.TextoPuntuacion (indiceNivel);
 	}
-	//GameManager.instance.PuntuacionTotalNivel (indNivel).ToString();									
+										
 
 }

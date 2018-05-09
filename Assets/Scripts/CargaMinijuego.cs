@@ -8,7 +8,8 @@ public class CargaMinijuego : MonoBehaviour {
 		{
             if (col.gameObject.tag == "Player"&& !GameManager.instance.MinijuegoTerminado() && GameManager.instance.NivelActual() == "Nivel1")
             {
-            indiceNivel = GameManager.instance.NivelActual()[GameManager.instance.NivelActual().Length];
+            indiceNivel = int.Parse(GameManager.instance.NivelActual()[GameManager.instance.NivelActual().Length - 1].ToString());
+
             GameManager.instance.GoToMiniJuego(indiceNivel);
             }
 			

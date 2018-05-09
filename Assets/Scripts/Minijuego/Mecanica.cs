@@ -68,7 +68,7 @@ public class Mecanica : MonoBehaviour {
 
             if (dentro)
             {
-                int indiceNivel = GameManager.instance.NivelActual()[GameManager.instance.NivelActual().Length];
+                int indiceNivel = int.Parse(GameManager.instance.NivelActual()[GameManager.instance.NivelActual().Length - 1].ToString());
                 GameManager.instance.SumaPuntos(multiplicador, "minijuego", indiceNivel);
             }
 
@@ -77,7 +77,7 @@ public class Mecanica : MonoBehaviour {
 		} else if (GameManager.instance.Carretes () == 0 && GameManager.instance.carreteEspecial == 0) 
 		{
 			GameManager.instance.Minijuego ();
-            int indiceNivel = GameManager.instance.NivelActual()[GameManager.instance.NivelActual().Length];
+            int indiceNivel = int.Parse(GameManager.instance.NivelActual()[GameManager.instance.NivelActual().Length - 1].ToString());
             GameManager.instance.FinMinijuego (indiceNivel);
 		}
 			
