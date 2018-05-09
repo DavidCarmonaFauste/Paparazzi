@@ -129,7 +129,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	// Aumenta la puntuación en una cantidad determinada y guarda de dónde viene la puntuación
-	public void SumaPuntos(int cantidad, string motivo, int indNivel)
+	public void SumaPuntos(int cantidad, string motivo)
 	{
 		nivel1.puntos += cantidad;
 
@@ -139,7 +139,9 @@ public class GameManager : MonoBehaviour {
 		 * 	"carretes"	-> ptosCarretes
 		 * 	"loot"	-> ptosLoot
 		 */
-        switch (indNivel)
+        int indiceNivel = int.Parse(actual[actual.Length-1].ToString());
+        
+        switch (indiceNivel)
         {
             case 1:
                 // Nivel 1
@@ -187,10 +189,11 @@ public class GameManager : MonoBehaviour {
        
 	}
 
-	public int GetPuntos(int indNivel)
+	public int GetPuntos()
 	{
-		int puntos = 0;
-		switch (indNivel) {
+        int indiceNivel = int.Parse(actual[actual.Length - 1].ToString());
+        int puntos = 0;
+		switch (indiceNivel) {
 		case 1:
 			puntos = PuntosN1();
 			break;
@@ -212,9 +215,10 @@ public class GameManager : MonoBehaviour {
             nivel2.minijuego = true;
     }
 
-    public void GoToMiniJuego(int indNivel)
+    public void GoToMiniJuego()
     {
-        switch (indNivel)
+        int indiceNivel = int.Parse(actual[actual.Length - 1].ToString());
+        switch (indiceNivel)
         {
             case 1:
                 // Nivel 1
@@ -225,7 +229,7 @@ public class GameManager : MonoBehaviour {
                 SceneManager.LoadScene("Minijuego2");
                 break;
         }
-        actual = "Minijuego" + indNivel;
+        actual = "Minijuego" + indiceNivel;
 
     }
     public bool MinijuegoTerminado()
@@ -268,37 +272,41 @@ public class GameManager : MonoBehaviour {
     }
 
 	// FIN DEL NIVEL 1
-	public void FinMinijuego(int indNivel)
+	public void FinMinijuego()
 	{
-		// Puntuación por carretes extra
-		for (int i = 0; i < carretes; i++)
-			SumaPuntos (100, "carretes", indNivel);
+        int indiceNivel = int.Parse(actual[actual.Length - 1].ToString());
+        // Puntuación por carretes extra
+        for (int i = 0; i < carretes; i++)
+			SumaPuntos (100, "carretes");
 
 		// Puntuación por bombillas extra
 		for (int i = 0; i < bombillas; i++) {
 			
-			SumaPuntos (250, "bombillas", indNivel);
+			SumaPuntos (250, "bombillas");
 			//Debug.Log ("Ptos Bombilla " + nivel1.ptsBombillas);
 		}
-
         // Ir a la pantalla de puntuación de este nivel
-        switch (indNivel)
-        {
+        switch (indiceNivel)
+        {  
             case 1:
                 // Nivel 1
                 SceneManager.LoadScene("Nivel1");
-                break;
+                    break;
             case 2:
                 // Nivel 1
                 SceneManager.LoadScene("Nivel2");
+
                 break;
         }
-        actual = "Nivel" + indNivel;
+        actual = "Nivel" + indiceNivel;
+
+        
     }
 
-	public void GoToPuntuacion(int indNivel) 
+	public void GoToPuntuacion() 
 	{
-		switch (indNivel) 
+        int indiceNivel = int.Parse(actual[actual.Length - 1].ToString());
+        switch (indiceNivel) 
 		{
 		case 1:
 			// Nivel 1
@@ -311,7 +319,7 @@ public class GameManager : MonoBehaviour {
                 nivel2.terminado = true;
                 break;
         }
-        actual = "N" + indNivel + "Puntuacion";
+        actual = "N" + indiceNivel + "Puntuacion";
 
     }
 
@@ -323,15 +331,16 @@ public class GameManager : MonoBehaviour {
 
 
 	// Devolver la puntuación total obtenida
-	public int PuntuacionTotalNivel(int indNivel)
+	public int PuntuacionTotalNivel()
 	{
-		int puntuacion = 0;
-		switch (indNivel) 
+        int indiceNivel = int.Parse(actual[actual.Length - 1].ToString());
+        int puntuacion = 0;
+		switch (indiceNivel) 
 		{
 		case 1:
 			puntuacion = nivel1.PuntuacionTotal();
 			break;
-            case 12:
+            case 2:
                 puntuacion = nivel2.PuntuacionTotal();
                 break;
         }
@@ -339,10 +348,11 @@ public class GameManager : MonoBehaviour {
 		return puntuacion;
 	}
 
-	public string TextoPuntuacion(int indNivel)
+	public string TextoPuntuacion()
 	{
-		string texto = "";
-		switch (indNivel) 
+        int indiceNivel = int.Parse(actual[actual.Length - 1].ToString());
+        string texto = "";
+		switch (indiceNivel) 
 		{
 		case 1:
 			texto = nivel1.PuntuacionFinalText ();

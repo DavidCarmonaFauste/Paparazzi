@@ -58,13 +58,11 @@ public class Flash : MonoBehaviour
                 if (ConoFoto.GetComponent<Raycast>().LeVeo() && ConoFoto.GetComponent<Raycast>().Frente() && ConoFoto.GetComponent<Raycast>().FotoAQuien().CompareTag("Famoso"))//Si esta de frente y dentro llama a stun
                 {
 
-                    int indiceNivel = GameManager.instance.NivelActual()[GameManager.instance.NivelActual().Length];
-                    GameManager.instance.SumaPuntos((500), "opcional", indiceNivel);
+                    GameManager.instance.SumaPuntos((500), "opcional");
                 }
                 else if (ConoFoto.GetComponent<Raycast>().LeVeo() && !ConoFoto.GetComponent<Raycast>().Frente() && ConoFoto.GetComponent<Raycast>().FotoAQuien().CompareTag("Famoso"))
                 {
-                    int indiceNivel = GameManager.instance.NivelActual()[GameManager.instance.NivelActual().Length];
-                    GameManager.instance.SumaPuntos(100, "opcional", indiceNivel);
+                    GameManager.instance.SumaPuntos(100, "opcional");
                     
                 }
 

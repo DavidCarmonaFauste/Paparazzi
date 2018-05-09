@@ -9,7 +9,7 @@ public class Rango : MonoBehaviour {
 
 	void Awake()
 	{
-		puntuacion = GameManager.instance.GetPuntos (1);
+		puntuacion = GameManager.instance.GetPuntos ();
 		//puntuacion = 55789;
 	}
 

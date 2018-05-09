@@ -19,8 +19,7 @@ public class PuntuacionText : MonoBehaviour {
 	}
 
 	void SetText () {
-        indiceNivel = int.Parse(GameManager.instance.NivelActual()[GameManager.instance.NivelActual().Length - 1].ToString());
-        stringTexto.text = GameManager.instance.TextoPuntuacion (indiceNivel);
+        stringTexto.text = GameManager.instance.TextoPuntuacion ();
 	}
 										
 

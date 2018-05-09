@@ -34,8 +34,7 @@ public class Cronometro : MonoBehaviour {
             // si el tiempo llega a 0, se acaba el minijuego
             if (min == 0 && seg == 0)
             {
-                int indiceNivel = int.Parse(GameManager.instance.NivelActual()[GameManager.instance.NivelActual().Length - 1].ToString());
-                GameManager.instance.FinMinijuego(indiceNivel);
+                GameManager.instance.FinMinijuego();
             }
         }
 
