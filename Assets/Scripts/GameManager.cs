@@ -34,6 +34,7 @@ class Nivel
 		penalTiempo = 0;
 
         minijuego = false;
+        terminado = false;
 	}
 
 	// Devolver la puntuación total obtenida
@@ -87,6 +88,7 @@ public class GameManager : MonoBehaviour {
 
 		nivel1 = new Nivel ("nivel1");
         actual = SceneManager.GetActiveScene().name;
+        Partida();
 
     }
 
@@ -291,35 +293,46 @@ public class GameManager : MonoBehaviour {
         {  
             case 1:
                 // Nivel 1
+                
                 SceneManager.LoadScene("Nivel1");
-                    break;
+                nivel1.minijuego = true;
+
+
+                break;
             case 2:
                 // Nivel 1
                 SceneManager.LoadScene("Nivel2");
-
+                nivel2.minijuego = true;
                 break;
         }
         actual = "Nivel" + indiceNivel;
-
         
     }
 
+    
 	public void GoToPuntuacion() 
 	{
         int indiceNivel = int.Parse(actual[actual.Length - 1].ToString());
         switch (indiceNivel) 
 		{
 		case 1:
-			// Nivel 1
+                // Nivel 1
+                GuardaPartida();
+                if (nivel1.puntos > nivel1.puntuacionMaxima)
+                    nivel1.puntuacionMaxima = nivel1.puntos;
 			SceneManager.LoadScene("N1Puntuacion");
                 nivel1.terminado = true;
 			break;
         case 2:
-            // Nivel 1
-            SceneManager.LoadScene("N2Puntuacion");
+                // Nivel 2
+                GuardaPartida();
+                if (nivel2.puntos > nivel2.puntuacionMaxima)
+                    nivel2.puntuacionMaxima = nivel2.puntos;
+                SceneManager.LoadScene("N2Puntuacion");
                 nivel2.terminado = true;
                 break;
         }
+
         actual = "N" + indiceNivel + "Puntuacion";
 
     }
@@ -368,95 +381,75 @@ public class GameManager : MonoBehaviour {
 
     public void Partida()
     {
-        
-
-        if (!File.Exists("PartidaGuardada"))
+        if (File.Exists("PartidaGuardada"))
         {
             StreamReader entrada = new StreamReader("PartidaGuardada");
             string s;
             s = entrada.ReadLine();
-            while(s.Split(' ')[0]!= "")
-            if (s.Split(' ').Length > 1)
+            while (!entrada.EndOfStream)
             {
-                nivel1.terminado = true;
+                if (s.Split(' ')[0] == "Nivel")
+                {
+                    if (s.Split(' ')[1] == "1")
+                        nivel1.terminado = true;
+
+                    else if (s.Split(' ')[1] == "2")
+                        nivel2.terminado = true;
+
+                }
+                else if (s.Split(' ')[0] == "Puntuacion")
+                {
+                    if (s.Split(' ')[1] == "1")
+                        nivel1.puntuacionMaxima = int.Parse(s.Split(' ')[2]);
+
+                    else if (s.Split(' ')[1] == "2")
+                        nivel2.puntuacionMaxima = int.Parse(s.Split(' ')[2]);
+
+                }
+                
                 s = entrada.ReadLine();
-                nivel1.puntuacionMaxima = int.Parse(s.Split(' ')[1]);
+                
             }
-            else
-                nivel1.terminado = false;
+
+                if (s.Split(' ')[1] == "1")
+                    nivel1.puntuacionMaxima = int.Parse(s.Split(' ')[2]);
+
+                else if (s.Split(' ')[1] == "2")
+                    nivel2.puntuacionMaxima = int.Parse(s.Split(' ')[2]);
+
             
-
+            entrada.Close(); 
         }
-
         
-
     }
-
-    public string CargaListaUsuarios(string username)
+    public void NuevaPartida()
     {
-        StreamReader entrada;
-        entrada = new StreamReader("users");
-        bool encontrado = false;
-
-        while (!entrada.EndOfStream && !encontrado)
+        if (File.Exists("PartidaGuardada"))
         {
-            if (username == entrada.ReadLine())
-            {
-                encontrado = true;
-            }
-        }
-
-        if (!encontrado)
-            username = "error";
-
-        return username;
-    }
-
-    public void GuardaUsuario(string username, bool Nivel1S, bool Nivel2S, bool Nivel3S, int MPuntuacion1, int MPuntuacion2, int MPuntuacion3, string ultimonivel)
-    {
-        StreamWriter archivo;
-        archivo = new StreamWriter(username);
-
-        archivo.WriteLine("Usuario " + username);
-        archivo.WriteLine("Nivel1 " + Nivel1S);
-        archivo.WriteLine("MejorPuntos Nivel1 " + MPuntuacion1);
-        archivo.WriteLine("Nivel2 " + Nivel2S);
-        archivo.WriteLine("MejorPuntos Nivel2 " + MPuntuacion2);
-        archivo.WriteLine("Nivel3 " + Nivel3S);
-        archivo.WriteLine("MejorPuntos Nivel3 " + MPuntuacion3);
-    }
-
-    public void CargaUsuario(string nombrearchivo, out string username, out bool Nivel1S, out bool Nivel2S, out bool Nivel3S, out int MP1, out int MP2, out int MP3)
-    {
-        StreamReader archivo;
-        archivo = new StreamReader(nombrearchivo);
-
-        string dato;
-        string[] datoS;
-
-        Nivel1S = false; Nivel2S = false; Nivel3S = false; MP1 = 0; MP2 = 0; MP3 = 0; username = null;
-
-        while (!archivo.EndOfStream)
-        {
-            dato = archivo.ReadLine();
-            datoS = dato.Split(' ');
-
-            if (datoS[0] == "Usuario")
-                username = datoS[1];
-            else if (datoS[0] == "Nivel1")
-                Nivel1S = bool.Parse(datoS[1]);
-            else if (datoS[0] == "MejorPuntos" && datoS[1] == "Nivel1")
-                MP1 = int.Parse(datoS[2]);
-            else if (datoS[0] == "Nivel2")
-                Nivel2S = bool.Parse(datoS[1]);
-            else if (datoS[0] == "MejorPuntos" && datoS[1] == "Nivel2")
-                MP2 = int.Parse(datoS[2]);
-            else if (datoS[0] == "Nivel3")
-                Nivel3S = bool.Parse(datoS[1]);
-            else if (datoS[0] == "MejorPuntos" && datoS[1] == "Nivel3")
-                MP3 = int.Parse(datoS[2]);
+            File.Delete("PartidaGuardada");
         }
     }
+
+    public void GuardaPartida()
+    {
+        int indiceNivel = int.Parse(actual[actual.Length - 1].ToString());
+        StreamWriter salida = new StreamWriter("PartidaGuardada");
+        if (indiceNivel == 1)
+
+        {
+            salida.WriteLine("Nivel 1");
+            salida.Write("Puntuacion 1 " + nivel1.puntuacionMaxima);
+        }
+        else if (indiceNivel == 2)
+        {
+            salida.WriteLine("Nivel 2");
+            salida.WriteLine("Puntuacion 2 " + nivel2.puntuacionMaxima);
+        }
+        salida.Close();
+
+    }
+
+
 
 	public void SetPause(bool pause)
 	{
