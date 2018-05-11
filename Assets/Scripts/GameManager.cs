@@ -87,6 +87,7 @@ public class GameManager : MonoBehaviour {
 		else Destroy(this.gameObject);
 
 		nivel1 = new Nivel ("nivel1");
+        nivel2 = new Nivel("nivel2");
         actual = SceneManager.GetActiveScene().name;
         Partida();
 
