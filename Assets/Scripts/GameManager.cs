@@ -67,9 +67,10 @@ public class GameManager : MonoBehaviour {
 
     public int carreteEspecial = 1;
 
-	private bool Nivel1S = false, Nivel2S = false, Nivel3S = false;
+    private bool Nivel1S = false, Nivel2S = false, Nivel3S = false,
+                tutoVisto = false;
 
-	public static GameManager instance = null;
+    public static GameManager instance = null;
 
     string actual;
 
@@ -466,4 +467,16 @@ public class GameManager : MonoBehaviour {
 	{
 		return gameIsPaused;
 	}
+
+    //Tutorial cámaras
+    public void VistoTutorial()
+    {
+        tutoVisto = true;
+    }
+
+    //Devuelve true si ya se ha visto el tutorial
+    public bool CheckTutorial()
+    {
+        return tutoVisto;
+    }
 }
