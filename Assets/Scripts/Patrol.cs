@@ -114,7 +114,7 @@ public class Patrol : MonoBehaviour {
 
     public void Spray()
     {
-        agent.speed = 0;
+        agent.isStopped = true;
         Invoke("NoStunned", 0.5f);
     }
 
