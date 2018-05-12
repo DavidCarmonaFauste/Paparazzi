@@ -10,6 +10,7 @@ public class MenuPrincipal : MonoBehaviour
     {
 		GameManager.instance.InicializaObjetos ();
         GameManager.instance.Nivel1();
+        GameManager.instance.NuevaPartida();
     }
 
     public void Quit()

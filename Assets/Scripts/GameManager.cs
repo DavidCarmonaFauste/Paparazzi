@@ -62,7 +62,8 @@ public class GameManager : MonoBehaviour {
 
 	Nivel nivel1;
     Nivel nivel2;
-	public int bombillas, carretes, loot; //Las bombillas se usan para stunnear y los carretes para las fotos
+    Nivel nivel3;
+    public int bombillas, carretes, loot; //Las bombillas se usan para stunnear y los carretes para las fotos
                                           //puntuacionMinijuego,
                                           //puntos;
 
@@ -88,6 +89,7 @@ public class GameManager : MonoBehaviour {
 
 		nivel1 = new Nivel ("nivel1");
         nivel2 = new Nivel("nivel2");
+        nivel3 = new Nivel("nivel3");
         actual = SceneManager.GetActiveScene().name;
         Partida();
 
@@ -136,6 +138,8 @@ public class GameManager : MonoBehaviour {
 	public void SumaPuntos(int cantidad, string motivo)
 	{
 		nivel1.puntos += cantidad;
+        nivel2.puntos += cantidad;
+        nivel3.puntos += cantidad;
 
         /*	"minijuego"	-> ptosMinijuego
 		 * 	"opcional"	-> ptosFotoOp
@@ -189,6 +193,27 @@ public class GameManager : MonoBehaviour {
                         break;
                 }
                 break;
+            case 3:
+                // Nivel 3
+                switch (motivo)
+                {
+                    case "minijuego":
+                        nivel3.ptsMinijuego += cantidad;
+                        break;
+                    case "opcional":
+                        nivel3.ptsFotoOp += cantidad;
+                        break;
+                    case "bombillas":
+                        nivel3.ptsBombillas += cantidad;
+                        break;
+                    case "carretes":
+                        nivel3.ptsCarretes += cantidad;
+                        break;
+                    case "loot":
+                        nivel3.ptsLoot += cantidad;
+                        break;
+                }
+                break;
         }
        
 	}
@@ -201,7 +226,13 @@ public class GameManager : MonoBehaviour {
 		case 1:
 			puntos = PuntosN1();
 			break;
-		}
+            case 2:
+                puntos = PuntosN2();
+                break;
+            case 3:
+                puntos = PuntosN3();
+                break;
+        }
 
 		return puntos;
 	}
@@ -210,6 +241,14 @@ public class GameManager : MonoBehaviour {
 	{
 		return nivel1.puntos;
 	}
+    int PuntosN2()
+    {
+        return nivel2.puntos;
+    }
+    int PuntosN3()
+    {
+        return nivel3.puntos;
+    }
 
     public void Minijuego()
     {
@@ -217,6 +256,8 @@ public class GameManager : MonoBehaviour {
           nivel1.minijuego = true;
         else if(actual == "Nivel2")
             nivel2.minijuego = true;
+        else if (actual == "Nivel3")
+            nivel3.minijuego = true;
     }
 
     public void GoToMiniJuego()
@@ -231,6 +272,10 @@ public class GameManager : MonoBehaviour {
             case 2:
                 // Nivel 2
                 SceneManager.LoadScene("Minijuego2");
+                break;
+            case 3:
+                // Nivel 3
+                SceneManager.LoadScene("Minijuego3");
                 break;
         }
         actual = "Minijuego" + indiceNivel;
@@ -248,7 +293,9 @@ public class GameManager : MonoBehaviour {
                 
             case "Nivel2":
                 return nivel2.minijuego;
-                
+            case "Nivel3":
+                return nivel3.minijuego;
+
             default:
                 return false;
         }
@@ -269,14 +316,21 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene("Nivel2");
         actual = "nivel2";
     }
+    public void Nivel3()
+    {
+        SceneManager.LoadScene("Nivel3");
+        actual = "nivel";
+    }
+
     public void Pierde()
     {
         SceneManager.LoadScene("FinPartida");
         actual = "FinPartida";
     }
+       
 
-	// FIN DEL NIVEL 1
-	public void FinMinijuego()
+        // FIN DEL NIVEL 1
+        public void FinMinijuego()
 	{
         int indiceNivel = int.Parse(actual[actual.Length - 1].ToString());
         // Puntuación por carretes extra
@@ -293,17 +347,19 @@ public class GameManager : MonoBehaviour {
         switch (indiceNivel)
         {  
             case 1:
-                // Nivel 1
-                
+                // Nivel 1         
                 SceneManager.LoadScene("Nivel1");
                 nivel1.minijuego = true;
-
-
                 break;
             case 2:
-                // Nivel 1
+                // Nivel 2
                 SceneManager.LoadScene("Nivel2");
                 nivel2.minijuego = true;
+                break;
+            case 3:
+                // Nivel 3
+                SceneManager.LoadScene("Nivel3");
+                nivel3.minijuego = true;
                 break;
         }
         actual = "Nivel" + indiceNivel;
@@ -332,6 +388,14 @@ public class GameManager : MonoBehaviour {
                 SceneManager.LoadScene("N2Puntuacion");
                 nivel2.terminado = true;
                 break;
+            case 3:
+                // Nivel 3
+                GuardaPartida();
+                if (nivel3.puntos > nivel3.puntuacionMaxima)
+                    nivel3.puntuacionMaxima = nivel3.puntos;
+                SceneManager.LoadScene("N2Puntuacion");
+                nivel3.terminado = true;
+                break;
         }
 
         actual = "N" + indiceNivel + "Puntuacion";
@@ -358,6 +422,9 @@ public class GameManager : MonoBehaviour {
             case 2:
                 puntuacion = nivel2.PuntuacionTotal();
                 break;
+            case 3:
+                puntuacion = nivel3.PuntuacionTotal();
+                break;
         }
 
 		return puntuacion;
@@ -375,10 +442,22 @@ public class GameManager : MonoBehaviour {
             case 2:
                 texto = nivel2.PuntuacionFinalText();
                 break;
+            case 3:
+                texto = nivel3.PuntuacionFinalText();
+                break;
         }
 
 		return texto;
 	}
+    public void Continua()
+    {
+        if (nivel1.terminado && nivel2.terminado)
+            Nivel3();
+        else if (nivel1.terminado)
+            Nivel2();
+        else if (!nivel1.terminado)
+            Nivel1();
+    }
 
     public void Partida()
     {
