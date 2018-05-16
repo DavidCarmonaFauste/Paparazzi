@@ -50,7 +50,7 @@ class Nivel
 			"Bombillas y carretes sin usar: " + (ptsBombillas + ptsCarretes) + " puntos\n" +
 			"Fotos a famosos secundarios: " + ptsFotoOp + " puntos\n" +
 			"Fotos al famoso principal: " + ptsMinijuego + " puntos\n" + 
-			"Penalización por tiempo: " + ptsLoot + " puntos\n" +
+			"Penalización por tiempo: -" + penalTiempo + " puntos\n" +
 			"TOTAL: " + PuntuacionTotal() + " puntos\n");
 	}
 
@@ -78,6 +78,8 @@ public class GameManager : MonoBehaviour {
     int tiempo;
 	bool gameIsPaused = false;
 
+    GameObject crono;
+
     void Awake()
     {
 		if (instance == null)
@@ -92,7 +94,7 @@ public class GameManager : MonoBehaviour {
         nivel3 = new Nivel("nivel3");
         actual = SceneManager.GetActiveScene().name;
         Partida();
-
+        crono = GameObject.FindWithTag("Crono");
     }
 
     public int Bombillas()
@@ -146,6 +148,7 @@ public class GameManager : MonoBehaviour {
 		 * 	"bombillas"	-> ptosBombillas
 		 * 	"carretes"	-> ptosCarretes
 		 * 	"loot"	-> ptosLoot
+         * 	"tiempo"-> penalTiempo
 		 */
         int indiceNivel = int.Parse(actual[actual.Length-1].ToString());
         
@@ -170,6 +173,9 @@ public class GameManager : MonoBehaviour {
                     case "loot":
                         nivel1.ptsLoot += cantidad;
                         break;
+                    case "penalTiempo":
+                        nivel1.penalTiempo += cantidad;
+                        break;
                 }
                 break;
             case 2:
@@ -191,6 +197,9 @@ public class GameManager : MonoBehaviour {
                     case "loot":
                         nivel2.ptsLoot += cantidad;
                         break;
+                    case "penalTiempo":
+                        nivel1.penalTiempo += cantidad;
+                        break;
                 }
                 break;
             case 3:
@@ -211,6 +220,9 @@ public class GameManager : MonoBehaviour {
                         break;
                     case "loot":
                         nivel3.ptsLoot += cantidad;
+                        break;
+                    case "penalTiempo":
+                        nivel1.penalTiempo += cantidad;
                         break;
                 }
                 break;
@@ -370,10 +382,12 @@ public class GameManager : MonoBehaviour {
 	public void GoToPuntuacion() 
 	{
         int indiceNivel = int.Parse(actual[actual.Length - 1].ToString());
+        int penalTiempo = (int)System.Math.Round(crono.GetComponent<Cronometro>().FinPartida());
         switch (indiceNivel) 
 		{
 		case 1:
                 // Nivel 1
+                SumaPuntos(-penalTiempo, "penalTiempo");
                 GuardaPartida();
                 if (nivel1.puntos > nivel1.puntuacionMaxima)
                     nivel1.puntuacionMaxima = nivel1.puntos;
@@ -382,6 +396,7 @@ public class GameManager : MonoBehaviour {
 			break;
         case 2:
                 // Nivel 2
+                SumaPuntos(-penalTiempo, "penalTiempo");
                 GuardaPartida();
                 if (nivel2.puntos > nivel2.puntuacionMaxima)
                     nivel2.puntuacionMaxima = nivel2.puntos;
@@ -390,6 +405,7 @@ public class GameManager : MonoBehaviour {
                 break;
             case 3:
                 // Nivel 3
+                SumaPuntos(-penalTiempo, "penalTiempo");
                 GuardaPartida();
                 if (nivel3.puntos > nivel3.puntuacionMaxima)
                     nivel3.puntuacionMaxima = nivel3.puntos;
@@ -419,12 +435,12 @@ public class GameManager : MonoBehaviour {
 		case 1:
 			puntuacion = nivel1.PuntuacionTotal();
 			break;
-            case 2:
-                puntuacion = nivel2.PuntuacionTotal();
-                break;
-            case 3:
-                puntuacion = nivel3.PuntuacionTotal();
-                break;
+        case 2:
+            puntuacion = nivel2.PuntuacionTotal();
+            break;
+        case 3:
+            puntuacion = nivel3.PuntuacionTotal();
+            break;
         }
 
 		return puntuacion;
@@ -439,12 +455,12 @@ public class GameManager : MonoBehaviour {
 		case 1:
 			texto = nivel1.PuntuacionFinalText ();
 			break;
-            case 2:
-                texto = nivel2.PuntuacionFinalText();
-                break;
-            case 3:
-                texto = nivel3.PuntuacionFinalText();
-                break;
+        case 2:
+            texto = nivel2.PuntuacionFinalText();
+            break;
+        case 3:
+            texto = nivel3.PuntuacionFinalText();
+            break;
         }
 
 		return texto;
