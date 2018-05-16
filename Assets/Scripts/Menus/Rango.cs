@@ -7,16 +7,17 @@ public class Rango : MonoBehaviour {
 	int puntuacion = 0;
 	GameObject rank;
 
-	void Awake()
+	/*void Awake()
 	{
 		puntuacion = GameManager.instance.GetPuntos ();
 		//puntuacion = 55789;
-	}
+	}*/
 
 	void Start()
 	{
-		
-		if(puntuacion >= 10000) // S
+        puntuacion = GameManager.instance.GetPuntos();
+
+        if (puntuacion >= 10000) // S
 		{	
 			rank = this.transform.GetChild (0).gameObject;
 			rank.SetActive (true);

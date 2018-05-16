@@ -377,7 +377,7 @@ public class GameManager : MonoBehaviour {
                 GuardaPartida();
                 if (nivel1.puntos > nivel1.puntuacionMaxima)
                     nivel1.puntuacionMaxima = nivel1.puntos;
-			SceneManager.LoadScene("N1Puntuacion");
+			SceneManager.LoadScene("N1Puntuacion1");
                 nivel1.terminado = true;
 			break;
         case 2:
@@ -398,7 +398,7 @@ public class GameManager : MonoBehaviour {
                 break;
         }
 
-        actual = "N" + indiceNivel + "Puntuacion";
+        actual = "N" + indiceNivel + "Puntuacion" + indiceNivel;
 
     }
 

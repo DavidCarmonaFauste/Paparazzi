@@ -77,7 +77,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4014647643805286}
-  - component: {fileID: 114053854072031398}
   - component: {fileID: 114670881989905748}
   m_Layer: 0
   m_Name: VenGuardia
@@ -399,18 +398,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114053854072031398
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1753808303562904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 065a24c6f5f1cca459da5284ed78ddfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  go: {fileID: 0}
 --- !u!114 &114183213819311700
 MonoBehaviour:
   m_ObjectHideFlags: 1
