@@ -13,7 +13,7 @@ public class Patrol : MonoBehaviour {
     private NavMeshAgent agent;
     float realSpeed;
     GameObject go;
-    bool acudeCamara = false;
+    public bool acudeCamara = false;
 
     Transform camera;
 
@@ -47,8 +47,8 @@ public class Patrol : MonoBehaviour {
                 Sonido();
 
             patrulla = false;
+            acudeCamara = false;
 
-            
             //Vector direccion hacia donde se debe mover el guardia
             Vector2 dir = new Vector2(go.transform.position.x - transform.position.x, go.transform.position.y - transform.position.y);
             agent.SetDestination(go.transform.position);
