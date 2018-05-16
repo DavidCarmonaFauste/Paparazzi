@@ -6,7 +6,7 @@ public class Tutorial : MonoBehaviour
 {
     int actual = -1;
     string tutorial; //¿Qué tutorial es este? "inicial" o "camaras"
-    void Awake()
+    void Start()
     {
         if (this.transform.childCount > 1)
         {

@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour {
     public static GameManager instance = null;
 
     string actual;
-
+    int tiempo;
 	bool gameIsPaused = false;
 
     void Awake()
