@@ -13,7 +13,6 @@ public class Cronometro : MonoBehaviour {
     private float starTime;
     private bool fin = false;
 
-
     void Start () {
         starTime = Time.time;
 	}

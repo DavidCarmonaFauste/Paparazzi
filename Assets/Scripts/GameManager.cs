@@ -338,6 +338,7 @@ public class GameManager : MonoBehaviour {
     {
         SceneManager.LoadScene("FinPartida");
         actual = "FinPartida";
+        Destroy(GameObject.FindWithTag("Objetos"));
     }
        
 
@@ -374,6 +375,7 @@ public class GameManager : MonoBehaviour {
                 nivel3.minijuego = true;
                 break;
         }
+        
         actual = "Nivel" + indiceNivel;
         
     }
@@ -413,7 +415,7 @@ public class GameManager : MonoBehaviour {
                 nivel3.terminado = true;
                 break;
         }
-
+        Destroy(GameObject.FindWithTag("Objetos"));
         actual = "N" + indiceNivel + "Puntuacion" + indiceNivel;
 
     }
@@ -422,6 +424,7 @@ public class GameManager : MonoBehaviour {
     {
         SceneManager.LoadScene("Menu");
         actual = "Menu";
+        Destroy(GameObject.FindWithTag("Objetos"));
     }
 
 
