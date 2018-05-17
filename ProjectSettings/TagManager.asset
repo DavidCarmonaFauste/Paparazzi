@@ -23,6 +23,7 @@ TagManager:
   - Bombilla
   - Carrete
   - Crono
+  - Objetos
   layers:
   - Default
   - TransparentFX
