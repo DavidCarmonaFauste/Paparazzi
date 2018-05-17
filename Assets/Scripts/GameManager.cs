@@ -471,8 +471,17 @@ public class GameManager : MonoBehaviour {
             Nivel3();
         else if (nivel1.terminado)
             Nivel2();
-        else if (!nivel1.terminado)
+        else 
             Nivel1();
+    }
+    public string EligeNivel()
+    {
+        if (nivel1.terminado && nivel2.terminado)
+            return "123";
+        else if (nivel1.terminado)
+            return "12";
+        else 
+            return "1";
     }
 
     public void Partida()

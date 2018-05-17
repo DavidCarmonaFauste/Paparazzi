@@ -20,7 +20,15 @@ public class MenuPrincipal : MonoBehaviour
     }
     public void Nivel1()
     {
-		GameManager.instance.InicializaObjetos ();
+        GameManager.instance.InicializaObjetos();
         GameManager.instance.Nivel1();
     }
+        public void Desactiva()
+        {
+        gameObject.SetActive(false);
+        }
+    public void Activa()
+    {
+        gameObject.SetActive(true);
+        }
 }
