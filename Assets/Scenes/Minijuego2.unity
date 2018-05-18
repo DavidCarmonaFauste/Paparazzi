@@ -2503,6 +2503,7 @@ MonoBehaviour:
   crono: {fileID: 862658837}
   cuentaAtras: 1
   tiempo: 0
+  tiempoGuardado: 0
 --- !u!114 &862658837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3573,7 +3574,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1234441014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.22, y: -0.236, z: 0}
+  m_LocalPosition: {x: 9.57, y: -0.236, z: 0}
   m_LocalScale: {x: 1.1459274, y: 10.8643055, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4419,7 +4420,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1545511876}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.19, y: 0.051, z: 0}
+  m_LocalPosition: {x: -9.48, y: 0.051, z: 0}
   m_LocalScale: {x: 1, y: 12.242517, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5157,7 +5158,7 @@ Transform:
   m_GameObject: {fileID: 1676037262}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.07, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -5450,7 +5451,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1732708505}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.68, y: 3.14, z: 0}
+  m_LocalPosition: {x: 7.01, y: 2.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1803820136}

@@ -5240,8 +5240,8 @@ GameObject:
   - component: {fileID: 1732708510}
   - component: {fileID: 1732708509}
   - component: {fileID: 1732708508}
-  - component: {fileID: 1732708507}
   - component: {fileID: 1732708506}
+  - component: {fileID: 1732708507}
   - component: {fileID: 1732708511}
   m_Layer: 0
   m_Name: DarthVader
