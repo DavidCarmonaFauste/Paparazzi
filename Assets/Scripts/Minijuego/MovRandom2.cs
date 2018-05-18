@@ -9,14 +9,15 @@ public class MovRandom2 : MonoBehaviour
     public float MovX; //test
     public float MovY; //test
     public float V;
-    Animator animacion;
+    SpriteRenderer spr;
+
 
     void Start()
     {
         MovX = Random.Range(1, 3);
         MovY = Random.Range(1, 3);
         rb2d = GetComponent<Rigidbody2D>();
-        animacion = GetComponent<Animator>();
+        spr = GetComponent<SpriteRenderer>();
     }
 
     void FixedUpdate()
@@ -25,8 +26,8 @@ public class MovRandom2 : MonoBehaviour
         rb2d.velocity = (mov) * V;
 
         if (MovX < 0)
-            animacion.SetTrigger("izquierda");
-        else animacion.SetTrigger("derecha");
+            transform.localScale = new Vector3(1.5f,0,0);
+        else transform.localScale = new Vector3(-1.5f, 0, 0);
 
     }
 
