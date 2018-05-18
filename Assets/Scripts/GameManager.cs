@@ -545,6 +545,12 @@ public class GameManager : MonoBehaviour {
         if (File.Exists("PartidaGuardada"))
         {
             File.Delete("PartidaGuardada");
+            nivel1.terminado = false;
+            nivel2.terminado = false;
+            nivel3.terminado = false;
+            nivel1.puntuacionMaxima = 0;
+            nivel2.puntuacionMaxima = 0;
+            nivel3.puntuacionMaxima = 0;
         }
     }
 
