@@ -53,7 +53,7 @@ public class Patrol : MonoBehaviour {
             Vector2 dir = new Vector2(go.transform.position.x - transform.position.x, go.transform.position.y - transform.position.y);
             agent.SetDestination(go.transform.position);
 
-            rb.MoveRotation(Mathf.LerpAngle(rb.rotation, Vector2.SignedAngle(Vector2.up, dir), 0.1f));//Rotaicion del guardia
+            rb.MoveRotation(Mathf.LerpAngle(rb.rotation, Vector2.SignedAngle(Vector2.up, dir), 0.2f));//Rotaicion del guardia
         }
         else if(acudeCamara)
         {
@@ -63,7 +63,7 @@ public class Patrol : MonoBehaviour {
 
             Vector2 dir = new Vector2(camera.position.x - transform.position.x, camera.position.y - transform.position.y);
 
-            rb.MoveRotation(Mathf.LerpAngle(rb.rotation, Vector2.SignedAngle(Vector2.up, dir), 0.1f));//Rotaicion del guardia
+            rb.MoveRotation(Mathf.LerpAngle(rb.rotation, Vector2.SignedAngle(Vector2.up, dir), 0.2f));//Rotaicion del guardia
 
             if (Vector3.Distance(transform.position, camera.position) < 0.1f)
             {
@@ -97,7 +97,7 @@ public class Patrol : MonoBehaviour {
                     currentPatrol = patrolPoints[currentPatrolIndex];
 
                 }
-                rb.MoveRotation(Mathf.LerpAngle(rb.rotation, Vector2.SignedAngle(Vector2.up, dir), 0.1f));//Rotaicion del guardia
+                rb.MoveRotation(Mathf.LerpAngle(rb.rotation, Vector2.SignedAngle(Vector2.up, dir), 0.2f));//Rotaicion del guardia
             }
         }
     }

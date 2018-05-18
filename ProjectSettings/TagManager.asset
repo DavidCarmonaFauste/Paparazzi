@@ -24,6 +24,7 @@ TagManager:
   - Carrete
   - Crono
   - Objetos
+  - Taser
   layers:
   - Default
   - TransparentFX
