@@ -118,14 +118,6 @@ public class GameManager : MonoBehaviour {
     }
 
 
-	// Inicialización de objetos
-	public void InicializaObjetos ()
-	{
-		bombillas = 3;
-		carretes = 3;
-		loot = 0;
-	}
-
 	public void PickBombilla ()
 	{
 		bombillas++;
@@ -326,17 +318,26 @@ public class GameManager : MonoBehaviour {
     {
         SceneManager.LoadScene("Nivel1");
         actual = "nivel1";
+        bombillas = 3;
+        carretes = 3;
+        loot = 0;
     }
 
     public void Nivel2()
     {
         SceneManager.LoadScene("Nivel2");
         actual = "nivel2";
+        bombillas = 3;
+        carretes = 3;
+        loot = 0;
     }
     public void Nivel3()
     {
         SceneManager.LoadScene("Nivel3");
         actual = "nivel";
+        bombillas = 3;
+        carretes = 3;
+        loot = 0;
     }
 
     public void Pierde()

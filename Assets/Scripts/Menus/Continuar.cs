@@ -6,7 +6,6 @@ public class Continuar : MonoBehaviour {
 
    public void Continua()
     {
-        GameManager.instance.InicializaObjetos();
         GameManager.instance.Continua();
     }
 }

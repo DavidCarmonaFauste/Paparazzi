@@ -8,7 +8,6 @@ public class MenuPrincipal : MonoBehaviour
 
     public void NewGame()
     {
-		GameManager.instance.InicializaObjetos ();
         GameManager.instance.Nivel1();
         GameManager.instance.NuevaPartida();
     }
@@ -20,7 +19,6 @@ public class MenuPrincipal : MonoBehaviour
     }
     public void Nivel1()
     {
-        GameManager.instance.InicializaObjetos();
         GameManager.instance.Nivel1();
     }
         public void Desactiva()
