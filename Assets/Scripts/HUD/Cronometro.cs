@@ -8,18 +8,22 @@ public class Cronometro : MonoBehaviour {
 
     public Text crono;
     public bool cuentaAtras;
-    public float tiempo;
+    public float tiempo = 0;
+    public float tiempoGuardado; //El tiempo guardado al iniciar el minijuego
 
     private float starTime;
     private bool fin = false;
 
     void Start () {
         starTime = Time.time;
+
+        if (!GameManager.instance.MinijuegoTerminado())
+            tiempoGuardado = 0;
 	}
 	
 	void Update () {
 
-        tiempo = Time.time - starTime;
+        tiempo = Time.time - starTime + tiempoGuardado;
 
         int min = ((int)tiempo / 60);
         int seg = (int)(tiempo % 60);
@@ -50,5 +54,14 @@ public class Cronometro : MonoBehaviour {
         fin = true;
         crono.color = Color.yellow;
         return tiempo;
+    }
+
+    public float TiempoAntes()
+    {
+        return tiempo;
+    }
+    public void CambiaTiempo(float nuevo)
+    {
+        tiempoGuardado = nuevo;
     }
 }

@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour {
     public static GameManager instance = null;
 
     string actual;
-    int tiempo;
+    float tiempo;
 	bool gameIsPaused = false;
 
     GameObject crono;
@@ -290,6 +290,7 @@ public class GameManager : MonoBehaviour {
                 SceneManager.LoadScene("Minijuego3");
                 break;
         }
+        tiempo = GameObject.FindWithTag("Crono").GetComponent<Cronometro>().TiempoAntes();
         actual = "Minijuego" + indiceNivel;
 
     }
@@ -311,7 +312,11 @@ public class GameManager : MonoBehaviour {
             default:
                 return false;
         }
+        
     }
+
+
+
 
     public string NivelActual()
     {
@@ -377,14 +382,19 @@ public class GameManager : MonoBehaviour {
         }
         
         actual = "Nivel" + indiceNivel;
-        
+        Invoke("ActualizaTiempo", 1f);
+
     }
 
+    void ActualizaTiempo()
+    {
+        GameObject.FindWithTag("Crono").GetComponent<Cronometro>().CambiaTiempo(tiempo);
+    }
     
 	public void GoToPuntuacion() 
 	{
         int indiceNivel = int.Parse(actual[actual.Length - 1].ToString());
-        int penalTiempo = (int)System.Math.Round(crono.GetComponent<Cronometro>().FinPartida());
+        int penalTiempo = (int)System.Math.Round(GameObject.FindWithTag("Crono").GetComponent<Cronometro>().FinPartida());
         switch (indiceNivel) 
 		{
 		case 1:
