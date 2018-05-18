@@ -1531,27 +1531,11 @@ RectTransform:
   m_AnchoredPosition: {x: -71, y: 0}
   m_SizeDelta: {x: 0, y: 28}
   m_Pivot: {x: 0.5, y: 1}
---- !u!1 &100757673 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1349826558826828, guid: ffca2c121785fa64da32c1b5a86fa5be,
-    type: 2}
-  m_PrefabInternal: {fileID: 1470161945}
 --- !u!195 &100757674 stripped
 NavMeshAgent:
   m_PrefabParentObject: {fileID: 195152096193931664, guid: ffca2c121785fa64da32c1b5a86fa5be,
     type: 2}
   m_PrefabInternal: {fileID: 1470161945}
---- !u!114 &100757675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 100757673}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31d5b9e9adf1d374293cf06135709098, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &100757679 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4144350468530328, guid: ffca2c121785fa64da32c1b5a86fa5be,
@@ -12805,15 +12789,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4523797744048908, guid: 3642fba2cb91f424d812a77d4a6bfc0c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -8.02
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4523797744048908, guid: 3642fba2cb91f424d812a77d4a6bfc0c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -4.8200006
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4523797744048908, guid: 3642fba2cb91f424d812a77d4a6bfc0c, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4523797744048908, guid: 3642fba2cb91f424d812a77d4a6bfc0c, type: 2}
       propertyPath: m_LocalRotation.x
@@ -12838,7 +12822,7 @@ Prefab:
     - target: {fileID: 20944271231738250, guid: 3642fba2cb91f424d812a77d4a6bfc0c,
         type: 2}
       propertyPath: orthographic size
-      value: 3.9
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3642fba2cb91f424d812a77d4a6bfc0c, type: 2}
@@ -25056,7 +25040,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4381305514000628, guid: cce2d8697ac6c0a458f8a840e6ec065c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -8.02
+      value: -19.8
       objectReference: {fileID: 0}
     - target: {fileID: 4381305514000628, guid: cce2d8697ac6c0a458f8a840e6ec065c, type: 2}
       propertyPath: m_LocalPosition.y
@@ -72395,74 +72379,3 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2117623025}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &2133129203
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 2133129204}
-  - component: {fileID: 2133129206}
-  - component: {fileID: 2133129205}
-  m_Layer: 0
-  m_Name: Taser
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2133129204
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2133129203}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.04, y: 0, z: -0.16}
-  m_LocalScale: {x: 1, y: 8.312498, z: 1}
-  m_Children: []
-  m_Father: {fileID: 100757679}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &2133129205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2133129203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0e05ff3723a20e4f9ec6e843acdbc21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leVeo: 0
-  dentro: 0
-  whatToHit:
-    serializedVersion: 2
-    m_Bits: 768
---- !u!61 &2133129206
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2133129203}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.25}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.5}
-  m_EdgeRadius: 0
