@@ -26330,6 +26330,9 @@ MonoBehaviour:
   carretes: 3
   loot: 0
   carreteEspecial: 1
+  modPenalTiempo: 10
+  carretesExtraPts: 100
+  bombillasExtraPts: 250
 --- !u!4 &1261336363
 Transform:
   m_ObjectHideFlags: 0

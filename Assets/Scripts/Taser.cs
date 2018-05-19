@@ -9,11 +9,13 @@ public class Taser : MonoBehaviour {
 
 
 
-    GameObject vision, taser;
+    GameObject vision, taser, tasersprite;
+     
     private void Start()
     {
-        vision = transform.GetChild(0).gameObject;
+        
         taser = transform.GetChild(4).gameObject;
+        tasersprite = taser.transform.GetChild(0).gameObject;
     }
     void Update()
     {
@@ -21,6 +23,7 @@ public class Taser : MonoBehaviour {
         if (taser.GetComponent<Detect>().Dentro() && puedoDisparar)
         {
             puedoDisparar = false;
+            gameObject.GetComponent<Patrol>().Spray();
             Invoke("EfectuaDisparo", 0.5f);
 
         }
@@ -33,13 +36,21 @@ public class Taser : MonoBehaviour {
     {
         if (taser.GetComponent<Detect>().LeVeo())
         {
+            
             GameObject.FindWithTag("Player").GetComponent<Controller>().Stuned();
+            
         }
+        tasersprite.SetActive(true);
+        Invoke("Desactiva", 0.2f);
         Invoke("PuedesDisparar", 4);//4 segundos para que pueda volver a disparar
     }
 
     void PuedesDisparar()
     {
         puedoDisparar = true;
+    }
+    void Desactiva()
+    {
+        tasersprite.SetActive(false);
     }
 }
