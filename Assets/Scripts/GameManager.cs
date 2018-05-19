@@ -403,27 +403,30 @@ public class GameManager : MonoBehaviour {
 		case 1:
                 // Nivel 1
                 SumaPuntos(-penalTiempo * modPenalTiempo, "penalTiempo");
-                GuardaPartida();
+                
                 if (nivel1.puntos > nivel1.puntuacionMaxima)
                     nivel1.puntuacionMaxima = nivel1.puntos;
-			SceneManager.LoadScene("N1Puntuacion1");
+                GuardaPartida();
+                SceneManager.LoadScene("N1Puntuacion1");
                 nivel1.terminado = true;
 			break;
         case 2:
                 // Nivel 2
                 SumaPuntos(-penalTiempo * modPenalTiempo, "penalTiempo");
-                GuardaPartida();
+               
                 if (nivel2.puntos > nivel2.puntuacionMaxima)
                     nivel2.puntuacionMaxima = nivel2.puntos;
+                GuardaPartida();
                 SceneManager.LoadScene("N1Puntuacion2");
                 nivel2.terminado = true;
                 break;
             case 3:
                 // Nivel 3
                 SumaPuntos(-penalTiempo * modPenalTiempo, "penalTiempo");
-                GuardaPartida();
+                
                 if (nivel3.puntos > nivel3.puntuacionMaxima)
                     nivel3.puntuacionMaxima = nivel3.puntos;
+                GuardaPartida();
                 SceneManager.LoadScene("N1Puntuacion3");
                 nivel3.terminado = true;
                 break;
