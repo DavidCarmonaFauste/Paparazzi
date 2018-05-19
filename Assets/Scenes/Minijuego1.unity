@@ -934,6 +934,9 @@ MonoBehaviour:
   carretes: 3
   loot: 0
   carreteEspecial: 1
+  modPenalTiempo: 10
+  carretesExtraPts: 100
+  bombillasExtraPts: 250
 --- !u!4 &429838401
 Transform:
   m_ObjectHideFlags: 0
@@ -2400,8 +2403,7 @@ RectTransform:
 --- !u!114 &862658836
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114217112499586736, guid: 53e81b7c20fc69d4498045d3951bcaeb,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 862658834}
   m_Enabled: 1
@@ -2410,7 +2412,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crono: {fileID: 862658837}
-  cuentaAtras: 1
   tiempo: 0
   tiempoGuardado: 0
 --- !u!114 &862658837

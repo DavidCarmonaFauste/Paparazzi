@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class Cronometro : MonoBehaviour {
+public class CuentaAtras : MonoBehaviour {
 
     public Text crono;
     public float tiempo = 0;
@@ -24,15 +24,22 @@ public class Cronometro : MonoBehaviour {
 
         tiempo = Time.time - starTime + tiempoGuardado;
 
-        int min = ((int)tiempo / 60);
         int seg = (int)(tiempo % 60);
+        // si el tiempo llega a 60 (cuenta atrás a 0), se acaba el minijuego
+        if (seg > 45)
+            GameManager.instance.FinMinijuego();
+        else
+        {
 
-        string minutos = min.ToString();
-        string segundos = seg.ToString("0");
+            seg = 45 - seg;
 
-        if (int.Parse(segundos) < 10)
-            segundos = "0" + segundos;
-        crono.text = minutos + ":" + segundos;
+            //formato texto
+            string segundos = seg.ToString("0");
+
+            if (int.Parse(segundos) < 10)
+                segundos = "0" + segundos;
+            crono.text = "0:" + segundos;
+        }
 	}
 
     public float FinPartida()

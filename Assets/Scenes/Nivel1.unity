@@ -59609,6 +59609,31 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1022732609}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1025787946 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1779847056102742, guid: 752a4cb268a1fc049a7aebb51b2c9b1d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1918428767}
+--- !u!114 &1025787948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1025787946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c96edcf973d0b5d4ca44d2def32f96d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crono: {fileID: 1025787949}
+  tiempo: 0
+  tiempoGuardado: 0
+--- !u!114 &1025787949 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114479170531484656, guid: 752a4cb268a1fc049a7aebb51b2c9b1d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1918428767}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1026424077
 GameObject:
   m_ObjectHideFlags: 0
@@ -77291,7 +77316,8 @@ Prefab:
       propertyPath: m_TagString
       value: Crono
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114848036442514546, guid: 752a4cb268a1fc049a7aebb51b2c9b1d, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 752a4cb268a1fc049a7aebb51b2c9b1d, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1921230486

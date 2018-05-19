@@ -32202,17 +32202,15 @@ RectTransform:
 --- !u!114 &1367957254
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114848036442514546, guid: 752a4cb268a1fc049a7aebb51b2c9b1d,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1367957252}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a9d443da5bd0674c84c8f131ba6bb4c, type: 3}
+  m_Script: {fileID: 11500000, guid: c96edcf973d0b5d4ca44d2def32f96d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   crono: {fileID: 1367957255}
-  cuentaAtras: 0
   tiempo: 0
   tiempoGuardado: 0
 --- !u!114 &1367957255
