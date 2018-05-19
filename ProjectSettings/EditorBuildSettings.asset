@@ -29,3 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/N2Puntuacion2.unity
     guid: f351085be17df8b46bfbbe395b65ce9b
+  - enabled: 1
+    path: Assets/Scenes/N3Puntuacion3.unity
+    guid: c27dc59c234ca3d469aa970cfac2e65e
