@@ -40,7 +40,7 @@ class Nivel
 	// Devolver la puntuación total obtenida
 	public int PuntuacionTotal()
 	{
-		return(ptsLoot + ptsMinijuego + ptsFotoOp + ptsCarretes + ptsBombillas - penalTiempo);
+		return(ptsLoot + ptsMinijuego + ptsFotoOp + ptsCarretes + ptsBombillas + penalTiempo); //penalTiempo pasa como NEGATIVO
 	}
 
 	// Devolver el texto con la puntuación del nivel
@@ -50,7 +50,7 @@ class Nivel
 			"Bombillas y carretes sin usar: " + (ptsBombillas + ptsCarretes) + " puntos\n" +
 			"Fotos a famosos secundarios: " + ptsFotoOp + " puntos\n" +
 			"Fotos al famoso principal: " + ptsMinijuego + " puntos\n" + 
-			"Penalización por tiempo: -" + penalTiempo + " puntos\n" +
+			"Penalización por tiempo: " + penalTiempo + " puntos\n" +
 			"TOTAL: " + PuntuacionTotal() + " puntos\n");
 	}
 
@@ -77,6 +77,9 @@ public class GameManager : MonoBehaviour {
     string actual;
     float tiempo;
 	bool gameIsPaused = false;
+
+    //VARIABLES DE PUNTOS
+    public int modPenalTiempo = 10, carretesExtraPts = 100, bombillasExtraPts = 250;
 
     GameObject crono;
 
@@ -346,7 +349,6 @@ public class GameManager : MonoBehaviour {
         actual = "FinPartida";
         Destroy(GameObject.FindWithTag("Objetos"));
     }
-       
 
         // FIN DEL NIVEL 1
         public void FinMinijuego()
@@ -354,12 +356,12 @@ public class GameManager : MonoBehaviour {
         int indiceNivel = int.Parse(actual[actual.Length - 1].ToString());
         // Puntuación por carretes extra
         for (int i = 0; i < carretes; i++)
-			SumaPuntos (100, "carretes");
+			SumaPuntos (carretesExtraPts, "carretes");
 
 		// Puntuación por bombillas extra
 		for (int i = 0; i < bombillas; i++) {
 			
-			SumaPuntos (250, "bombillas");
+			SumaPuntos (bombillasExtraPts, "bombillas");
 			//Debug.Log ("Ptos Bombilla " + nivel1.ptsBombillas);
 		}
         // Ir a la pantalla de puntuación de este nivel
@@ -400,7 +402,7 @@ public class GameManager : MonoBehaviour {
 		{
 		case 1:
                 // Nivel 1
-                SumaPuntos(-penalTiempo, "penalTiempo");
+                SumaPuntos(-penalTiempo * modPenalTiempo, "penalTiempo");
                 GuardaPartida();
                 if (nivel1.puntos > nivel1.puntuacionMaxima)
                     nivel1.puntuacionMaxima = nivel1.puntos;
@@ -409,7 +411,7 @@ public class GameManager : MonoBehaviour {
 			break;
         case 2:
                 // Nivel 2
-                SumaPuntos(-penalTiempo, "penalTiempo");
+                SumaPuntos(-penalTiempo * modPenalTiempo, "penalTiempo");
                 GuardaPartida();
                 if (nivel2.puntos > nivel2.puntuacionMaxima)
                     nivel2.puntuacionMaxima = nivel2.puntos;
@@ -418,7 +420,7 @@ public class GameManager : MonoBehaviour {
                 break;
             case 3:
                 // Nivel 3
-                SumaPuntos(-penalTiempo, "penalTiempo");
+                SumaPuntos(-penalTiempo * modPenalTiempo, "penalTiempo");
                 GuardaPartida();
                 if (nivel3.puntos > nivel3.puntuacionMaxima)
                     nivel3.puntuacionMaxima = nivel3.puntos;

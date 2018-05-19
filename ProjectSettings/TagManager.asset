@@ -25,6 +25,7 @@ TagManager:
   - Crono
   - Objetos
   - Taser
+  - Arnold
   layers:
   - Default
   - TransparentFX

@@ -13,6 +13,9 @@ public class Flash : MonoBehaviour
     public AudioClip cameraSound;
     AudioSource fuenteAudio;
 
+    //Puntos famosos
+    public int fotoFrentePts = 500, fotoEspaldaPts = 100;
+
     private GameObject Area;
     private GameObject ConoFlash;
     private GameObject ConoFoto;
@@ -58,12 +61,20 @@ public class Flash : MonoBehaviour
                 if (ConoFoto.GetComponent<Raycast>().LeVeo() && ConoFoto.GetComponent<Raycast>().Frente() && ConoFoto.GetComponent<Raycast>().FotoAQuien().CompareTag("Famoso"))//Si esta de frente y dentro llama a stun
                 {
 
-                    GameManager.instance.SumaPuntos((500), "opcional");
+                    GameManager.instance.SumaPuntos((fotoFrentePts), "opcional");
                 }
                 else if (ConoFoto.GetComponent<Raycast>().LeVeo() && !ConoFoto.GetComponent<Raycast>().Frente() && ConoFoto.GetComponent<Raycast>().FotoAQuien().CompareTag("Famoso"))
                 {
-                    GameManager.instance.SumaPuntos(100, "opcional");
-                    
+                    GameManager.instance.SumaPuntos(fotoEspaldaPts, "opcional");
+
+                }
+                else if (ConoFoto.GetComponent<Raycast>().LeVeo() &&  ConoFoto.GetComponent<Raycast>().FotoAQuien().CompareTag("Arnold") && ConoFoto.GetComponent<Raycast>().FotoAQuien().GetComponent<Arnold>().IsFace())
+                {
+                    GameManager.instance.SumaPuntos(fotoFrentePts, "opcional");
+                }
+                else if (ConoFoto.GetComponent<Raycast>().LeVeo() && ConoFoto.GetComponent<Raycast>().FotoAQuien().CompareTag("Arnold") && !ConoFoto.GetComponent<Raycast>().FotoAQuien().GetComponent<Arnold>().IsFace())
+                {
+                    GameManager.instance.SumaPuntos(fotoEspaldaPts, "opcional");
                 }
 
                 GameManager.instance.carretes--;
