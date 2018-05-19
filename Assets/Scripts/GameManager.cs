@@ -575,9 +575,7 @@ public class GameManager : MonoBehaviour {
         salida.Close();
 
     }
-
-
-
+    
 	public void SetPause(bool pause)
 	{
 		gameIsPaused = pause;
