@@ -28,5 +28,5 @@ public class MenuPrincipal : MonoBehaviour
     public void Activa()
     {
         gameObject.SetActive(true);
-        }
+    }
 }
