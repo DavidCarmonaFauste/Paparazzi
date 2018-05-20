@@ -36544,6 +36544,7 @@ GameObject:
   - component: {fileID: 375030287}
   - component: {fileID: 375030286}
   - component: {fileID: 375030285}
+  - component: {fileID: 375030288}
   m_Layer: 0
   m_Name: ConoF - copia
   m_TagString: Untagged
@@ -36652,13 +36653,30 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: 71f7078c4397249438fa6b2e51768b90, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 2.33, y: 2.89}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!95 &375030288
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 375030283}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6d0e4ce548af7b84ab1403910e0365b0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &381802586
 Prefab:
   m_ObjectHideFlags: 0
@@ -37389,6 +37407,7 @@ GameObject:
   - component: {fileID: 423389147}
   - component: {fileID: 423389146}
   - component: {fileID: 423389145}
+  - component: {fileID: 423389148}
   m_Layer: 0
   m_Name: ConoF - copia
   m_TagString: Untagged
@@ -37443,8 +37462,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5131287, y: 0.65463}
-    oldSize: {x: 2.33, y: 3.5}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 2.3272727, y: 2.3272727}
     newSize: {x: 2.33, y: 2.89}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -37494,16 +37513,33 @@ SpriteRenderer:
   m_SortingLayerID: -2041233115
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 71f7078c4397249438fa6b2e51768b90, type: 3}
+  m_Sprite: {fileID: 21300004, guid: e52a3018339d3e0469143aa007526438, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 2.33, y: 2.89}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!95 &423389148
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 423389143}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6d0e4ce548af7b84ab1403910e0365b0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &423787919
 GameObject:
   m_ObjectHideFlags: 0
@@ -54450,6 +54486,7 @@ GameObject:
   - component: {fileID: 691662637}
   - component: {fileID: 691662636}
   - component: {fileID: 691662635}
+  - component: {fileID: 691662638}
   m_Layer: 0
   m_Name: ConoF - copia
   m_TagString: Untagged
@@ -54504,8 +54541,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5131287, y: 0.65463}
-    oldSize: {x: 2.33, y: 3.5}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 2.3272727, y: 2.3272727}
     newSize: {x: 2.33, y: 2.89}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -54555,16 +54592,33 @@ SpriteRenderer:
   m_SortingLayerID: -2041233115
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 71f7078c4397249438fa6b2e51768b90, type: 3}
+  m_Sprite: {fileID: 21300004, guid: e52a3018339d3e0469143aa007526438, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 2.33, y: 2.89}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!95 &691662638
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 691662633}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6d0e4ce548af7b84ab1403910e0365b0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &693935704
 GameObject:
   m_ObjectHideFlags: 0
@@ -55887,6 +55941,7 @@ GameObject:
   - component: {fileID: 772389765}
   - component: {fileID: 772389764}
   - component: {fileID: 772389763}
+  - component: {fileID: 772389766}
   m_Layer: 0
   m_Name: ConoF - copia
   m_TagString: Untagged
@@ -55941,8 +55996,8 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5131287, y: 0.65463}
-    oldSize: {x: 2.33, y: 3.5}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 2.3272727, y: 2.3272727}
     newSize: {x: 2.33, y: 2.89}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -55992,16 +56047,33 @@ SpriteRenderer:
   m_SortingLayerID: -2041233115
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 71f7078c4397249438fa6b2e51768b90, type: 3}
+  m_Sprite: {fileID: 21300004, guid: e52a3018339d3e0469143aa007526438, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 2.33, y: 2.89}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!95 &772389766
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 772389761}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6d0e4ce548af7b84ab1403910e0365b0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &776448937 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1370880414038950, guid: 1e21783ebc40b014ba7e0a21b3779b1b,
