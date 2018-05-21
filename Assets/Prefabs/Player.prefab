@@ -97,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1423616801421902}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4381305514000628}
@@ -109,8 +109,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1684962391842904}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -25.3, y: 18.3, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -80.1, y: 8.8, z: 0.02557069}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4518195277553932}
@@ -139,7 +139,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1991622039220262}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4381305514000628}
@@ -221,7 +221,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 2.33, y: 2.89}
+    oldSize: {x: 2.56, y: 2.56}
     newSize: {x: 2.33, y: 2.89}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -252,7 +252,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
-    oldSize: {x: 2.33, y: 2.89}
+    oldSize: {x: 2.56, y: 2.56}
     newSize: {x: 2.33, y: 2.89}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -300,7 +300,8 @@ AudioSource:
   m_GameObject: {fileID: 1684962391842904}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: b4f445608f92e2148bf8b675a70d979c,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.25
@@ -483,6 +484,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashSound: {fileID: 8300000, guid: 5808b8d679db95c489835bb52ce34cc9, type: 3}
   cameraSound: {fileID: 8300000, guid: 5f5987fb6868871488b2df34d4d92575, type: 3}
+  fotoFrentePts: 500
+  fotoEspaldaPts: 100
 --- !u!212 &212096174364116508
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -514,10 +517,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fe4a40983f7293247a25072b75620447, type: 3}
+  m_SortingLayerID: -927705911
+  m_SortingLayer: -2
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300000, guid: a95439a6124848845b01924326f9ff00, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -602,10 +605,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fe4a40983f7293247a25072b75620447, type: 3}
+  m_SortingLayerID: -2041233115
+  m_SortingLayer: -1
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300000, guid: 332ae21313eead6479409c04820a8a79, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
