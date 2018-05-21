@@ -16,7 +16,8 @@ public class Mecanica : MonoBehaviour {
     int multiplicador = 2000;        //multiplicador de la puntuaicón
 
     public GameObject clickIcon, continueText,    //Guarda el icono de click/continuar
-                        polaroid; //Objeto animado polaroid
+                        polaroid, //Objeto animado polaroid
+                        finText; //Texto final
     bool fotoHecha = false; //True si ya ha hecho una foto bien
 
     private void Start()
@@ -91,7 +92,10 @@ public class Mecanica : MonoBehaviour {
 			//Puntuacion();
 			Invoke ("PuedeFoto", tiempoFoto);    // Sólo puede echar una foto si han pasado n segundos
 		} else if (GameManager.instance.Carretes () == 0 && GameManager.instance.carreteEspecial == 0 && fotoHecha) //Se le acaban los carretes, pero ha hecho una foto -> Volver a nivel 
-		{
+        {
+            continueText.SetActive(false);
+            finText.SetActive(true);
+            Time.timeScale = 0.5f;
             Invoke("Finalizar", 2f);
 		}
         else if (GameManager.instance.Carretes() == 0 && GameManager.instance.carreteEspecial == 0 && !fotoHecha)
