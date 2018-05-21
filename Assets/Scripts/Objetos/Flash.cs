@@ -11,7 +11,9 @@ public class Flash : MonoBehaviour
     //sonido
     public AudioClip flashSound;
     public AudioClip cameraSound;
-    AudioSource fuenteAudio;
+    public AudioClip goodPhotoSound;
+    public AudioClip failPhotoSound;
+    AudioSource camAudio, fotoAudio;
 
     //Puntos famosos
     public int fotoFrentePts = 500, fotoEspaldaPts = 100;
@@ -29,7 +31,10 @@ public class Flash : MonoBehaviour
         playerAnim = GetComponent<Animator>();
 
         //sonido
-        fuenteAudio = GetComponent<AudioSource>();
+        //sonido
+        AudioSource[] audios = GetComponents<AudioSource>();
+        camAudio = audios[0];
+        fotoAudio = audios[1];
 
         Area = this.transform.GetChild(0).gameObject;
         ConoFlash = this.transform.GetChild(1).gameObject;
@@ -60,28 +65,33 @@ public class Flash : MonoBehaviour
                 Invisible();
                 if (ConoFoto.GetComponent<Raycast>().LeVeo() && ConoFoto.GetComponent<Raycast>().Frente() && ConoFoto.GetComponent<Raycast>().FotoAQuien().CompareTag("Famoso"))//Si esta de frente y dentro llama a stun
                 {
-
-                    GameManager.instance.SumaPuntos((fotoFrentePts), "opcional");
+                    FamosoFrente();
                 }
                 else if (ConoFoto.GetComponent<Raycast>().LeVeo() && !ConoFoto.GetComponent<Raycast>().Frente() && ConoFoto.GetComponent<Raycast>().FotoAQuien().CompareTag("Famoso"))
                 {
-                    GameManager.instance.SumaPuntos(fotoEspaldaPts, "opcional");
-
+                    FamosoEspaldas();
                 }
                 else if (ConoFoto.GetComponent<Raycast>().LeVeo() &&  ConoFoto.GetComponent<Raycast>().FotoAQuien().CompareTag("Arnold") && ConoFoto.GetComponent<Raycast>().FotoAQuien().GetComponent<Arnold>().IsFace())
                 {
-                    GameManager.instance.SumaPuntos(fotoFrentePts, "opcional");
+                    FamosoFrente();
                 }
                 else if (ConoFoto.GetComponent<Raycast>().LeVeo() && ConoFoto.GetComponent<Raycast>().FotoAQuien().CompareTag("Arnold") && !ConoFoto.GetComponent<Raycast>().FotoAQuien().GetComponent<Arnold>().IsFace())
                 {
-                    GameManager.instance.SumaPuntos(fotoEspaldaPts, "opcional");
+                    FamosoEspaldas();
+                }
+                else    //Ha fallado la foto
+                {
+                    //Sonido de error
+                    fotoAudio.clip = failPhotoSound;
+                    fotoAudio.volume = 0.3f;
+                    fotoAudio.Play();
                 }
 
                 GameManager.instance.carretes--;
                 //sonido
-                fuenteAudio.clip = cameraSound;
-                fuenteAudio.volume = 0.5f;
-                fuenteAudio.Play();
+                camAudio.clip = cameraSound;
+                camAudio.volume = 0.5f;
+                camAudio.Play();
             }
 			if(Input.GetKeyUp(KeyCode.Mouse0) && GameManager.instance.bombillas > 0)
             {
@@ -91,9 +101,9 @@ public class Flash : MonoBehaviour
 
 				GameManager.instance.bombillas--;
                 //sonido
-                fuenteAudio.clip = flashSound;
-                fuenteAudio.volume = 0.25f;
-                fuenteAudio.Play();
+                camAudio.clip = flashSound;
+                camAudio.volume = 0.25f;
+                camAudio.Play();
             }
         }
 
@@ -124,5 +134,25 @@ public class Flash : MonoBehaviour
         rbConoFlash.WakeUp();
         //Animación con la cámara
         playerAnim.SetTrigger("Camara");
+    }
+
+    void FamosoFrente()
+    {
+        //Sonido
+        fotoAudio.clip = goodPhotoSound;
+        fotoAudio.volume = 0.75f;
+        fotoAudio.Play();
+        //Puntos
+        GameManager.instance.SumaPuntos(fotoFrentePts, "opcional");
+    }
+
+    void FamosoEspaldas()
+    {
+        //Sonido
+        fotoAudio.clip = goodPhotoSound;
+        fotoAudio.volume = 0.75f;
+        fotoAudio.Play();
+        //Puntos
+        GameManager.instance.SumaPuntos(fotoEspaldaPts, "opcional");
     }
 }
