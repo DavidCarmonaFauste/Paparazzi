@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Mecanica : MonoBehaviour {
     //audio
-    AudioSource fuenteAudio;
+    AudioSource fotoSonido, famosoSonido, failSonido;
 
     public float tiempoFoto;        //retardo entre foto y foto
     public int fotos = 0;           //variable que guarda las fotos "buenas"
@@ -22,7 +22,10 @@ public class Mecanica : MonoBehaviour {
     private void Start()
     {
         //sonido
-        fuenteAudio = GetComponent<AudioSource>();
+        AudioSource[] audios = GetComponents<AudioSource>();
+        fotoSonido = audios[0];
+        famosoSonido = audios[1];
+        failSonido = audios[2];
     }
 
     void OnTriggerEnter2D (Collider2D other)
@@ -61,7 +64,7 @@ public class Mecanica : MonoBehaviour {
 
         if (Input.GetMouseButtonDown (0) && puedeFoto && (GameManager.instance.Carretes () > 0 || GameManager.instance.carreteEspecial > 0)) {
 			//audio
-			fuenteAudio.Play ();
+			fotoSonido.Play ();
 
 			// El primer carrete que se gasta es el especial
 			if (GameManager.instance.carreteEspecial == 1)
@@ -75,9 +78,14 @@ public class Mecanica : MonoBehaviour {
 
             if (dentro)
             {
+                famosoSonido.Play();
                 GameManager.instance.SumaPuntos(multiplicador, "minijuego");
                 polaroid.GetComponent<PolaroidAnim>().SetPlay(true);
                 if (!fotoHecha) PrimeraFotoBien();  //Primera foto hecha
+            }
+            else
+            {
+                failSonido.Play();  //Fallo
             }
 
 			//Puntuacion();
