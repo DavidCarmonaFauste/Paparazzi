@@ -14,7 +14,9 @@ public class Mecanica : MonoBehaviour {
     bool dentro;
     int puntuacion = 0;             //variable que guarda la puntuación
     int multiplicador = 2000;        //multiplicador de la puntuaicón
-   
+
+    public GameObject clickIcon, continueText;    //Guarda el icono de click/continuar
+    bool fotoHecha = false; //True si ya ha hecho una foto bien
 
     private void Start()
     {
@@ -51,8 +53,13 @@ public class Mecanica : MonoBehaviour {
 
     void Update()
     {
-		Debug.Log (GameManager.instance.Carretes ());
-		if (Input.GetMouseButtonDown (0) && puedeFoto && (GameManager.instance.Carretes () > 0 || GameManager.instance.carreteEspecial > 0)) {
+		if(fotoHecha && Input.GetKeyDown(KeyCode.Space))    //Termina el juego si ya ha hecho una foto y pulsa Espacio
+        {
+            GameManager.instance.Minijuego();
+            GameManager.instance.FinMinijuego();
+        }
+
+        if (Input.GetMouseButtonDown (0) && puedeFoto && (GameManager.instance.Carretes () > 0 || GameManager.instance.carreteEspecial > 0)) {
 			//audio
 			fuenteAudio.Play ();
 
@@ -69,6 +76,7 @@ public class Mecanica : MonoBehaviour {
             if (dentro)
             {
                 GameManager.instance.SumaPuntos(multiplicador, "minijuego");
+                if (!fotoHecha) PrimeraFotoBien();  //Primera foto hecha
             }
 
 			//Puntuacion();
@@ -89,6 +97,15 @@ public class Mecanica : MonoBehaviour {
     void Puntuacion()
     {
         puntuacion = puntuacion + multiplicador;
+    }
+
+    void PrimeraFotoBien()
+    {
+        fotoHecha = true;
+
+        //Avisar al jugador de que ya puede continuar
+        clickIcon.SetActive(false);
+        continueText.SetActive(true);
     }
 
 }
