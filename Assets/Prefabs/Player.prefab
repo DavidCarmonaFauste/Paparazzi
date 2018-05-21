@@ -63,6 +63,7 @@ GameObject:
   - component: {fileID: 95053741354082846}
   - component: {fileID: 114076397641989174}
   - component: {fileID: 82559074648511598}
+  - component: {fileID: 82826019872932470}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -110,7 +111,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1684962391842904}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -80.1, y: 8.8, z: 0.02557069}
+  m_LocalPosition: {x: -80.3, y: 8.7, z: 0.02557069}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4518195277553932}
@@ -373,6 +374,86 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!82 &82826019872932470
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1684962391842904}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95053741354082846
 Animator:
   serializedVersion: 3
@@ -484,8 +565,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashSound: {fileID: 8300000, guid: 5808b8d679db95c489835bb52ce34cc9, type: 3}
   cameraSound: {fileID: 8300000, guid: 5f5987fb6868871488b2df34d4d92575, type: 3}
+  goodPhotoSound: {fileID: 8300000, guid: d326e165afbbb974998033737a8c439f, type: 3}
+  failPhotoSound: {fileID: 8300000, guid: 7497727d3445d5147adc3aaa9ec841f9, type: 3}
   fotoFrentePts: 500
   fotoEspaldaPts: 100
+  polaroid: {fileID: 0}
 --- !u!212 &212096174364116508
 SpriteRenderer:
   m_ObjectHideFlags: 1

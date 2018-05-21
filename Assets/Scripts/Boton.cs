@@ -52,6 +52,7 @@ public class Boton : MonoBehaviour {
     void DesactivaBoton()
     {
         camara.transform.GetChild(0).gameObject.SetActive(false);
+        if (this.gameObject.CompareTag("BotonLaser")) Destroy(this.gameObject);
     }
     void ActivaBoton()
     {

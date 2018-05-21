@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Arnold : MonoBehaviour {
-    bool face = true;
+    bool face = false;
 
     void Start()
 	{
-        InvokeRepeating("ShowFace", 2.0f, 1.0f);
+        InvokeRepeating("ShowFace", 1.0f, 1.0f);
     }
 
     public bool IsFace()
