@@ -15,7 +15,8 @@ public class Mecanica : MonoBehaviour {
     int puntuacion = 0;             //variable que guarda la puntuación
     int multiplicador = 2000;        //multiplicador de la puntuaicón
 
-    public GameObject clickIcon, continueText;    //Guarda el icono de click/continuar
+    public GameObject clickIcon, continueText,    //Guarda el icono de click/continuar
+                        polaroid; //Objeto animado polaroid
     bool fotoHecha = false; //True si ya ha hecho una foto bien
 
     private void Start()
@@ -55,8 +56,7 @@ public class Mecanica : MonoBehaviour {
     {
 		if(fotoHecha && Input.GetKeyDown(KeyCode.Space))    //Termina el juego si ya ha hecho una foto y pulsa Espacio
         {
-            GameManager.instance.Minijuego();
-            GameManager.instance.FinMinijuego();
+            Finalizar();
         }
 
         if (Input.GetMouseButtonDown (0) && puedeFoto && (GameManager.instance.Carretes () > 0 || GameManager.instance.carreteEspecial > 0)) {
@@ -76,16 +76,20 @@ public class Mecanica : MonoBehaviour {
             if (dentro)
             {
                 GameManager.instance.SumaPuntos(multiplicador, "minijuego");
+                polaroid.GetComponent<PolaroidAnim>().SetPlay(true);
                 if (!fotoHecha) PrimeraFotoBien();  //Primera foto hecha
             }
 
 			//Puntuacion();
 			Invoke ("PuedeFoto", tiempoFoto);    // Sólo puede echar una foto si han pasado n segundos
-		} else if (GameManager.instance.Carretes () == 0 && GameManager.instance.carreteEspecial == 0) 
+		} else if (GameManager.instance.Carretes () == 0 && GameManager.instance.carreteEspecial == 0 && fotoHecha) //Se le acaban los carretes, pero ha hecho una foto -> Volver a nivel 
 		{
-			GameManager.instance.Minijuego ();
-            GameManager.instance.FinMinijuego ();
+            Invoke("Finalizar", 2f);
 		}
+        else if (GameManager.instance.Carretes() == 0 && GameManager.instance.carreteEspecial == 0 && !fotoHecha)
+        {
+            GameManager.instance.Pierde();
+        }
 			
     }
 
@@ -108,4 +112,14 @@ public class Mecanica : MonoBehaviour {
         continueText.SetActive(true);
     }
 
+    public bool IsFotoHecha()
+    {
+        return fotoHecha;
+    }
+
+    void Finalizar()
+    {
+        GameManager.instance.Minijuego();
+        GameManager.instance.FinMinijuego();
+    }
 }

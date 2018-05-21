@@ -7,11 +7,13 @@ using UnityEngine.UI;
 public class CuentaAtras : MonoBehaviour {
 
     public Text crono;
-    public float tiempo = 0;
+    public float tiempo = 0, limitTiempo = 45f;
     public float tiempoGuardado; //El tiempo guardado al iniciar el minijuego
 
     private float starTime;
     private bool fin = false;
+
+    public GameObject objetivo;
 
     void Start () {
         starTime = Time.time;
@@ -25,13 +27,17 @@ public class CuentaAtras : MonoBehaviour {
         tiempo = Time.time - starTime + tiempoGuardado;
 
         int seg = (int)(tiempo % 60);
-        // si el tiempo llega a 60 (cuenta atrás a 0), se acaba el minijuego
-        if (seg > 45)
+        // si el tiempo llega a 60 (cuenta atrás a 0) y ha hecho una foto, vuelve a nivel
+        if (seg > limitTiempo && objetivo.GetComponent<Mecanica>().IsFotoHecha())
             GameManager.instance.FinMinijuego();
+        else if (seg > limitTiempo && !objetivo.GetComponent<Mecanica>().IsFotoHecha())
+        {
+            GameManager.instance.Pierde();
+        }
         else
         {
 
-            seg = 45 - seg;
+            seg = (int)limitTiempo - seg;
 
             //formato texto
             string segundos = seg.ToString("0");

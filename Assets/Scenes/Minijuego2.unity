@@ -693,6 +693,7 @@ MonoBehaviour:
   fotos: 0
   clickIcon: {fileID: 58259088}
   continueText: {fileID: 1168523250}
+  polaroid: {fileID: 412227190}
 --- !u!61 &122674505
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1301,6 +1302,58 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 345027647}
+--- !u!1001 &394036699
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4550625594302186, guid: ce1f28c59fb76484e8e6bd955bb5bb6b, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 7.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 4550625594302186, guid: ce1f28c59fb76484e8e6bd955bb5bb6b, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -3.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4550625594302186, guid: ce1f28c59fb76484e8e6bd955bb5bb6b, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4550625594302186, guid: ce1f28c59fb76484e8e6bd955bb5bb6b, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4550625594302186, guid: ce1f28c59fb76484e8e6bd955bb5bb6b, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4550625594302186, guid: ce1f28c59fb76484e8e6bd955bb5bb6b, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4550625594302186, guid: ce1f28c59fb76484e8e6bd955bb5bb6b, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4550625594302186, guid: ce1f28c59fb76484e8e6bd955bb5bb6b, type: 2}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 212080041442422314, guid: ce1f28c59fb76484e8e6bd955bb5bb6b,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bad854351972f514ba04285fba95ee94,
+        type: 3}
+    - target: {fileID: 1377034620690506, guid: ce1f28c59fb76484e8e6bd955bb5bb6b, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ce1f28c59fb76484e8e6bd955bb5bb6b, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &400551403
 GameObject:
   m_ObjectHideFlags: 0
@@ -1458,6 +1511,11 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 406056569}
+--- !u!1 &412227190 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1377034620690506, guid: ce1f28c59fb76484e8e6bd955bb5bb6b,
+    type: 2}
+  m_PrefabInternal: {fileID: 394036699}
 --- !u!1 &429838399
 GameObject:
   m_ObjectHideFlags: 0
@@ -6274,7 +6332,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crono: {fileID: 2140690148}
   tiempo: 0
+  limitTiempo: 45
   tiempoGuardado: 0
+  objetivo: {fileID: 122674501}
 --- !u!114 &2140690148
 MonoBehaviour:
   m_ObjectHideFlags: 0
