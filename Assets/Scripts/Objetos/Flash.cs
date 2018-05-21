@@ -18,6 +18,9 @@ public class Flash : MonoBehaviour
     //Puntos famosos
     public int fotoFrentePts = 500, fotoEspaldaPts = 100;
 
+    //Feedback Famosos
+    public GameObject polaroid;
+
     private GameObject Area;
     private GameObject ConoFlash;
     private GameObject ConoFoto;
@@ -138,6 +141,8 @@ public class Flash : MonoBehaviour
 
     void FamosoFrente()
     {
+        //Imagen feedback
+        polaroid.transform.GetChild(0).GetComponent<PolaroidAnim>().SetPlay(true);
         //Sonido
         fotoAudio.clip = goodPhotoSound;
         fotoAudio.volume = 0.75f;
@@ -148,6 +153,8 @@ public class Flash : MonoBehaviour
 
     void FamosoEspaldas()
     {
+        //Imagen feedback
+        polaroid.transform.GetChild(1).GetComponent<PolaroidAnim>().SetPlay(true);
         //Sonido
         fotoAudio.clip = goodPhotoSound;
         fotoAudio.volume = 0.75f;

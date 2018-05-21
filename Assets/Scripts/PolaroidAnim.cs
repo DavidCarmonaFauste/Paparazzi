@@ -21,13 +21,23 @@ public class PolaroidAnim : MonoBehaviour {
 
     public void SetPlay(bool _play)
     {
-        this.gameObject.SetActive(true);
-        play = _play;
+        if (!play)
+        {
+            this.gameObject.SetActive(true);
+            play = _play;
+        }
+        else
+        {
+            Reiniciar();
+            SetPlay(_play);
+        }
+        
     }
 
     void Reiniciar()
     {
         anim.Play("New State");
         this.gameObject.SetActive(false);
+        play = false;
     }
 }
