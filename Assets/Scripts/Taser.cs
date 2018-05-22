@@ -20,7 +20,7 @@ public class Taser : MonoBehaviour {
     void Update()
     {
         //Si esta dentro de la vision y ha pasado el coldown puede disparar
-        if (taser.GetComponent<Detect>().Dentro() && puedoDisparar)
+        if (taser.GetComponent<Detect>().LeVeo() && puedoDisparar)
         {
             puedoDisparar = false;
             gameObject.GetComponent<Patrol>().Spray();

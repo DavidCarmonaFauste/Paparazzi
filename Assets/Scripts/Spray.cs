@@ -15,7 +15,7 @@ public class Spray : MonoBehaviour {
     void Update() {
 
         //Si esta dentro de la vision y ha pasado el coldown puede disparar
-        if (vision.GetComponent<Detect>().Dentro() && puedoDisparar)
+        if (vision.GetComponent<Detect>().LeVeo() && puedoDisparar)
         {
             puedoDisparar = false;
             Dispara();
