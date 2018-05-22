@@ -22,6 +22,7 @@ public class Patrol : MonoBehaviour {
     //sonido detección
     AudioSource fuenteAudio;
     bool puedeSonar = true;
+    public AudioClip detectadoAudio;
 
     void Start ()
 	{
@@ -137,6 +138,7 @@ public class Patrol : MonoBehaviour {
     public void Sonido()
     {
         puedeSonar = false;
+        fuenteAudio.clip = detectadoAudio;
         fuenteAudio.Play();
     }
 }
