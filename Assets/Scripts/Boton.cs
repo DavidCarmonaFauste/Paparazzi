@@ -21,11 +21,11 @@ public class Boton : MonoBehaviour {
 		if (dentro && GameObject.FindWithTag ("Player").GetComponent<Controller> ().CompruebaE ()) 
 		{
 			if (!activado) //si el boton esta activado llama a desactiva
-			{
-				DesactivaBoton();
+            {
+                //sonido
+                fuenteAudio.Play();
+                DesactivaBoton();
 				activado = true;
-				//sonido
-				fuenteAudio.Play();
 			}
 			else if (activado) // si el boton esta desactivado llama a activa
 			{
