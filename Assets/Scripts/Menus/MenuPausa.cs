@@ -14,7 +14,7 @@ public class MenuPausa : MonoBehaviour {
 
 	void Update () 
 	{
-		if (Input.GetKeyDown (KeyCode.Escape)) 
+      	if (Input.GetKeyDown (KeyCode.Escape) && GameManager.instance.AllowPausa()) 
 		{
 			if (GameManager.instance.GameIsPaused()) 
 			{

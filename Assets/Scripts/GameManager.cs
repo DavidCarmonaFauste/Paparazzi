@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour {
     public int carreteEspecial = 1;
 
     private bool Nivel1S = false, Nivel2S = false, Nivel3S = false,
-                tutoVisto = false;
+                tutoVisto = false, allowPausa = true;
 
     public static GameManager instance = null;
 
@@ -635,5 +635,16 @@ public class GameManager : MonoBehaviour {
     public bool CheckTutorial()
     {
         return tutoVisto;
+    }
+
+    //Posibilitar hacer pausa
+    public void SetAllowPausa(bool allow)
+    {
+        allowPausa = allow;
+    }
+
+    public bool AllowPausa()
+    {
+        return allowPausa;
     }
 }

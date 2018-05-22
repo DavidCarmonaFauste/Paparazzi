@@ -21,6 +21,7 @@ public class Tutorial : MonoBehaviour
         {
             GameManager.instance.SetPause(true);
             Time.timeScale = 0f;
+            GameManager.instance.SetAllowPausa(false); //no permite pausar
             actual = 0;
             this.transform.GetChild(actual).gameObject.SetActive(true); //Activar la primera imagen al empezar el nivel
         }
@@ -40,13 +41,17 @@ public class Tutorial : MonoBehaviour
             {
                 this.transform.GetChild(actual).gameObject.SetActive(false);
                 GameManager.instance.SetPause(false);
+                GameManager.instance.SetAllowPausa(true); //permite pausar
                 Time.timeScale = 1f;
             }
         }
-        else //Si es el mensaje de la cámara
+        else if (!GameManager.instance.CheckTutorial()) //Si es el mensaje de la cámara
         {
+            GameManager.instance.SetAllowPausa(false); //no permite pausar
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                GameManager.instance.VistoTutorial();
+                GameManager.instance.SetAllowPausa(true); //permite pausar
                 this.transform.GetChild(actual).gameObject.SetActive(false);
                 GameManager.instance.SetPause(false);
                 Destroy(this.transform.GetChild(actual).gameObject);
