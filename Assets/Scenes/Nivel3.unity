@@ -59555,6 +59555,11 @@ Prefab:
       propertyPath: polaroid
       value: 
       objectReference: {fileID: 1498240997}
+    - target: {fileID: 114677008737953116, guid: cce2d8697ac6c0a458f8a840e6ec065c,
+        type: 2}
+      propertyPath: objectSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 53439fca6eaa0ca4887a5d8e8b38f073, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cce2d8697ac6c0a458f8a840e6ec065c, type: 2}
   m_IsPrefabParent: 0

@@ -29,35 +29,37 @@ public class Tutorial : MonoBehaviour
 
     void Update()
     {
-        if (tutorial == "inicial") //Si se trata del tutorial inicial
+        if (!GameManager.instance.CheckTutorial())
         {
-            if (Input.GetKeyDown(KeyCode.Space) && actual != 2 && actual != -1)
+            if (tutorial == "inicial") //Si se trata del tutorial inicial
             {
-                this.transform.GetChild(actual).gameObject.SetActive(false);
-                actual++;
-                this.transform.GetChild(actual).gameObject.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.Space) && actual != 2 && actual != -1)
+                {
+                    this.transform.GetChild(actual).gameObject.SetActive(false);
+                    actual++;
+                    this.transform.GetChild(actual).gameObject.SetActive(true);
+                }
+                else if (Input.GetKeyDown(KeyCode.Space) && actual == 2 && actual != -1)
+                {
+                    this.transform.GetChild(actual).gameObject.SetActive(false);
+                    GameManager.instance.SetPause(false);
+                    GameManager.instance.SetAllowPausa(true); //permite pausar
+                    Time.timeScale = 1f;
+                }
             }
-            else if (Input.GetKeyDown(KeyCode.Space) && actual == 2 && actual != -1)
+            else //Si es el mensaje de la cámara
             {
-                this.transform.GetChild(actual).gameObject.SetActive(false);
-                GameManager.instance.SetPause(false);
-                GameManager.instance.SetAllowPausa(true); //permite pausar
-                Time.timeScale = 1f;
+                GameManager.instance.SetAllowPausa(false); //no permite pausar
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    GameManager.instance.VistoTutorial();
+                    GameManager.instance.SetAllowPausa(true); //permite pausar
+                    this.transform.GetChild(actual).gameObject.SetActive(false);
+                    GameManager.instance.SetPause(false);
+                    Destroy(this.transform.GetChild(actual).gameObject);
+                    Time.timeScale = 1f;
+                }
             }
         }
-        else if (!GameManager.instance.CheckTutorial()) //Si es el mensaje de la cámara
-        {
-            GameManager.instance.SetAllowPausa(false); //no permite pausar
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                GameManager.instance.VistoTutorial();
-                GameManager.instance.SetAllowPausa(true); //permite pausar
-                this.transform.GetChild(actual).gameObject.SetActive(false);
-                GameManager.instance.SetPause(false);
-                Destroy(this.transform.GetChild(actual).gameObject);
-                Time.timeScale = 1f;
-            }
-        }
-
     }
 }
