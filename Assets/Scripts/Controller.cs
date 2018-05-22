@@ -15,6 +15,8 @@ public class Controller : MonoBehaviour {
             transform.position = new Vector3(-16.44f, 42, 0);
         else if(GameManager.instance.MinijuegoTerminado() && GameManager.instance.NivelActual() == "Nivel2")
             transform.position = new Vector3(-16.12f, 6.97f, 0);
+        else if (GameManager.instance.MinijuegoTerminado() && GameManager.instance.NivelActual() == "Nivel3")
+            transform.position = new Vector3(79.83f, 23.07f, 0);
         realSpeed = moveSpeed;//Guarda la velocidad para cuando se stunee
 		rb = GetComponent<Rigidbody2D> ();
     }
