@@ -133,5 +133,6 @@ public class Mecanica : MonoBehaviour {
     {
         GameManager.instance.Minijuego();
         GameManager.instance.FinMinijuego();
+        Time.timeScale = 1f;
     }
 }

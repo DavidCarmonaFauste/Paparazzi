@@ -29,7 +29,7 @@ public class Raycast : MonoBehaviour
 
                 hit = Physics2D.Raycast(transform.position, dir, dist, whatToHit);
 
-                if (hit.collider.CompareTag("Espalda") || hit.collider.CompareTag("Frente")|| hit.collider.CompareTag("FrenteF") || hit.collider.CompareTag("EspaldaF"))
+                if (hit.collider.CompareTag("Espalda") || hit.collider.CompareTag("Frente") || hit.collider.CompareTag("FrenteF") || hit.collider.CompareTag("EspaldaF"))
                 {
                     frentebol = false;
                     leVeo = true;
@@ -41,18 +41,23 @@ public class Raycast : MonoBehaviour
                 }
                 else
                 {
+                    frentebol = false;
                     leVeo = false;
                     Debug.DrawRay(transform.position, dir, Color.red);
                 }
             }
             else
             {
+                frentebol = false;
                 leVeo = false;
                 Debug.DrawRay(transform.position, dir, Color.red);
             }
         }
         else
+        {
+            frentebol = false;
             leVeo = false;
+        }
     }
     private void OnTriggerEnter2D(Collider2D col)
     {

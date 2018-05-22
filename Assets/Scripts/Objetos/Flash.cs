@@ -21,7 +21,7 @@ public class Flash : MonoBehaviour
     //Feedback Famosos
     public GameObject polaroid;
 
-    private GameObject Area;
+
     private GameObject ConoFlash;
     private GameObject ConoFoto;
     private Rigidbody2D rbConoFlash;
@@ -39,9 +39,9 @@ public class Flash : MonoBehaviour
         camAudio = audios[0];
         fotoAudio = audios[1];
 
-        Area = this.transform.GetChild(0).gameObject;
-        ConoFlash = this.transform.GetChild(1).gameObject;
-        ConoFoto = this.transform.GetChild(2).gameObject;
+
+        ConoFlash = this.transform.GetChild(0).gameObject;
+        ConoFoto = this.transform.GetChild(1).gameObject;
         rbConoFlash = ConoFlash.GetComponent<Rigidbody2D>();
         rbConoFoto = ConoFoto.GetComponent<Rigidbody2D>();
 
@@ -114,7 +114,6 @@ public class Flash : MonoBehaviour
 
     void Invisible()
     {
-        Area.SetActive(false);
         ConoFlash.SetActive(false);
         ConoFoto.SetActive(false);
         rbConoFlash.Sleep();
@@ -123,7 +122,6 @@ public class Flash : MonoBehaviour
 
     void VisibleFoto()
     {
-        Area.SetActive(true);
         ConoFoto.SetActive(true);
         rbConoFoto.WakeUp();
         //Animación con la cámara
@@ -132,7 +130,6 @@ public class Flash : MonoBehaviour
 
     void VisibleFlash()
     {
-        Area.SetActive(true);
         ConoFlash.SetActive(true);
         rbConoFlash.WakeUp();
         //Animación con la cámara
