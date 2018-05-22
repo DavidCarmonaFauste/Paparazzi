@@ -100,6 +100,7 @@ public class Mecanica : MonoBehaviour {
 		}
         else if (GameManager.instance.Carretes() == 0 && GameManager.instance.carreteEspecial == 0 && !fotoHecha)
         {
+            Time.timeScale = 1f;
             GameManager.instance.Pierde();
         }
 			
@@ -131,8 +132,9 @@ public class Mecanica : MonoBehaviour {
 
     void Finalizar()
     {
+        Time.timeScale = 1f;
         GameManager.instance.Minijuego();
         GameManager.instance.FinMinijuego();
-        Time.timeScale = 1f;
+        
     }
 }
