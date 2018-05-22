@@ -6,11 +6,16 @@ public class Controller : MonoBehaviour {
     float realSpeed;
 
 	Rigidbody2D rb;
+    Vector2 velocity;
 
+    AudioSource[] fuenteAudio;
+    public AudioClip objectSound;
 
-	Vector2 velocity;
+    private void Start()
+    {
+        //sonido
+        fuenteAudio = GetComponents<AudioSource>();
 
-    void Start () {
         if (GameManager.instance.MinijuegoTerminado() && GameManager.instance.NivelActual() == "Nivel1")
             transform.position = new Vector3(-16.44f, 42, 0);
         else if(GameManager.instance.MinijuegoTerminado() && GameManager.instance.NivelActual() == "Nivel2")
@@ -66,6 +71,12 @@ public class Controller : MonoBehaviour {
     {
         if (collision.CompareTag("Guardia") && collision.gameObject.transform.parent.transform.GetChild(0).GetComponent<Detect>().LeVeo())
             GameManager.instance.Pierde();
+        else if (collision.CompareTag("Carrete") || collision.CompareTag("Bombilla"))
+        {
+            fuenteAudio[0].clip = objectSound;
+            fuenteAudio[0].volume = 2f;
+            fuenteAudio[0].Play();
+        }
         
     }
 }

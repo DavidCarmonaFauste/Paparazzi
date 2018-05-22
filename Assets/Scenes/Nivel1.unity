@@ -37526,6 +37526,11 @@ Prefab:
       propertyPath: polaroid
       value: 
       objectReference: {fileID: 1905647927}
+    - target: {fileID: 114677008737953116, guid: cce2d8697ac6c0a458f8a840e6ec065c,
+        type: 2}
+      propertyPath: objectSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 53439fca6eaa0ca4887a5d8e8b38f073, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cce2d8697ac6c0a458f8a840e6ec065c, type: 2}
   m_IsPrefabParent: 0
@@ -55501,7 +55506,8 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 1.628947
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 82116219715534982, guid: cf4fa4e2195af5d48b9eda5e77df84fc, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: cf4fa4e2195af5d48b9eda5e77df84fc, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &750418578
@@ -56249,7 +56255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bombillas: 3
-  carretes: 180
+  carretes: 3
   loot: 0
   carreteEspecial: 1
   modPenalTiempo: 5
@@ -56839,15 +56845,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4523797744048908, guid: 3642fba2cb91f424d812a77d4a6bfc0c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -79.99999
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4523797744048908, guid: 3642fba2cb91f424d812a77d4a6bfc0c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4523797744048908, guid: 3642fba2cb91f424d812a77d4a6bfc0c, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -9.97443
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4523797744048908, guid: 3642fba2cb91f424d812a77d4a6bfc0c, type: 2}
       propertyPath: m_LocalRotation.x
@@ -56868,6 +56874,11 @@ Prefab:
     - target: {fileID: 4523797744048908, guid: 3642fba2cb91f424d812a77d4a6bfc0c, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20944271231738250, guid: 3642fba2cb91f424d812a77d4a6bfc0c,
+        type: 2}
+      propertyPath: orthographic size
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3642fba2cb91f424d812a77d4a6bfc0c, type: 2}
