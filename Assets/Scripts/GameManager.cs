@@ -349,6 +349,7 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene("FinPartida");
         actual = "FinPartida";
         Destroy(GameObject.FindWithTag("Objetos"));
+        Destroy(GameObject.FindWithTag("CamarasLaseres"));
     }
 
         // FIN DEL NIVEL 1
@@ -433,6 +434,7 @@ public class GameManager : MonoBehaviour {
                 break;
         }
         Destroy(GameObject.FindWithTag("Objetos"));
+        Destroy(GameObject.FindWithTag("CamarasLaseres"));
         actual = "N" + indiceNivel + "Puntuacion" + indiceNivel;
 
     }
@@ -442,6 +444,7 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene("Menu");
         actual = "Menu";
         Destroy(GameObject.FindWithTag("Objetos"));
+        Destroy(GameObject.FindWithTag("CamarasLaseres"));
     }
 
 
@@ -510,6 +513,10 @@ public class GameManager : MonoBehaviour {
             Nivel2();
         else 
             Nivel1();
+        if(GameObject.FindWithTag("Objetos") != null)
+            Destroy(GameObject.FindWithTag("Objetos"));
+        if (GameObject.FindWithTag("CamarasLaseres") != null)
+            Destroy(GameObject.FindWithTag("CamarasLaseres"));
     }
     public string EligeNivel()
     {

@@ -28,6 +28,7 @@ TagManager:
   - Arnold
   - BotonLaser
   - Canvas
+  - CamarasLaseres
   layers:
   - Default
   - TransparentFX
