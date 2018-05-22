@@ -66732,7 +66732,11 @@ Prefab:
         type: 3}
     - target: {fileID: 1716396807122716, guid: 53e81b7c20fc69d4498045d3951bcaeb, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1716396807122716, guid: 53e81b7c20fc69d4498045d3951bcaeb, type: 2}
+      propertyPath: m_TagString
+      value: Canvas
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114217112499586736, guid: 53e81b7c20fc69d4498045d3951bcaeb, type: 2}

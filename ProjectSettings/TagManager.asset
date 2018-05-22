@@ -27,7 +27,7 @@ TagManager:
   - Taser
   - Arnold
   - BotonLaser
-  - EfectoSpray
+  - Canvas
   layers:
   - Default
   - TransparentFX

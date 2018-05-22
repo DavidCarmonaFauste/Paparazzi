@@ -51,12 +51,12 @@ public class Controller : MonoBehaviour {
     }
     public void Spray()//Para cuando se stunee al jugador
     {
-        GameObject.FindWithTag("EfectoSpray").gameObject.SetActive(true);
-        Invoke("NoStunned", 2);
+        GameObject.FindWithTag("Canvas").transform.GetChild(4).gameObject.SetActive(true);
+        Invoke("NoSpray", 2);
     }
     void NoSpray()
     {
-        GameObject.FindWithTag("EfectoSpray").gameObject.SetActive(false);
+        GameObject.FindWithTag("Canvas").transform.GetChild(4).gameObject.SetActive(false);
         
     }
 

@@ -77373,6 +77373,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1936018015721024, guid: 752a4cb268a1fc049a7aebb51b2c9b1d, type: 2}
+      propertyPath: m_TagString
+      value: Canvas
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114848036442514546, guid: 752a4cb268a1fc049a7aebb51b2c9b1d, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 752a4cb268a1fc049a7aebb51b2c9b1d, type: 2}
