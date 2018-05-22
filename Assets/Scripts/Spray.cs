@@ -34,7 +34,7 @@ public class Spray : MonoBehaviour {
     {
         if (vision.GetComponent<Detect>().LeVeo())
         {
-            GameObject.FindWithTag("Player").GetComponent<Controller>().Stuned();
+            GameObject.FindWithTag("Player").GetComponent<Controller>().Spray();
         }
         spray.SetActive(true);
         Invoke("Desactiva", 1f);

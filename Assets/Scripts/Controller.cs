@@ -42,12 +42,22 @@ public class Controller : MonoBehaviour {
     public void Stuned()//Para cuando se stunee al jugador
     {
         moveSpeed = 0;
-        Invoke("NoStunned", 1);
+        Invoke("NoStunned", 0.75f);
     }
 
     void NoStunned()
     {
         moveSpeed = realSpeed;
+    }
+    public void Spray()//Para cuando se stunee al jugador
+    {
+        GameObject.FindWithTag("EfectoSpray").gameObject.SetActive(true);
+        Invoke("NoStunned", 2);
+    }
+    void NoSpray()
+    {
+        GameObject.FindWithTag("EfectoSpray").gameObject.SetActive(false);
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
