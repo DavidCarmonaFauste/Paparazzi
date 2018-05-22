@@ -6,14 +6,17 @@ public class Taser : MonoBehaviour {
 
     bool puedoDisparar = true;
 
-
-
+    //audio
+    AudioSource fuenteAudio;
+    public AudioClip sonidoTaser;
 
     GameObject vision, taser, tasersprite;
      
     private void Start()
     {
-        
+        //audio
+        fuenteAudio = GetComponent<AudioSource>();
+
         taser = transform.GetChild(4).gameObject;
         tasersprite = taser.transform.GetChild(0).gameObject;
     }
@@ -25,9 +28,7 @@ public class Taser : MonoBehaviour {
             puedoDisparar = false;
             gameObject.GetComponent<Patrol>().Spray();
             Invoke("EfectuaDisparo", 0.5f);
-
         }
-
     }
 
 
@@ -40,6 +41,10 @@ public class Taser : MonoBehaviour {
             GameObject.FindWithTag("Player").GetComponent<Controller>().Stuned();
             
         }
+        //sonido de taser
+        fuenteAudio.clip = sonidoTaser;
+        fuenteAudio.Play();
+
         tasersprite.SetActive(true);
         Invoke("Desactiva", 0.2f);
         Invoke("PuedesDisparar", 4);//4 segundos para que pueda volver a disparar
