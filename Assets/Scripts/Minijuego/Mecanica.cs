@@ -58,7 +58,7 @@ public class Mecanica : MonoBehaviour {
 
     void Update()
     {
-		if(fotoHecha && Input.GetKeyDown(KeyCode.Space))    //Termina el juego si ya ha hecho una foto y pulsa Espacio
+		if(fotoHecha && Input.GetKeyDown(KeyCode.Space) && GameManager.instance.Carretes() != 0)    //Termina el juego si ya ha hecho una foto y pulsa Espacio
         {
             Finalizar();
         }
@@ -132,9 +132,10 @@ public class Mecanica : MonoBehaviour {
 
     void Finalizar()
     {
-        Time.timeScale = 1f;
+        
         GameManager.instance.Minijuego();
         GameManager.instance.FinMinijuego();
-        
+        Time.timeScale = 1f;
+
     }
 }
