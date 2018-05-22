@@ -7,6 +7,8 @@ public class MenuPausa : MonoBehaviour {
 	public GameObject pauseMenuUI;
 	public string menu;
 
+    float cdFlash = 0.5f; //no puede hacer flash cdFlash segundos despues de hacer click en Reanudar
+
 	/*void Start ()
 	{
 		Time.timeScale = 1f;
@@ -26,13 +28,20 @@ public class MenuPausa : MonoBehaviour {
 			}
 		}
 	}
+
+    public void ResumeFlash()
+    {
+        GameManager.instance.SetPuedeFlash(true);
+    }
 		
 	public void Resume ()
 	{
+        GameManager.instance.SetPuedeFlash(false);
 		pauseMenuUI.SetActive (false);
 		// timeScale modifica la velocidad a la que pasa el tiempo dentro del juego (va de 0 a 1)
 		Time.timeScale = 1f;
 		GameManager.instance.SetPause (false);
+        Invoke("ResumeFlash", cdFlash);
 	}
 
 	void Pause ()

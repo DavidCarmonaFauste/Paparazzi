@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour {
     public int carreteEspecial = 1;
 
     private bool Nivel1S = false, Nivel2S = false, Nivel3S = false,
-                tutoVisto = false, allowPausa = true;
+                tutoVisto = false, allowPausa = true, puedeFlash = true;
 
     public static GameManager instance = null;
 
@@ -646,5 +646,16 @@ public class GameManager : MonoBehaviour {
     public bool AllowPausa()
     {
         return allowPausa;
+    }
+
+    //Posibilitar hacer flash
+    public void SetPuedeFlash(bool allow)
+    {
+        puedeFlash = allow;
+    }
+
+    public bool PuedeFlash()
+    {
+        return puedeFlash;
     }
 }
