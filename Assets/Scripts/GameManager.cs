@@ -32,6 +32,7 @@ class Nivel
 		ptsCarretes = 0;
 		ptsLoot = 0;
 		penalTiempo = 0;
+        puntuacionMaxima = 0;
 
         minijuego = false;
         terminado = false;
@@ -484,6 +485,23 @@ public class GameManager : MonoBehaviour {
 
 		return texto;
 	}
+    public int PuntuacionMaxima(int nivel)
+    {
+        switch (nivel)
+        {
+            case 1:
+                return  nivel1.puntuacionMaxima;
+            case 2:
+                return nivel2.puntuacionMaxima;
+                
+            case 3:
+                return nivel3.puntuacionMaxima;
+                
+        }
+        return -1;
+    }
+
+
     public void Continua()
     {
         if (nivel1.terminado && nivel2.terminado)
@@ -519,6 +537,8 @@ public class GameManager : MonoBehaviour {
 
                     else if (s.Split(' ')[1] == "2")
                         nivel2.terminado = true;
+                    else if (s.Split(' ')[1] == "3")
+                        nivel3.terminado = true;
 
                 }
                 else if (s.Split(' ')[0] == "Puntuacion")
@@ -528,6 +548,8 @@ public class GameManager : MonoBehaviour {
 
                     else if (s.Split(' ')[1] == "2")
                         nivel2.puntuacionMaxima = int.Parse(s.Split(' ')[2]);
+                    else if (s.Split(' ')[1] == "3")
+                        nivel3.puntuacionMaxima = int.Parse(s.Split(' ')[2]);
 
                 }
                 
@@ -540,8 +562,10 @@ public class GameManager : MonoBehaviour {
 
                 else if (s.Split(' ')[1] == "2")
                     nivel2.puntuacionMaxima = int.Parse(s.Split(' ')[2]);
+            else if (s.Split(' ')[1] == "3")
+                nivel3.puntuacionMaxima = int.Parse(s.Split(' ')[2]);
 
-            
+
             entrada.Close(); 
         }
         
@@ -574,6 +598,11 @@ public class GameManager : MonoBehaviour {
         {
             salida.WriteLine("Nivel 2");
             salida.WriteLine("Puntuacion 2 " + nivel2.puntuacionMaxima);
+        }
+        else if (indiceNivel == 3)
+        {
+            salida.WriteLine("Nivel 3");
+            salida.WriteLine("Puntuacion 3 " + nivel3.puntuacionMaxima);
         }
         salida.Close();
 
