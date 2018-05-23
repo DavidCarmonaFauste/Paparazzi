@@ -289,7 +289,11 @@ public class GameManager : MonoBehaviour {
         tiempo = GameObject.FindWithTag("Crono").GetComponent<Cronometro>().TiempoAntes();
         actual = "Minijuego" + indiceNivel;
 
+        camaras = GameObject.FindWithTag("CamarasLaseres");
+        camaras.SetActive(false);
+
     }
+    GameObject camaras;
     public bool MinijuegoTerminado()
     {
 
@@ -388,12 +392,15 @@ public class GameManager : MonoBehaviour {
         
         actual = "Nivel" + indiceNivel;
         Invoke("ActualizaTiempo", 1f);
+        camaras.SetActive(true);
+
 
     }
 
     void ActualizaTiempo()
     {
         GameObject.FindWithTag("Crono").GetComponent<Cronometro>().CambiaTiempo(tiempo);
+        
     }
     
 	public void GoToPuntuacion() 

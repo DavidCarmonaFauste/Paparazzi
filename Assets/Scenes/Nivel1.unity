@@ -61881,6 +61881,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114893127939183610, guid: ffca2c121785fa64da32c1b5a86fa5be,
+        type: 2}
+      propertyPath: detectadoAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 8a77de8e564187f4ebcdeb7da58317a3, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ffca2c121785fa64da32c1b5a86fa5be, type: 2}
   m_IsPrefabParent: 0
@@ -61963,6 +61968,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114893127939183610, guid: ffca2c121785fa64da32c1b5a86fa5be,
+        type: 2}
+      propertyPath: detectadoAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 8a77de8e564187f4ebcdeb7da58317a3, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ffca2c121785fa64da32c1b5a86fa5be, type: 2}
   m_IsPrefabParent: 0
@@ -71299,6 +71309,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114893127939183610, guid: ffca2c121785fa64da32c1b5a86fa5be,
+        type: 2}
+      propertyPath: detectadoAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 8a77de8e564187f4ebcdeb7da58317a3, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ffca2c121785fa64da32c1b5a86fa5be, type: 2}
   m_IsPrefabParent: 0
@@ -83249,6 +83264,11 @@ Prefab:
       propertyPath: patrolPoints.Array.data[3]
       value: 
       objectReference: {fileID: 1079827396}
+    - target: {fileID: 114893127939183610, guid: ffca2c121785fa64da32c1b5a86fa5be,
+        type: 2}
+      propertyPath: detectadoAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 8a77de8e564187f4ebcdeb7da58317a3, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ffca2c121785fa64da32c1b5a86fa5be, type: 2}
   m_IsPrefabParent: 0
@@ -93661,6 +93681,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114893127939183610, guid: ffca2c121785fa64da32c1b5a86fa5be,
+        type: 2}
+      propertyPath: detectadoAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 8a77de8e564187f4ebcdeb7da58317a3, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ffca2c121785fa64da32c1b5a86fa5be, type: 2}
   m_IsPrefabParent: 0
