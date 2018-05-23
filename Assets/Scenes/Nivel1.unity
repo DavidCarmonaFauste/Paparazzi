@@ -47072,11 +47072,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4901115247243872, guid: cf4fa4e2195af5d48b9eda5e77df84fc, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 1.628947
       objectReference: {fileID: 0}
     - target: {fileID: 4901115247243872, guid: cf4fa4e2195af5d48b9eda5e77df84fc, type: 2}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 1.628947
       objectReference: {fileID: 0}
     - target: {fileID: 4901115247243872, guid: cf4fa4e2195af5d48b9eda5e77df84fc, type: 2}
       propertyPath: m_LocalScale.z
