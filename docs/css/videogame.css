@@ -7,7 +7,15 @@ html,body {
 }
 body {
   padding-bottom: 1rem;
-  color: #5a5a5a;
+  color: White;
+  /* Color de fondo*/
+  background-color: black;
+  
+  /*Imagen de fondo*/
+  background-image: url(../img/wallpaper.jpg);
+  /* Color de la fuente */
+  /*color: red;*/
+
 }
 
 
