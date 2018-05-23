@@ -14,6 +14,7 @@ public class Mecanica : MonoBehaviour {
     bool dentro;
     int puntuacion = 0;             //variable que guarda la puntuación
     int multiplicador = 2000;        //multiplicador de la puntuaicón
+    bool fin = false;
 
     public GameObject clickIcon, continueText,    //Guarda el icono de click/continuar
                         polaroid, //Objeto animado polaroid
@@ -60,13 +61,14 @@ public class Mecanica : MonoBehaviour {
     {
 		if(fotoHecha && Input.GetKeyDown(KeyCode.Space) && GameManager.instance.Carretes() != 0)    //Termina el juego si ya ha hecho una foto y pulsa Espacio
         {
+            fin = true;
             continueText.SetActive(false);
             finText.SetActive(true);
             Time.timeScale = 0.5f;
             Invoke("Finalizar", 2f);
         }
 
-        if (Input.GetMouseButtonDown (0) && puedeFoto && (GameManager.instance.Carretes () > 0 || GameManager.instance.carreteEspecial > 0)) {
+        if (Input.GetMouseButtonDown (0) && puedeFoto && (GameManager.instance.Carretes () > 0 || GameManager.instance.carreteEspecial > 0) && !fin) {
 			//audio
 			fotoSonido.Play ();
 
@@ -96,6 +98,7 @@ public class Mecanica : MonoBehaviour {
 			Invoke ("PuedeFoto", tiempoFoto);    // Sólo puede echar una foto si han pasado n segundos
 		} else if (GameManager.instance.Carretes () == 0 && GameManager.instance.carreteEspecial == 0 && fotoHecha) //Se le acaban los carretes, pero ha hecho una foto -> Volver a nivel 
         {
+            fin = true;
             continueText.SetActive(false);
             finText.SetActive(true);
             Time.timeScale = 0.5f;
