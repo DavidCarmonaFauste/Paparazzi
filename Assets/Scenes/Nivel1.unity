@@ -49044,8 +49044,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2041233115
-  m_SortingLayer: -1
+  m_SortingLayerID: 2028652901
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300004, guid: e52a3018339d3e0469143aa007526438, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -67283,8 +67283,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2041233115
-  m_SortingLayer: -1
+  m_SortingLayerID: 2028652901
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300004, guid: e52a3018339d3e0469143aa007526438, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -71585,6 +71585,16 @@ Prefab:
     - target: {fileID: 1221038169520976, guid: bf1486fae55b714459fa19ed94294b41, type: 2}
       propertyPath: m_Name
       value: Camara2
+      objectReference: {fileID: 0}
+    - target: {fileID: 212634675043805232, guid: bf1486fae55b714459fa19ed94294b41,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: 2028652901
+      objectReference: {fileID: 0}
+    - target: {fileID: 212634675043805232, guid: bf1486fae55b714459fa19ed94294b41,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bf1486fae55b714459fa19ed94294b41, type: 2}
