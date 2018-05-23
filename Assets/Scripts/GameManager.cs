@@ -340,7 +340,7 @@ public class GameManager : MonoBehaviour {
     public void Nivel3()
     {
         SceneManager.LoadScene("Nivel3");
-        actual = "nivel";
+        actual = "nivel3";
         bombillas = 3;
         carretes = 3;
         loot = 0;
