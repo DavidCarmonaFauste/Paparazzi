@@ -6,9 +6,15 @@ public class Spray : MonoBehaviour {
 
     bool puedoDisparar = true;
 
+    //audio
+    AudioSource fuenteAudio;
+    public AudioClip sprayAudio;
+
+
     GameObject vision, spray;
      void Start()
     {
+        fuenteAudio = GetComponent<AudioSource>();
         spray = transform.GetChild(4).gameObject;
         vision = transform.GetChild(0).gameObject;
     }
@@ -36,6 +42,10 @@ public class Spray : MonoBehaviour {
         {
             GameObject.FindWithTag("Player").GetComponent<Controller>().Spray();
         }
+        //audio
+        fuenteAudio.clip = sprayAudio;
+        fuenteAudio.Play();
+
         spray.SetActive(true);
         Invoke("Desactiva", 1f);
         Invoke("PuedesDisparar", 4);//4 segundos para que pueda volver a disparar
