@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 class Nivel
 {
@@ -60,7 +61,6 @@ class Nivel
 }
 
 public class GameManager : MonoBehaviour {
-
 	Nivel nivel1;
     Nivel nivel2;
     Nivel nivel3;
@@ -90,6 +90,7 @@ public class GameManager : MonoBehaviour {
         {
 			instance = this;
 			DontDestroyOnLoad(this.gameObject);
+            
         }
 		else Destroy(this.gameObject);
 
@@ -321,12 +322,23 @@ public class GameManager : MonoBehaviour {
     }
     public void Nivel1()
     {
-        SceneManager.LoadScene("Nivel1");
+        if (nivel1.terminado)
+            SceneManager.LoadScene("Nivel1");
+        else
+        {
+            SceneManager.LoadScene("Cinematica1");
+            Invoke("Cinematica1",25);
+        }
+
         actual = "nivel1";
         bombillas = 4;
-        carretes = 4;
+        carretes = 3;
         loot = 0;
         carreteEspecial = 1;
+    }
+    void Cinematica1()
+    {
+        SceneManager.LoadScene("Nivel1");
     }
 
     public void Nivel2()
@@ -334,7 +346,7 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene("Nivel2");
         actual = "nivel2";
         bombillas = 3;
-        carretes = 4;
+        carretes = 3;
         loot = 0;
         carreteEspecial = 1;
     }
@@ -433,7 +445,8 @@ public class GameManager : MonoBehaviour {
                 if (nivel3.puntos > nivel3.puntuacionMaxima)
                     nivel3.puntuacionMaxima = nivel3.puntos;
                 GuardaPartida();
-                SceneManager.LoadScene("N3Puntuacion3");
+                SceneManager.LoadScene("Cinematica2");
+                Invoke("Cinematica2", 25);
                 nivel3.terminado = true;
                 break;
         }
@@ -441,6 +454,10 @@ public class GameManager : MonoBehaviour {
         Destroy(GameObject.FindWithTag("CamarasLaseres"));
         actual = "N" + indiceNivel + "Puntuacion" + indiceNivel;
 
+    }
+    void Cinematica2()
+    {
+        SceneManager.LoadScene("N3Puntuacion3");
     }
 
     public void GoToMenu()

@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 3c994bb38406e344a81ea278deedaacd
   - enabled: 1
+    path: Assets/Scenes/Cinematica1.unity
+    guid: bf25ae153860f6744b1f7673ae8097d6
+  - enabled: 1
     path: Assets/Scenes/Nivel1.unity
     guid: 93180a99bfd910349b21d33bbf532360
   - enabled: 1
@@ -23,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FinPartida.unity
     guid: 8927be93b51497c46a4cecddb82530b8
+  - enabled: 1
+    path: Assets/Scenes/Cinematica2.unity
+    guid: e483b70c1d0f00d449de6184e59e4a74
   - enabled: 1
     path: Assets/Scenes/N1Puntuacion1.unity
     guid: d729569491a57d946b18e63c641c4053
