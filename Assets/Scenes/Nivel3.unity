@@ -65914,8 +65914,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: 54, y: 19, z: 0}
     second:
-      m_TileIndex: 7
-      m_TileSpriteIndex: 7
+      m_TileIndex: 1
+      m_TileSpriteIndex: 1
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -66519,8 +66519,8 @@ Tilemap:
   m_TileAssetArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: a6dc5a91b79f25f478e0515622a248f0, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 2b312a6543b3e4d43aa436bf1da22039, type: 2}
   - m_RefCount: 2
@@ -66531,7 +66531,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 4b4dab881ddbfda4b8970a83866e5122, type: 2}
   - m_RefCount: 24
     m_Data: {fileID: 11400000, guid: 75d9b872216e15b4c8034c318eaf257a, type: 2}
-  - m_RefCount: 59
+  - m_RefCount: 58
     m_Data: {fileID: 11400000, guid: adbed5a6e28824a488f9fad1f02f4896, type: 2}
   - m_RefCount: 26
     m_Data: {fileID: 11400000, guid: b852c70a71ccdb54e8a519e9c9d46d0c, type: 2}
@@ -66558,8 +66558,8 @@ Tilemap:
   m_TileSpriteArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300008, guid: a1a5fb951358d054ab0c72f1fc8fe92c, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300080, guid: a1a5fb951358d054ab0c72f1fc8fe92c, type: 3}
   - m_RefCount: 2
@@ -66570,7 +66570,7 @@ Tilemap:
     m_Data: {fileID: 21300002, guid: a1a5fb951358d054ab0c72f1fc8fe92c, type: 3}
   - m_RefCount: 24
     m_Data: {fileID: 21300046, guid: a1a5fb951358d054ab0c72f1fc8fe92c, type: 3}
-  - m_RefCount: 59
+  - m_RefCount: 58
     m_Data: {fileID: 21300044, guid: a1a5fb951358d054ab0c72f1fc8fe92c, type: 3}
   - m_RefCount: 26
     m_Data: {fileID: 21300042, guid: a1a5fb951358d054ab0c72f1fc8fe92c, type: 3}
@@ -73799,7 +73799,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1285662788
 MonoBehaviour:
   m_ObjectHideFlags: 0
