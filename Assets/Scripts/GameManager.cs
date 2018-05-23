@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour {
 	Nivel nivel1;
     Nivel nivel2;
     Nivel nivel3;
-    public int bombillas, carretes, loot; //Las bombillas se usan para stunnear y los carretes para las fotos
+    public int bombillas, carretes, loot,primeravez = 0; //Las bombillas se usan para stunnear y los carretes para las fotos
                                           //puntuacionMinijuego,
                                           //puntos;
 
@@ -322,12 +322,13 @@ public class GameManager : MonoBehaviour {
     }
     public void Nivel1()
     {
-        if (nivel1.terminado)
+        if (nivel1.terminado || primeravez == 1)
             SceneManager.LoadScene("Nivel1");
         else
         {
             SceneManager.LoadScene("Cinematica1");
             Invoke("Cinematica1",25);
+            primeravez = 1;
         }
 
         actual = "nivel1";

@@ -74008,6 +74008,7 @@ MonoBehaviour:
   bombillas: 3
   carretes: 3
   loot: 0
+  primeravez: 0
   carreteEspecial: 1
   modPenalTiempo: 10
   carretesExtraPts: 100
@@ -79446,7 +79447,9 @@ Prefab:
       propertyPath: m_Layer
       value: 30
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114105754511863014, guid: 0c0f90d9cc1b020419a8848726c60cb4, type: 2}
+    - {fileID: 114916460002284002, guid: 0c0f90d9cc1b020419a8848726c60cb4, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 0c0f90d9cc1b020419a8848726c60cb4, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1732380596 stripped
@@ -80715,15 +80718,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4523797744048908, guid: 3642fba2cb91f424d812a77d4a6bfc0c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.4499917
       objectReference: {fileID: 0}
     - target: {fileID: 4523797744048908, guid: 3642fba2cb91f424d812a77d4a6bfc0c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -2.5300002
       objectReference: {fileID: 0}
     - target: {fileID: 4523797744048908, guid: 3642fba2cb91f424d812a77d4a6bfc0c, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -9.97443
       objectReference: {fileID: 0}
     - target: {fileID: 4523797744048908, guid: 3642fba2cb91f424d812a77d4a6bfc0c, type: 2}
       propertyPath: m_LocalRotation.x
@@ -80752,7 +80755,7 @@ Prefab:
     - target: {fileID: 20944271231738250, guid: 3642fba2cb91f424d812a77d4a6bfc0c,
         type: 2}
       propertyPath: orthographic size
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3642fba2cb91f424d812a77d4a6bfc0c, type: 2}
