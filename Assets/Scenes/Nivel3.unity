@@ -71519,8 +71519,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1.6428384, z: 1}
+  m_Center: {x: 0, y: 0.24795206, z: 0}
 --- !u!1 &1123865223
 GameObject:
   m_ObjectHideFlags: 0
@@ -73905,7 +73905,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1285662788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80171,7 +80171,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.1
   m_BuildHeightMesh: 0
-  m_NavMeshData: {fileID: 23800000, guid: 4f698c94f6c35fa4bb66694bce014cdc, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 2b396c55f8e7f6047b6b115c68a01873, type: 2}
 --- !u!1 &1788972073
 GameObject:
   m_ObjectHideFlags: 0
@@ -92905,7 +92905,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 65.581726, y: 31.122728}
+  m_AnchoredPosition: {x: 65.581726, y: 31.12268}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2141410749
