@@ -511,12 +511,14 @@ public class GameManager : MonoBehaviour {
             Nivel3();
         else if (nivel1.terminado)
             Nivel2();
-        else 
+        else       
             Nivel1();
+        
         if(GameObject.FindWithTag("Objetos") != null)
             Destroy(GameObject.FindWithTag("Objetos"));
         if (GameObject.FindWithTag("CamarasLaseres") != null)
             Destroy(GameObject.FindWithTag("CamarasLaseres"));
+        tutoVisto = false;
     }
     public string EligeNivel()
     {
