@@ -194,7 +194,7 @@ public class GameManager : MonoBehaviour {
                         nivel2.ptsLoot += cantidad;
                         break;
                     case "penalTiempo":
-                        nivel1.penalTiempo += cantidad;
+                        nivel2.penalTiempo += cantidad;
                         break;
                 }
                 break;
@@ -218,7 +218,7 @@ public class GameManager : MonoBehaviour {
                         nivel3.ptsLoot += cantidad;
                         break;
                     case "penalTiempo":
-                        nivel1.penalTiempo += cantidad;
+                        nivel3.penalTiempo += cantidad;
                         break;
                 }
                 break;
