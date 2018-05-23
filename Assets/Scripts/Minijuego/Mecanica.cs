@@ -60,7 +60,10 @@ public class Mecanica : MonoBehaviour {
     {
 		if(fotoHecha && Input.GetKeyDown(KeyCode.Space) && GameManager.instance.Carretes() != 0)    //Termina el juego si ya ha hecho una foto y pulsa Espacio
         {
-            Finalizar();
+            continueText.SetActive(false);
+            finText.SetActive(true);
+            Time.timeScale = 0.5f;
+            Invoke("Finalizar", 2f);
         }
 
         if (Input.GetMouseButtonDown (0) && puedeFoto && (GameManager.instance.Carretes () > 0 || GameManager.instance.carreteEspecial > 0)) {
