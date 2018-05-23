@@ -343,7 +343,7 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene("Nivel3");
         actual = "nivel3";
         bombillas = 3;
-        carretes = 3;
+        carretes = 2;
         loot = 0;
         carreteEspecial = 1;
     }
