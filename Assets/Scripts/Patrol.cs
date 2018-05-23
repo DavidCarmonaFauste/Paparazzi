@@ -45,7 +45,10 @@ public class Patrol : MonoBehaviour {
         {
             //sonido
             if (puedeSonar)
+            {
                 Sonido();
+                Invoke("VuelveAudio", 1);
+            }
 
             patrulla = false;
             acudeCamara = false;
@@ -62,6 +65,7 @@ public class Patrol : MonoBehaviour {
             if (puedeSonar)
                 Sonido();
 
+
             Vector2 dir = new Vector2(camera.position.x - transform.position.x, camera.position.y - transform.position.y);
 
             rb.MoveRotation(Mathf.LerpAngle(rb.rotation, Vector2.SignedAngle(Vector2.up, dir), 0.2f));//Rotaicion del guardia
@@ -69,7 +73,7 @@ public class Patrol : MonoBehaviour {
             if (Vector3.Distance(transform.position, camera.position) < 0.1f)
             {
                 acudeCamara = false;
-                patrulla = true;
+                Patrulla();
             }
         }
         else
@@ -120,12 +124,11 @@ public class Patrol : MonoBehaviour {
     }
 
      void Patrulla()
-	{
-        
+	 { 
         patrulla = true;
         //sonido
         puedeSonar = true;
-    }
+     }
 
     public void AcudeACamara(Transform camara)
     {
