@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour {
     //VARIABLES DE PUNTOS
     public int modPenalTiempo = 10, carretesExtraPts = 100, bombillasExtraPts = 250;
 
-    GameObject crono;
+    GameObject crono,camara;
 
     void Awake()
     {
@@ -286,6 +286,8 @@ public class GameManager : MonoBehaviour {
                 SceneManager.LoadScene("Minijuego3");
                 break;
         }
+        camara = GameObject.FindWithTag("CamarasLaseres");
+        camara.SetActive(false);
         tiempo = GameObject.FindWithTag("Crono").GetComponent<Cronometro>().TiempoAntes();
         actual = "Minijuego" + indiceNivel;
 
@@ -388,6 +390,7 @@ public class GameManager : MonoBehaviour {
         
         actual = "Nivel" + indiceNivel;
         Invoke("ActualizaTiempo", 1f);
+        camara.SetActive(true);
 
     }
 
