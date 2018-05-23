@@ -325,6 +325,7 @@ public class GameManager : MonoBehaviour {
         bombillas = 3;
         carretes = 3;
         loot = 0;
+        carreteEspecial = 1;
     }
 
     public void Nivel2()
@@ -334,6 +335,7 @@ public class GameManager : MonoBehaviour {
         bombillas = 3;
         carretes = 3;
         loot = 0;
+        carreteEspecial = 1;
     }
     public void Nivel3()
     {
@@ -342,6 +344,7 @@ public class GameManager : MonoBehaviour {
         bombillas = 3;
         carretes = 3;
         loot = 0;
+        carreteEspecial = 1;
     }
 
     public void Pierde()
