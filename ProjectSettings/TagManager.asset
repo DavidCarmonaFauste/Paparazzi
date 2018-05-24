@@ -29,6 +29,7 @@ TagManager:
   - BotonLaser
   - Canvas
   - CamarasLaseres
+  - Transicion
   layers:
   - Default
   - TransparentFX

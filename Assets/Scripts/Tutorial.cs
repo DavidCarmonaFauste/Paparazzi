@@ -19,11 +19,8 @@ public class Tutorial : MonoBehaviour
 
         if (!GameManager.instance.MinijuegoTerminado())
         {
-            GameManager.instance.SetPause(true);
-            Time.timeScale = 0f;
-            GameManager.instance.SetAllowPausa(false); //no permite pausar
-            actual = 0;
-            this.transform.GetChild(actual).gameObject.SetActive(true); //Activar la primera imagen al empezar el nivel
+            Invoke("TutoInicial", 0.75f);
+
         }
     }
 
@@ -61,5 +58,16 @@ public class Tutorial : MonoBehaviour
                 }
             }
         }
+    }
+
+    void TutoInicial()
+    {
+        GameManager.instance.SetPause(true);
+        Time.timeScale = 0f;
+        GameManager.instance.SetAllowPausa(false); //no permite pausar
+        actual = 0;
+        this.transform.GetChild(actual).gameObject.SetActive(true); //Activar la primera imagen al empezar el nivel
+
+        
     }
 }
