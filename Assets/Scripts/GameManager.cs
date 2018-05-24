@@ -445,9 +445,8 @@ public class GameManager : MonoBehaviour {
                 
                 if (nivel3.puntos > nivel3.puntuacionMaxima)
                     nivel3.puntuacionMaxima = nivel3.puntos;
+                SceneManager.LoadScene("N3Puntuacion3");
                 GuardaPartida();
-                SceneManager.LoadScene("Cinematica2");
-                Invoke("Cinematica2", 25);
                 nivel3.terminado = true;
                 break;
         }
@@ -455,10 +454,6 @@ public class GameManager : MonoBehaviour {
         Destroy(GameObject.FindWithTag("CamarasLaseres"));
         actual = "N" + indiceNivel + "Puntuacion" + indiceNivel;
 
-    }
-    void Cinematica2()
-    {
-        SceneManager.LoadScene("N3Puntuacion3");
     }
 
     public void GoToMenu()
@@ -529,11 +524,17 @@ public class GameManager : MonoBehaviour {
 
     public void Continua()
     {
-        if (nivel1.terminado && nivel2.terminado)
+        if (actual == "N3Puntuacion3")
+        {
+            SceneManager.LoadScene("Cinematica2");
+            Invoke("GoToMenu", 73);
+        }
+
+        else if (nivel1.terminado && nivel2.terminado)
             Nivel3();
         else if (nivel1.terminado)
             Nivel2();
-        else       
+        else
             Nivel1();
         
         if(GameObject.FindWithTag("Objetos") != null)
