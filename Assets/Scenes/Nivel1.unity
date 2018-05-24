@@ -60721,6 +60721,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &544144430 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1349826558826828, guid: ffca2c121785fa64da32c1b5a86fa5be,
+    type: 2}
+  m_PrefabInternal: {fileID: 929817649}
 --- !u!1 &546638868
 GameObject:
   m_ObjectHideFlags: 0
@@ -67928,7 +67933,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4399719938974188, guid: bf1486fae55b714459fa19ed94294b41, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 1.4114746
+      value: 0.7057373
       objectReference: {fileID: 0}
     - target: {fileID: 4399719938974188, guid: bf1486fae55b714459fa19ed94294b41, type: 2}
       propertyPath: m_LocalRotation.x
@@ -67978,7 +67983,13 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: -1.46
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114670881989905748, guid: bf1486fae55b714459fa19ed94294b41,
+        type: 2}
+      propertyPath: go
+      value: 
+      objectReference: {fileID: 544144430}
+    m_RemovedComponents:
+    - {fileID: 114931961522646416, guid: bf1486fae55b714459fa19ed94294b41, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: bf1486fae55b714459fa19ed94294b41, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &734109339 stripped
@@ -69967,15 +69978,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4523797744048908, guid: 3642fba2cb91f424d812a77d4a6bfc0c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -79.99999
       objectReference: {fileID: 0}
     - target: {fileID: 4523797744048908, guid: 3642fba2cb91f424d812a77d4a6bfc0c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4523797744048908, guid: 3642fba2cb91f424d812a77d4a6bfc0c, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -9.97443
       objectReference: {fileID: 0}
     - target: {fileID: 4523797744048908, guid: 3642fba2cb91f424d812a77d4a6bfc0c, type: 2}
       propertyPath: m_LocalRotation.x
@@ -70000,7 +70011,7 @@ Prefab:
     - target: {fileID: 20944271231738250, guid: 3642fba2cb91f424d812a77d4a6bfc0c,
         type: 2}
       propertyPath: orthographic size
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3642fba2cb91f424d812a77d4a6bfc0c, type: 2}
