@@ -6,6 +6,7 @@ public class Tutorial : MonoBehaviour
 {
     int actual = -1;
     string tutorial; //¿Qué tutorial es este? "inicial" o "camaras"
+    bool atope = false;
     void Start()
     {
         if (this.transform.childCount > 1)
@@ -13,17 +14,11 @@ public class Tutorial : MonoBehaviour
             tutorial = "inicial";
             if (!GameManager.instance.MinijuegoTerminado())
             {
+
                 Invoke("TutoInicial", 0.75f);
 
             }
-        }
-        else
-        {
-            tutorial = "camaras";
-            TutoInicial();
-        }
-
-        
+        }  
     }
 
     void Update()
@@ -32,30 +27,17 @@ public class Tutorial : MonoBehaviour
         {
             if (tutorial == "inicial") //Si se trata del tutorial inicial
             {
-                if (Input.GetKeyDown(KeyCode.Space) && actual != 2 && actual != -1)
+                if (atope && Input.GetKeyDown(KeyCode.Space) && actual != 2 && actual != -1)
                 {
                     this.transform.GetChild(actual).gameObject.SetActive(false);
                     actual++;
                     this.transform.GetChild(actual).gameObject.SetActive(true);
                 }
-                else if (Input.GetKeyDown(KeyCode.Space) && actual == 2 && actual != -1)
+                else if (atope && Input.GetKeyDown(KeyCode.Space) && actual == 2 && actual != -1)
                 {
                     this.transform.GetChild(actual).gameObject.SetActive(false);
                     GameManager.instance.SetPause(false);
                     GameManager.instance.SetAllowPausa(true); //permite pausar
-                    Time.timeScale = 1f;
-                }
-            }
-            else //Si es el mensaje de la cámara
-            {
-                GameManager.instance.SetAllowPausa(false); //no permite pausar
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    GameManager.instance.VistoTutorial();
-                    GameManager.instance.SetAllowPausa(true); //permite pausar
-                    this.transform.GetChild(actual).gameObject.SetActive(false);
-                    GameManager.instance.SetPause(false);
-                    Destroy(this.transform.GetChild(actual).gameObject);
                     Time.timeScale = 1f;
                 }
             }
@@ -64,12 +46,15 @@ public class Tutorial : MonoBehaviour
 
     void TutoInicial()
     {
+        
         GameManager.instance.SetPause(true);
         Time.timeScale = 0f;
         GameManager.instance.SetAllowPausa(false); //no permite pausar
         actual = 0;
         this.transform.GetChild(actual).gameObject.SetActive(true); //Activar la primera imagen al empezar el nivel
-
-        
+        atope = true;
     }
+
+    
+        
 }
