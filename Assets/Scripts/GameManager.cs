@@ -613,6 +613,7 @@ public class GameManager : MonoBehaviour {
             nivel2.puntuacionMaxima = 0;
             nivel3.puntuacionMaxima = 0;
         }
+        primeravez = 0;
     }
 
     public void GuardaPartida()
