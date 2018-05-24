@@ -11,17 +11,19 @@ public class Tutorial : MonoBehaviour
         if (this.transform.childCount > 1)
         {
             tutorial = "inicial";
+            if (!GameManager.instance.MinijuegoTerminado())
+            {
+                Invoke("TutoInicial", 0.75f);
+
+            }
         }
         else
         {
             tutorial = "camaras";
+            TutoInicial();
         }
 
-        if (!GameManager.instance.MinijuegoTerminado())
-        {
-            Invoke("TutoInicial", 0.75f);
-
-        }
+        
     }
 
     void Update()
