@@ -101,6 +101,7 @@ public class GameManager : MonoBehaviour {
         Partida();
         crono = GameObject.FindWithTag("Crono");
         primeravez = 0;
+        
     }
 
     public int Bombillas()
@@ -621,7 +622,15 @@ public class GameManager : MonoBehaviour {
     public void GuardaPartida()
     {
         int indiceNivel = int.Parse(actual[actual.Length - 1].ToString());
-        StreamWriter salida = new StreamWriter("PartidaGuardada");
+        if (!File.Exists("PartidaGuardada"))
+        {
+            StreamWriter salida = new StreamWriter("PartidaGuardada");
+        }
+        else
+        {
+
+            StreamWriter salida = File.AppendText("PartidaGuardada");
+                }
         if (indiceNivel == 1)
 
         {
