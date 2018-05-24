@@ -58,13 +58,12 @@ public class Controller : MonoBehaviour {
     }
     public void Spray()//Para cuando se stunee al jugador
     {
-        GameObject.FindWithTag("Canvas").transform.GetChild(4).gameObject.SetActive(true);
+        GameObject.FindWithTag("Canvas").transform.GetChild(3).gameObject.SetActive(true);
         Invoke("NoSpray", 2);
     }
     void NoSpray()
     {
-        GameObject.FindWithTag("Canvas").transform.GetChild(4).gameObject.SetActive(false);
-        
+        GameObject.FindWithTag("Canvas").transform.GetChild(3).gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

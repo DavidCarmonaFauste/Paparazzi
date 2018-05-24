@@ -61179,7 +61179,7 @@ RectTransform:
   m_Children:
   - {fileID: 1672196775}
   m_Father: {fileID: 1977579519}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -61350,8 +61350,9 @@ GameObject:
   - component: {fileID: 914935270}
   - component: {fileID: 914935272}
   - component: {fileID: 914935271}
+  - component: {fileID: 914935273}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Manchas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61368,12 +61369,12 @@ RectTransform:
   m_LocalScale: {x: 1.00633, y: 1.00633, z: 1.00633}
   m_Children: []
   m_Father: {fileID: 1977579519}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.006286621, y: 0.0031433105}
-  m_SizeDelta: {x: 734.36, y: 446.2}
+  m_AnchoredPosition: {x: 0.000026703, y: 0.0014051}
+  m_SizeDelta: {x: 794.97, y: 447.31}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &914935271
 MonoBehaviour:
@@ -61408,6 +61409,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 914935269}
+--- !u!95 &914935273
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 914935269}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da1fe45754fd38f448f2ff0106eb4130, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &914970342 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1349826558826828, guid: ffca2c121785fa64da32c1b5a86fa5be,
@@ -70643,6 +70661,10 @@ Prefab:
       propertyPath: patrolPoints.Array.data[5]
       value: 
       objectReference: {fileID: 166564501}
+    - target: {fileID: 1617822612815646, guid: 1f643e5b7ed11e949b0943a7bb850558, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1f643e5b7ed11e949b0943a7bb850558, type: 2}
   m_IsPrefabParent: 0
@@ -90771,8 +90793,8 @@ RectTransform:
   m_Children:
   - {fileID: 316637821}
   - {fileID: 1462958034}
-  - {fileID: 914935270}
   - {fileID: 890829916}
+  - {fileID: 914935270}
   - {fileID: 1306399022}
   - {fileID: 1979262449}
   - {fileID: 340292972}
