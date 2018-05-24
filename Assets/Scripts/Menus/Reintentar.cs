@@ -6,6 +6,6 @@ public class Reintentar : MonoBehaviour {
 
     public void Reintenta()
     {
-        GameManager.instance.Continua();
+        GameManager.instance.Reintentar();
     }
 }

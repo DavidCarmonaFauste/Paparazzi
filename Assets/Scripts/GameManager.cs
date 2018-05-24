@@ -646,7 +646,7 @@ public class GameManager : MonoBehaviour {
         if (nivel1.terminado)
         {
             salida.WriteLine("Nivel 1");
-            salida.Write("Puntuacion 1 " + nivel1.puntuacionMaxima);
+            salida.WriteLine("Puntuacion 1 " + nivel1.puntuacionMaxima);
         }
         if (nivel2.terminado)
         {
