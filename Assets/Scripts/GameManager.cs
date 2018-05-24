@@ -622,15 +622,16 @@ public class GameManager : MonoBehaviour {
     public void GuardaPartida()
     {
         int indiceNivel = int.Parse(actual[actual.Length - 1].ToString());
+        StreamWriter salida;
         if (!File.Exists("PartidaGuardada"))
         {
-            StreamWriter salida = new StreamWriter("PartidaGuardada");
+           salida = new StreamWriter("PartidaGuardada");
         }
         else
         {
 
-            StreamWriter salida = File.AppendText("PartidaGuardada");
-                }
+           salida = File.AppendText("PartidaGuardada");
+        }
         if (indiceNivel == 1)
 
         {
