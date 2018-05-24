@@ -581,7 +581,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 722137213}
-        m_MethodName: Continua
+        m_MethodName: Reintenta
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -634,7 +634,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 722137208}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: faf95eeeea1097b4fa6f8c985e766cf0, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d424ace9e667b1488706bce90496e58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &809732547
@@ -1714,7 +1714,11 @@ MonoBehaviour:
   bombillas: 0
   carretes: 0
   loot: 0
+  primeravez: 0
   carreteEspecial: 1
+  modPenalTiempo: 10
+  carretesExtraPts: 100
+  bombillasExtraPts: 250
 --- !u!4 &1936375485
 Transform:
   m_ObjectHideFlags: 0

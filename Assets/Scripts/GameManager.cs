@@ -338,6 +338,7 @@ public class GameManager : MonoBehaviour {
         carretes = 3;
         loot = 0;
         carreteEspecial = 1;
+        nivel1.puntos = 0;
     }
     void Cinematica1()
     {
@@ -352,6 +353,7 @@ public class GameManager : MonoBehaviour {
         carretes = 3;
         loot = 0;
         carreteEspecial = 1;
+        nivel2.puntos = 0;
     }
     public void Nivel3()
     {
@@ -361,12 +363,12 @@ public class GameManager : MonoBehaviour {
         carretes = 2;
         loot = 0;
         carreteEspecial = 1;
+        nivel3.puntos = 0;
     }
 
     public void Pierde()
     {
         SceneManager.LoadScene("FinPartida");
-        actual = "FinPartida";
         Destroy(GameObject.FindWithTag("Objetos"));
         Destroy(GameObject.FindWithTag("CamarasLaseres"));
     }
@@ -544,6 +546,23 @@ public class GameManager : MonoBehaviour {
             Destroy(GameObject.FindWithTag("CamarasLaseres"));
         tutoVisto = false;
     }
+    public void Reintentar()
+    {
+
+
+         if (actual == "Nivel1")
+            Nivel1();
+        else if (actual == "Nivel2")
+            Nivel2();
+        else
+            Nivel3();
+
+        if (GameObject.FindWithTag("Objetos") != null)
+            Destroy(GameObject.FindWithTag("Objetos"));
+        if (GameObject.FindWithTag("CamarasLaseres") != null)
+            Destroy(GameObject.FindWithTag("CamarasLaseres"));
+        tutoVisto = false;
+    }
     public string EligeNivel()
     {
         if (nivel1.terminado && nivel2.terminado)
@@ -625,7 +644,6 @@ public class GameManager : MonoBehaviour {
         salida = new StreamWriter("PartidaGuardada");
 
         if (nivel1.terminado)
-
         {
             salida.WriteLine("Nivel 1");
             salida.Write("Puntuacion 1 " + nivel1.puntuacionMaxima);
