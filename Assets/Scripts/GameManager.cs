@@ -324,6 +324,7 @@ public class GameManager : MonoBehaviour {
     }
     public void Nivel1()
     {
+        nivel1.minijuego = false;
         if (nivel1.terminado || primeravez == 1)
             SceneManager.LoadScene("Nivel1");
         else
@@ -347,6 +348,7 @@ public class GameManager : MonoBehaviour {
 
     public void Nivel2()
     {
+        nivel2.minijuego = false;
         SceneManager.LoadScene("Nivel2");
         actual = "Nivel2";
         bombillas = 3;
@@ -357,6 +359,7 @@ public class GameManager : MonoBehaviour {
     }
     public void Nivel3()
     {
+        nivel3.minijuego = false;
         SceneManager.LoadScene("Nivel3");
         actual = "Nivel3";
         bombillas = 3;
