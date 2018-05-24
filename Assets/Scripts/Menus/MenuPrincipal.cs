@@ -8,8 +8,9 @@ public class MenuPrincipal : MonoBehaviour
 
     public void NewGame()
     {
-        GameManager.instance.Nivel1();
         GameManager.instance.NuevaPartida();
+        GameManager.instance.Nivel1();
+        
     }
 
     public void Quit()

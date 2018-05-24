@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour {
 	Nivel nivel1;
     Nivel nivel2;
     Nivel nivel3;
-    public int bombillas, carretes, loot,primeravez = 0; //Las bombillas se usan para stunnear y los carretes para las fotos
+    public int bombillas, carretes, loot,primeravez; //Las bombillas se usan para stunnear y los carretes para las fotos
                                           //puntuacionMinijuego,
                                           //puntos;
 
@@ -100,6 +100,7 @@ public class GameManager : MonoBehaviour {
         actual = SceneManager.GetActiveScene().name;
         Partida();
         crono = GameObject.FindWithTag("Crono");
+        primeravez = 0;
     }
 
     public int Bombillas()
