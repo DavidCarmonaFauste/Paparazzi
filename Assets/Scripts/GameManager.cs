@@ -330,7 +330,7 @@ public class GameManager : MonoBehaviour {
         else
         {
             SceneManager.LoadScene("Cinematica1");
-            Invoke("Cinematica1",79);
+            Invoke("Cinematica1",85);
             primeravez = 1;
         }
 
