@@ -45,10 +45,8 @@ public class Patrol : MonoBehaviour {
         {
             //sonido
             if (puedeSonar)
-            {
                 Sonido();
-                Invoke("VuelveAudio", 1);
-            }
+
 
             patrulla = false;
             acudeCamara = false;
