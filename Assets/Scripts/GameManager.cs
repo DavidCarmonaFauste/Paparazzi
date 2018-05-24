@@ -428,7 +428,6 @@ public class GameManager : MonoBehaviour {
                 
                 if (nivel1.puntos > nivel1.puntuacionMaxima)
                     nivel1.puntuacionMaxima = nivel1.puntos;
-                GuardaPartida();
                 SceneManager.LoadScene("N1Puntuacion1");
                 nivel1.terminado = true;
 			break;
@@ -438,7 +437,6 @@ public class GameManager : MonoBehaviour {
                
                 if (nivel2.puntos > nivel2.puntuacionMaxima)
                     nivel2.puntuacionMaxima = nivel2.puntos;
-                GuardaPartida();
                 SceneManager.LoadScene("N2Puntuacion2");
                 nivel2.terminado = true;
                 break;
@@ -449,10 +447,10 @@ public class GameManager : MonoBehaviour {
                 if (nivel3.puntos > nivel3.puntuacionMaxima)
                     nivel3.puntuacionMaxima = nivel3.puntos;
                 SceneManager.LoadScene("N3Puntuacion3");
-                GuardaPartida();
                 nivel3.terminado = true;
                 break;
         }
+        GuardaPartida();
         Destroy(GameObject.FindWithTag("Objetos"));
         Destroy(GameObject.FindWithTag("CamarasLaseres"));
         actual = "N" + indiceNivel + "Puntuacion" + indiceNivel;
