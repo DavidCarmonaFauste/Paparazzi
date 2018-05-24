@@ -404,14 +404,15 @@ public class GameManager : MonoBehaviour {
                 nivel3.minijuego = true;
                 break;
         }
-        camara.SetActive(true);
+        
         actual = "Nivel" + indiceNivel;
-        Invoke("ActualizaTiempo", 1f);
+        Invoke("ActualizaTiempo", 0.2f);
 
     }
 
     void ActualizaTiempo()
     {
+        camara.SetActive(true);
         GameObject.FindWithTag("Crono").GetComponent<Cronometro>().CambiaTiempo(tiempo);
     }
     
@@ -623,27 +624,20 @@ public class GameManager : MonoBehaviour {
     {
         int indiceNivel = int.Parse(actual[actual.Length - 1].ToString());
         StreamWriter salida;
-        if (!File.Exists("PartidaGuardada"))
-        {
-           salida = new StreamWriter("PartidaGuardada");
-        }
-        else
-        {
+        salida = new StreamWriter("PartidaGuardada");
 
-           salida = File.AppendText("PartidaGuardada");
-        }
-        if (indiceNivel == 1)
+        if (nivel1.terminado)
 
         {
             salida.WriteLine("Nivel 1");
             salida.Write("Puntuacion 1 " + nivel1.puntuacionMaxima);
         }
-        else if (indiceNivel == 2)
+        if (nivel2.terminado)
         {
             salida.WriteLine("Nivel 2");
             salida.WriteLine("Puntuacion 2 " + nivel2.puntuacionMaxima);
         }
-        else if (indiceNivel == 3)
+        else if (nivel3.terminado)
         {
             salida.WriteLine("Nivel 3");
             salida.WriteLine("Puntuacion 3 " + nivel3.puntuacionMaxima);
