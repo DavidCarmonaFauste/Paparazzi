@@ -333,7 +333,7 @@ public class GameManager : MonoBehaviour {
             primeravez = 1;
         }
 
-        actual = "nivel1";
+        actual = "Nivel1";
         bombillas = 4;
         carretes = 3;
         loot = 0;
@@ -348,7 +348,7 @@ public class GameManager : MonoBehaviour {
     public void Nivel2()
     {
         SceneManager.LoadScene("Nivel2");
-        actual = "nivel2";
+        actual = "Nivel2";
         bombillas = 3;
         carretes = 3;
         loot = 0;
@@ -358,7 +358,7 @@ public class GameManager : MonoBehaviour {
     public void Nivel3()
     {
         SceneManager.LoadScene("Nivel3");
-        actual = "nivel3";
+        actual = "Nivel3";
         bombillas = 3;
         carretes = 2;
         loot = 0;
