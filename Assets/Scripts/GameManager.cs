@@ -36,7 +36,7 @@ class Nivel
         puntuacionMaxima = 0;
 
         minijuego = false;
-        terminado = false;
+        terminado = true;
 	}
 
 	// Devolver la puntuación total obtenida

@@ -58,6 +58,7 @@ public class MenuPausa : MonoBehaviour {
 
 	public void GoToMenu ()
 	{
+        Time.timeScale = 1f;
         GameManager.instance.GoToMenu();
 	}
 		
